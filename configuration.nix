@@ -8,7 +8,7 @@
   # NixOS settings
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
-   nix.optimise.automatic = true;
+  nix.optimise.automatic = true;
 
   # garbage collection
   nix.gc = {
@@ -57,6 +57,9 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  
+  programs.dconf.enable = true;
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Configure keymap in X11
   services.xserver = {
@@ -119,7 +122,6 @@
     firefox
     zip
     unzip
-    alacritty
   ];
 
   # This value determines the NixOS release from which the default
