@@ -82,6 +82,9 @@
       "ram" = ''echo $(vmstat -s | grep "used memory" | tr -d -c 0-9 | awk '{printf ("🐏  %.2f\n GiB", $1 / 1024 / 1024)}')'';
       "power" = ''echo ⚡ $(upower -d | grep -m1 "energy-rate:" | tr -dc "(\.[0-9]+)?\b") W'';
       "gnome-wayland-debug" = "dbus-run-session -- gnome-shell --nested --wayland";
+      "hotspot" = "sudo create_ap --daemon wlp0s20f3 enp0s20f0u1 vignesh-inspiron 12341234";
+      "hotspot-list" = "sudo create_ap --list-clients ap0";
+      "hotspot-stop" = "sudo create_ap --stop ap0";
     };
   };
 

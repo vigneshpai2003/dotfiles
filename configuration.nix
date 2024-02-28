@@ -125,6 +125,7 @@
     firefox
     zip
     unzip
+    linux-wifi-hotspot
   ];
 
   # This value determines the NixOS release from which the default
