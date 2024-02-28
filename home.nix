@@ -1,9 +1,23 @@
 { config, pkgs, ... }:
 {
+  imports = [ ./dconf.nix ];
+
   home.username = "vignesh";
   home.homeDirectory = "/home/vignesh";
 
   home.packages = with pkgs; [
+    yaru-theme
+
+    # - system
+    gnome.gnome-system-monitor
+    gnome.seahorse # encryption keys and passwords
+    gnome.nautilus
+    gnome.gnome-terminal
+    gnome.gnome-disk-utility
+    gnome.gnome-clocks
+    gnome.gnome-calculator
+    gnome.baobab
+
     # - development
     python311Packages.python
     python311Packages.pip
@@ -12,6 +26,7 @@
     texliveMedium
 
     # - text editors
+    gnome.gedit
     vscode
     marktext # markdown
     # obsidian # markdown note taking
@@ -39,67 +54,16 @@
     gnome.gnome-tweaks
     gnome-extension-manager
     gnome.dconf-editor
-
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.gsconnect
-    gnomeExtensions.runcat
-
+    dconf2nix
+    
     # - others
     libsForQt5.okular # pdf
+    gnome.evince # pdf
     # libreoffice # office
     libsForQt5.kdeconnect-kde # wireless connection to other devices
     # geogebra # math graphing
     # telegram-desktop
   ];
-
-  dconf.settings = {
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-
-      disabled-extensions = [
-        "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-        "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
-        "light-style@gnome-shell-extensions.gcampax.github.com"
-        "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"
-        "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "native-window-placement@gnome-shell-extensions.gcampax.github.com"
-      ];
-
-      enabled-extensions = [
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "runcat@kolesnikov.se"
-        "dash-to-dock@micxgx.gmail.com"
-        "gsconnect@andyholmes.github.io"
-      ];
-    };
-
-    "org/gnome/shell/extensions/runcat" = {
-        idle-threshold = 10;
-        displaying-items = "character-and-percentage";
-    };
-
-    "org/gnome/shell/extensions/dash-to-dock" = {
-        background-opacity = 0.8;
-        transparency-mode = "DYNAMIC";
-
-        customize-alphas = true;
-        max-alpha = 0.8;
-        min-alpha = 0.0;
-        
-        dash-max-icon-size = 64;
-        dock-position = "BOTTOM";
-        height-fraction = 0.9;
-        
-        isolate-locations = true;
-        isolate-workspaces = true;
-        
-        show-mounts = false;
-        show-show-apps-button = false;
-        show-trash = false;
-    };
-  };
 
   programs.git = {
     enable = true;
@@ -113,6 +77,11 @@
 
     shellAliases = {
       "btop" = "btop --utf-force";
+      "powertop" = "sudo powertop";
+      "gputop" = "sudo intel_gpu_top";
+      "ram" = ''echo $(vmstat -s | grep "used memory" | tr -d -c 0-9 | awk '{printf ("🐏  %.2f\n GiB", $1 / 1024 / 1024)}')'';
+      "power" = ''echo ⚡ $(upower -d | grep -m1 "energy-rate:" | tr -dc "(\.[0-9]+)?\b") W'';
+      "gnome-wayland-debug" = "dbus-run-session -- gnome-shell --nested --wayland";
     };
   };
 
