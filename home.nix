@@ -23,6 +23,7 @@
     python311Packages.pip
     libgcc
     gfortran
+    fortls
     texliveMedium
 
     # - text editors
