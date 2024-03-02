@@ -18,6 +18,7 @@
     gnome.gnome-clocks
     gnome.gnome-calculator
     gnome.baobab
+    riseup-vpn
 
     # - development
     python311Packages.python
@@ -35,10 +36,10 @@
     # - virtual machine and remote machine
     virt-manager
     gnome.gnome-boxes
-    # distrobox # containerized linux
-    # gnome-connections # connect to remote host
-    # filezilla # sftp / ftp
-    # bottles # wine
+    distrobox # containerized linux
+    gnome-connections # connect to remote host
+    filezilla # sftp / ftp
+    bottles # wine
 
     # - audio video
     pavucontrol # pulse audio volume control
@@ -48,7 +49,7 @@
 
     # - pictures
     pinta # general purpose editor
-    # inkscape # vector graphics editor
+    inkscape # vector graphics editor
     gnome.cheese # webcam
 
     # - gnome
@@ -60,10 +61,10 @@
     # - others
     libsForQt5.okular # pdf
     gnome.evince # pdf
-    # libreoffice # office
+    libreoffice # office
     libsForQt5.kdeconnect-kde # wireless connection to other devices
-    # geogebra # math graphing
-    # telegram-desktop
+    geogebra # math graphing
+    telegram-desktop
   ];
 
   programs.git = {
