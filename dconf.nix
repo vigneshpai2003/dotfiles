@@ -37,7 +37,7 @@
     };
 
     "org/gnome/shell/app-switcher" = {
-      current-workspce-only = true;
+      current-workspace-only = true;
     };
 
     "org/gnome/desktop/interface" = {

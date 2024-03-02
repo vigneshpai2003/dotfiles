@@ -30,7 +30,20 @@
   virtualisation.kvmgt.enable = true;
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    dispatcherScripts = [ {
+      source = pkgs.writeText "IISERlogin" ''
+        #!/usr/bin/env ${pkgs.bash}/bin/bash
+
+        if [[ "$2" == "if-up" ]]; then
+          ${pkgs.systemd}/bin/systemctl stop dnscrypt-proxy
+        fi
+      '';
+      type = "basic";
+      }
+    ];
+  };
   networking.hostName = "vignesh-inspiron";
 
   # Set your time zone.
@@ -65,9 +78,9 @@
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.

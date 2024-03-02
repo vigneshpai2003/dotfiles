@@ -12,6 +12,7 @@
     gnome.gnome-system-monitor
     gnome.seahorse # encryption keys and passwords
     gnome.nautilus
+    # nautilus-open-any-terminal
     gnome.gnome-terminal
     gnome.gnome-disk-utility
     gnome.gnome-clocks
@@ -20,14 +21,13 @@
 
     # - development
     python311Packages.python
-    python311Packages.pip
     libgcc
     gfortran
     fortls
     texliveMedium
 
     # - text editors
-    gnome.gedit
+    gedit
     vscode
     marktext # markdown
     # obsidian # markdown note taking
