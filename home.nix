@@ -11,9 +11,9 @@
     # - system
     gnome.gnome-system-monitor
     gnome.seahorse # encryption keys and passwords
-    gnome.nautilus
-    # nautilus-open-any-terminal
     gnome.gnome-terminal
+    gnome.nautilus
+    nautilus-open-any-terminal
     gnome.gnome-disk-utility
     gnome.gnome-clocks
     gnome.gnome-calculator
@@ -24,13 +24,13 @@
     libgcc
     gfortran
     fortls
-    texliveMedium
+    texliveFull
 
     # - text editors
     gedit
     vscode
     marktext # markdown
-    # obsidian # markdown note taking
+    obsidian # markdown note taking
 
     # - virtual machine and remote machine
     virt-manager
@@ -97,7 +97,7 @@
       show_cpu_temperature = 1;
     };
   };
-
+  
   programs.neovim = {
     enable = true;
     extraConfig = ''
