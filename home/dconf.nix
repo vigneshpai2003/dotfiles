@@ -65,7 +65,7 @@
         "org.gnome.Terminal.desktop"
         "org.gnome.Nautilus.desktop"
         "firefox.desktop"
-        "code.desktop"
+        "code-url-handler.desktop"
         "spotify.desktop"
       ];
 
@@ -110,6 +110,7 @@
       
       isolate-locations = true;
       isolate-workspaces = true;
+      running-indicator-style = "DOTS";
       
       show-mounts = false;
       show-show-apps-button = false;
