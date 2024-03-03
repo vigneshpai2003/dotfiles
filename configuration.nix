@@ -28,6 +28,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   virtualisation.libvirtd.enable = true;
   virtualisation.kvmgt.enable = true;
+  virtualisation.containers.enable = true;
 
   # Enable networking
   networking.networkmanager = {
@@ -149,7 +150,10 @@
     zip
     unzip
     linux-wifi-hotspot
+    dell-command-configure
   ];
+
+  # programs.nix-ld.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

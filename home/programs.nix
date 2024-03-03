@@ -31,6 +31,7 @@
     # - virtual machine and remote machine
     virt-manager
     gnome.gnome-boxes
+    podman
     distrobox # containerized linux
     gnome-connections # connect to remote host
     filezilla # sftp / ftp
@@ -52,13 +53,14 @@
     gnome-extension-manager
     gnome.dconf-editor
     dconf2nix
+    # whitesur-gtk-theme
     
     # - others
     libsForQt5.okular # pdf
     gnome.evince # pdf
     libreoffice # office
     libsForQt5.kdeconnect-kde # wireless connection to other devices
-    geogebra # math graphing
+    geogebra6 # math graphing
     telegram-desktop
   ];
 }

@@ -42,7 +42,9 @@
 
     "org/gnome/desktop/interface" = {
       show-battery-percentage = true;
-      text-scaling-factor = 1.2;
+      text-scaling-factor = 1.25;
+      enable-hot-corners = false;
+      clock-show-seconds = true;
       color-scheme = "prefer-dark";
       cursor-theme = "Yaru";
       gtk-theme = "Yaru-dark";
@@ -111,6 +113,7 @@
       isolate-locations = true;
       isolate-workspaces = true;
       running-indicator-style = "DOTS";
+      click-action = "minimize";
       
       show-mounts = false;
       show-show-apps-button = false;
