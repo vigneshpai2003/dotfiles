@@ -151,6 +151,15 @@
     unzip
     linux-wifi-hotspot
     dell-command-configure
+
+    # build tools
+    taglib
+    openssl
+    libxml2
+    libxslt
+    libzip
+    zlib
+    libgcc
   ];
 
   # programs.nix-ld.enable = true;

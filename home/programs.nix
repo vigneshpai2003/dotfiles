@@ -17,10 +17,10 @@
 
     # - development
     python311Packages.python
-    libgcc
     gfortran
     fortls
     texliveFull
+    direnv
 
     # - text editors
     gedit
@@ -42,6 +42,7 @@
     mpv # light media player
     vlc # general purpose media player
     spotify
+    ffmpeg
 
     # - pictures
     pinta # general purpose editor
