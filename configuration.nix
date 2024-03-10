@@ -3,19 +3,17 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./settings/garbage.nix
+      ./settings/intel_gpu.nix
+      ./settings/packages.nix
+      ./settings/gnome.nix
+      ./settings/flatpak.nix
+      ./settings/iiser.nix
     ];
 
   # NixOS settings
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
-  nix.optimise.automatic = true;
-
-  # garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
-  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -31,28 +29,7 @@
   virtualisation.containers.enable = true;
 
   # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    dispatcherScripts = [ {
-      source = pkgs.writeText "IISERlogin" ''
-        #!/usr/bin/env ${pkgs.bash}/bin/bash
-
-        if [[ "$2" == "up" ]]; then
-          export HOME=/home/vignesh/
-          /home/vignesh/Apps/bin/caa -d --log=/home/vignesh/Apps/logs/caa.log
-          logger "Started IISER login daemon"
-        fi
-
-        if [[ "$2" == "down" ]]; then
-          export HOME=/home/vignesh/
-          /home/vignesh/Apps/bin/caa -s
-          logger "Stopped IISER login daemon"
-        fi
-      '';
-      type = "basic";
-      }
-    ];
-  };
+  networking.networkmanager.enable = true;
   networking.hostName = "vignesh-inspiron";
 
   # Set your time zone.
@@ -70,28 +47,6 @@
     LC_NUMERIC = "en_IN";
     LC_PAPER = "en_IN";
     LC_TELEPHONE = "en_IN";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.libinput.enable = true;
-  services.xserver.excludePackages = [ pkgs.xterm ];
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.gnome.core-utilities.enable = false;
-  environment.gnome.excludePackages = with pkgs; [gnome-tour];
-
-  programs.dconf.enable = true;
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -114,55 +69,11 @@
     extraGroups = [ "networkmanager" "wheel" "kvm"];
   };
 
-  services.flatpak.enable = true;
-
-  # GPU stuff
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      intel-vaapi-driver
-      vaapiVdpau
-      libvdpau-va-gl
-      mesa.drivers
-    ];
-  };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
-	
   # Power Management
   powerManagement.enable = true;
   services.thermald.enable = true;
+  
   services.openssh.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    git
-    curl
-    wget
-    neofetch
-    cpufetch
-    lm_sensors
-    powertop
-    htop
-    btop
-    powerstat
-    intel-gpu-tools
-    firefox
-    zip
-    unzip
-    linux-wifi-hotspot
-    dell-command-configure
-
-    # build tools
-    taglib
-    openssl
-    libxml2
-    libxslt
-    libzip
-    zlib
-    libgcc
-  ];
-
-  # programs.nix-ld.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

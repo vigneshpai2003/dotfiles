@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   # these files are stored at /etc/profiles/per-user/vignesh/share/applications/
   xdg.desktopEntries = {

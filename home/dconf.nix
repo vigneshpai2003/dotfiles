@@ -61,16 +61,6 @@
     };
 
     "org/gnome/shell" = {
-      # pinned apps
-      favorite-apps = [
-        "org.gnome.Settings.desktop"
-        "org.gnome.Terminal.desktop"
-        "org.gnome.Nautilus.desktop"
-        "firefox.desktop"
-        "code-url-handler.desktop"
-        "spotify.desktop"
-      ];
-
       disable-user-extensions = false;
 
       disabled-extensions = [

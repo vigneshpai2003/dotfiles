@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   home.packages = with pkgs; [
     yaru-theme
@@ -16,14 +16,20 @@
     riseup-vpn
 
     # - development
-    python311Packages.python
+    (python311Packages.python.withPackages(p: with p; [
+      numpy
+      scipy
+      matplotlib
+      jupyter
+    ]))
+    sage
     gfortran
     fortls
     texliveFull
     direnv
 
     # - text editors
-    gedit
+    gnome-text-editor
     vscode
     marktext # markdown
     obsidian # markdown note taking
@@ -41,7 +47,7 @@
     pavucontrol # pulse audio volume control
     mpv # light media player
     vlc # general purpose media player
-    spotify
+    # spotify # install using flatpak instead (weird titlebar in nixpkgs)
     ffmpeg
 
     # - pictures

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./home/programs.nix
+    ./home/packages.nix
     ./home/dotfiles.nix
     ./home/dconf.nix
     ./home/desktopEntries.nix
