@@ -5,6 +5,7 @@
 
     # - system
     gnome.gnome-system-monitor
+    resources
     gnome.seahorse # encryption keys and passwords
     gnome.gnome-terminal
     gnome.nautilus

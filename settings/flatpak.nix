@@ -13,8 +13,7 @@
     aggregatedIcons = pkgs.buildEnv {
       name = "system-icons";
       paths = with pkgs; [ 
-        breeze-qt5
-        papirus-icon-theme
+        yaru-theme
       ];
       pathsToLink = [ "/share/icons" ];
     };
