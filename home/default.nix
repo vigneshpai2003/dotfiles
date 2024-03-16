@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./home/packages.nix
-    ./home/dotfiles.nix
-    ./home/dconf.nix
-    ./home/desktopEntries.nix
+    ./packages.nix
+    ./dev.nix
+    ./desktopEntries.nix
+    ./gnome
+    ./config
   ];
 
   home.username = "vignesh";

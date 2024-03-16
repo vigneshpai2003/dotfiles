@@ -14,13 +14,13 @@
     nixosConfigurations.vignesh-inspiron = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./configuration.nix
+        ./hosts/inspiron
 
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.vignesh = import ./home.nix;
+          home-manager.users.vignesh = import ./home;
         }
       ];
     };

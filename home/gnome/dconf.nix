@@ -1,18 +1,5 @@
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs.gnomeExtensions; [
-    dash-to-dock
-    gsconnect
-    runcat
-    alphabetical-app-grid
-    battery-time-2
-    blur-my-shell
-    vitals
-    transparent-top-bar
-    user-themes
-    tiling-assistant
-  ];
-
   dconf.settings = {
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";

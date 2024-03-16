@@ -1,11 +1,5 @@
 { config, pkgs, ... }:
 {
-  programs.git = {
-    enable = true;
-    userName = "Vignesh Pai";
-    userEmail = "vigneshpai2003@gmail.com";
-  };
-
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -31,6 +25,10 @@
       "dell-battery-standard" = "sudo cctk --PrimaryBattChargeCfg=Standard | sed '/^fopen_wrapper.c\\|^access_wrapper.c/d'";
       "dell-battery-express" = "sudo cctk --PrimaryBattChargeCfg=Express | sed '/^fopen_wrapper.c\\|^access_wrapper.c/d'";
       "dell-battery-custom" = "sudo cctk --PrimaryBattChargeCfg=Custom:85-90 | sed '/^fopen_wrapper.c\\|^access_wrapper.c/d'";
+      
+      "waydroid-terminate" = "waydroid session stop && sudo waydroid container stop && rm ~/.local/share/applications/waydroid.*";
+      "waydroid-default" = ''waydroid prop set persist.waydroid.width "" && waydroid prop set persist.waydroid.height "" && waydroid session stop'';
+      "waydroid-vertical" = "waydroid prop set persist.waydroid.width 720 && waydroid prop set persist.waydroid.height 1080 && waydroid session stop";
     };
   };
 

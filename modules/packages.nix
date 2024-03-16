@@ -1,22 +1,21 @@
 { pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
+    # essentials
     git
     curl
     wget
     neofetch
     cpufetch
-    lm_sensors
-    powertop
-    htop
-    btop
-    powerstat
-    intel-gpu-tools
-    firefox
+    tree
     zip
     unzip
-    linux-wifi-hotspot
-    dell-command-configure
+    htop
+    btop
+    
+    firefox # browser
+    linux-wifi-hotspot # hotspot
+    dell-command-configure # dell bios options
 
     # build tools
     taglib

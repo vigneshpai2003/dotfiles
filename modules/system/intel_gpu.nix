@@ -1,5 +1,9 @@
 { pkgs, config, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    intel-gpu-tools
+  ];
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
@@ -11,5 +15,4 @@
     ];
   };
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
-	
 }
