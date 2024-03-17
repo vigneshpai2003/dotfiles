@@ -12,6 +12,8 @@
     unzip
     htop
     btop
+    fzf
+    zoxide
     
     firefox # browser
     linux-wifi-hotspot # hotspot

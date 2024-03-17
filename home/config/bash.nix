@@ -4,6 +4,10 @@
     enable = true;
     enableCompletion = true;
 
+    initExtra = ''
+      eval "$(zoxide init bash)"
+    '';
+
     shellAliases = {
       "btop" = "btop --utf-force";
       "powertop" = "sudo powertop";
@@ -30,21 +34,5 @@
       "waydroid-default" = ''waydroid prop set persist.waydroid.width "" && waydroid prop set persist.waydroid.height "" && waydroid session stop'';
       "waydroid-vertical" = "waydroid prop set persist.waydroid.width 720 && waydroid prop set persist.waydroid.height 1080 && waydroid session stop";
     };
-  };
-
-  programs.htop = {
-    enable = true;
-    settings = {
-      show_cpu_usage = 1;
-      show_cpu_frequency = 1;
-      show_cpu_temperature = 1;
-    };
-  };
-  
-  programs.neovim = {
-    enable = true;
-    extraConfig = ''
-      set number relativenumber
-    '';
   };
 }
