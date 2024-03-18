@@ -14,6 +14,7 @@
     btop
     fzf
     zoxide
+    appimage-run
     
     firefox # browser
     linux-wifi-hotspot # hotspot
