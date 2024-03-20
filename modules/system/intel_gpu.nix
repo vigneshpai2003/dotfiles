@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     intel-gpu-tools
+    libva-utils
   ];
 
   hardware.opengl = {

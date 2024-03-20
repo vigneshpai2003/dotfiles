@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    brave
+    
     # - office tools
     libsForQt5.okular # pdf
     libreoffice # office
@@ -8,6 +10,7 @@
     obsidian # markdown note taking
     
     # - pictures
+    loupe # viewer
     pinta # general purpose editor
     inkscape # vector graphics editor
 

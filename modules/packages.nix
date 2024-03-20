@@ -15,6 +15,7 @@
     fzf
     zoxide
     appimage-run
+    desktop-file-utils
     
     firefox # browser
     linux-wifi-hotspot # hotspot
