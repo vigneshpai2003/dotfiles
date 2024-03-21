@@ -1,25 +1,15 @@
 { pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # essentials
+    # command line essentials
     git
     curl
     wget
-    neofetch
-    cpufetch
-    tree
     zip
     unzip
-    htop
-    btop
+    tree
     fzf
-    zoxide
-    appimage-run
-    desktop-file-utils
-    
-    firefox # browser
-    linux-wifi-hotspot # hotspot
-    dell-command-configure # dell bios options
+    zoxide # cd alternative
 
     # build tools
     taglib
@@ -29,5 +19,18 @@
     libzip
     zlib
     libgcc
+
+    # system info
+    neofetch
+    cpufetch
+    htop
+    btop
+
+    appimage-run
+    desktop-file-utils
+    
+    firefox # browser
+    linux-wifi-hotspot # hotspot
+    dell-command-configure # dell bios options
   ];
 }

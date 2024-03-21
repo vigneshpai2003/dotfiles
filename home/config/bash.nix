@@ -9,6 +9,7 @@
     '';
 
     shellAliases = {
+      "cd" = "z";
       "btop" = "btop --utf-force";
       "powertop" = "sudo powertop";
       "gputop" = "sudo intel_gpu_top";

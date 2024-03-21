@@ -2,10 +2,12 @@
 {
   # Use Virtualization
   boot.kernelModules = [ "kvm-intel" ];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.kvmgt.enable = true;
-  virtualisation.containers.enable = true;
-  virtualisation.waydroid.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    kvmgt.enable = true;
+    containers.enable = true;
+    waydroid.enable = true;
+  };
 
   services.openssh.enable = true;
 }
