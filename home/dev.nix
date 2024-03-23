@@ -8,10 +8,10 @@
     direnv
 
     (
-      let 
+      let
         envname = "pydev";
         packages = with pkgs; [
-          (python311Packages.python.withPackages(p: with p; [
+          (python311Packages.python.withPackages (p: with p; [
             pip
             numpy
             scipy
@@ -20,20 +20,21 @@
           jupyter
         ];
       in
-      pkgs.runCommand envname {
-        buildInputs = packages;
-        nativeBuildInputs = [ pkgs.makeWrapper ];
-      }
-      ''
-      mkdir -p $out/bin/
-      ln -s ${pkgs.bashInteractive}/bin/bash $out/bin/${envname}
-      wrapProgram $out/bin/${envname} --prefix PATH : ${pkgs.lib.makeBinPath packages}
-      ''
+      pkgs.runCommand envname
+        {
+          buildInputs = packages;
+          nativeBuildInputs = [ pkgs.makeWrapper ];
+        }
+        ''
+          mkdir -p $out/bin/
+          ln -s ${pkgs.bashInteractive}/bin/bash $out/bin/${envname}
+          wrapProgram $out/bin/${envname} --prefix PATH : ${pkgs.lib.makeBinPath packages}
+        ''
     )
 
     # - text editors
     vscode
-    
+
     # - virtual machine, containers, emulation and remote machines
     virt-manager
     gnome.gnome-boxes

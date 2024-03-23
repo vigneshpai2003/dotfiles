@@ -9,7 +9,7 @@
       terminal = false;
       icon = "${config.home.homeDirectory}/Apps/icons/Etcher.png";
     };
-    
+
     # hide KDE Connect entries
     "org.kde.kdeconnect.sms" = {
       name = "org.kde.kdeconnect.sms";
@@ -23,13 +23,13 @@
       name = "org.kde.kdeconnect-settings";
       noDisplay = true;
     };
-    
+
     # fix VS Code entries
     code-url-handler = {
       name = "Visual Studio Code";
       noDisplay = false;
-      exec="code %F";
-      icon="vscode";
+      exec = "code %F";
+      icon = "vscode";
     };
     code = {
       name = "Visual Studio Code";
@@ -40,12 +40,12 @@
     brave-browser = {
       name = "Brave Web Browser";
       genericName = "Web Browser";
-      exec="brave %U --enable-features=VaapiVideoDecodeLinuxGL,TouchpadOverscrollHistoryNavigation";
+      exec = "brave %U --enable-features=VaapiVideoDecodeLinuxGL,TouchpadOverscrollHistoryNavigation";
       startupNotify = true;
       terminal = false;
       icon = "brave-browser";
       type = "Application";
-      categories = ["Network" "WebBrowser"];
+      categories = [ "Network" "WebBrowser" ];
       mimeType = [
         "application/pdf"
         "application/rdf+xml"

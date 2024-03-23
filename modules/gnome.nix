@@ -12,7 +12,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.gnome.core-utilities.enable = false;
-  environment.gnome.excludePackages = with pkgs; [gnome-tour];
+  environment.gnome.excludePackages = with pkgs; [ gnome-tour ];
 
   programs.dconf.enable = true;
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];

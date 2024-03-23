@@ -5,7 +5,7 @@
 
   networking.networkmanager = {
     enable = true;
-    dispatcherScripts = [ {
+    dispatcherScripts = [{
       source = pkgs.writeText "IISERlogin" ''
         #!/usr/bin/env ${pkgs.bash}/bin/bash
 
@@ -22,7 +22,6 @@
         fi
       '';
       type = "basic";
-      }
-    ];
+    }];
   };
 }

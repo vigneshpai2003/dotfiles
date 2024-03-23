@@ -1,24 +1,24 @@
 { config, pkgs, ... }:
 {
   imports = [
-      ./hardware-configuration.nix
-      
-      ../../modules/system
-      ../../modules/packages.nix
-      ../../modules/gnome.nix
-      # ../../modules/hyprland.nix
-      ../../modules/flatpak.nix
-      ../../modules/virtualization.nix
+    ./hardware-configuration.nix
+
+    ../../modules/system
+    ../../modules/packages.nix
+    ../../modules/gnome.nix
+    # ../../modules/hyprland.nix
+    ../../modules/flatpak.nix
+    ../../modules/virtualization.nix
   ];
 
   # NixOS settings
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -45,9 +45,9 @@
   users.users.vignesh = {
     isNormalUser = true;
     description = "vignesh";
-    extraGroups = [ "networkmanager" "wheel" "kvm"];
+    extraGroups = [ "networkmanager" "wheel" "kvm" ];
   };
-  
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

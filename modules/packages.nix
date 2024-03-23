@@ -10,6 +10,7 @@
     tree
     fzf
     zoxide # cd alternative
+    nixpkgs-fmt
 
     # build tools
     taglib
@@ -28,7 +29,7 @@
 
     appimage-run
     desktop-file-utils
-    
+
     firefox # browser
     linux-wifi-hotspot # hotspot
     dell-command-configure # dell bios options

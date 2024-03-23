@@ -14,7 +14,7 @@
     gnome.evince # pdf
     gnome-text-editor
     gnome.cheese # webcam
-    
+
     yaru-theme
     # whitesur-gtk-theme
   ];
