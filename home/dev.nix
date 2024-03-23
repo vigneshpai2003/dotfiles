@@ -1,18 +1,35 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     # - languages, tools and frameworks
-    (python311Packages.python.withPackages(p: with p; [
-      numpy
-      scipy
-      matplotlib
-      jupyter
-    ]))
-    sage
-    gfortran
+    ffmpeg
     fortls
     texliveFull
     direnv
+
+    (
+      let 
+        envname = "pydev";
+        packages = with pkgs; [
+          (python311Packages.python.withPackages(p: with p; [
+            pip
+            numpy
+            scipy
+            matplotlib
+          ]))
+          jupyter
+        ];
+      in
+      pkgs.runCommand envname {
+        buildInputs = packages;
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+      }
+      ''
+      mkdir -p $out/bin/
+      ln -s ${pkgs.bashInteractive}/bin/bash $out/bin/${envname}
+      wrapProgram $out/bin/${envname} --prefix PATH : ${pkgs.lib.makeBinPath packages}
+      ''
+    )
 
     # - text editors
     vscode

@@ -19,7 +19,6 @@
     mpv # light media player
     vlc # general purpose media player
     # spotify # install using flatpak instead (weird titlebar in nixpkgs)
-    ffmpeg
 
     # - others
     riseup-vpn

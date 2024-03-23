@@ -6,6 +6,7 @@
       ../../modules/system
       ../../modules/packages.nix
       ../../modules/gnome.nix
+      # ../../modules/hyprland.nix
       ../../modules/flatpak.nix
       ../../modules/virtualization.nix
   ];
