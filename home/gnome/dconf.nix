@@ -6,7 +6,7 @@
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      toggle-fullscreen = [ "F9" ];
+      toggle-fullscreen = [ "F11" ];
       close = [ "<Super>q" ];
     };
 
