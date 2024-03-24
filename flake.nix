@@ -15,10 +15,11 @@
     nixosConfigurations.vignesh-inspiron =
       let
         system = "x86_64-linux";
+        extra = { pkgs-stable = nixpkgs-stable.legacyPackages.${system}; };
       in
       nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = { pkgs-stable = nixpkgs-stable.legacyPackages.${system}; };
+        specialArgs = extra;
         modules = [
           ./hosts/inspiron
 
@@ -26,6 +27,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = extra;
             home-manager.users.vignesh = import ./home;
           }
         ];
