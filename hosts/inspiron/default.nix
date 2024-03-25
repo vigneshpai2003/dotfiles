@@ -16,8 +16,17 @@
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      devices = [ "nodev" ];
+      efiSupport = true;
+      enable = true;
+    };
+  };
 
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
