@@ -28,6 +28,9 @@
     };
   };
 
+  # firmware updater
+  services.fwupd.enable = true;
+
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

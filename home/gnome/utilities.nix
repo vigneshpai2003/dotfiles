@@ -14,6 +14,7 @@
     gnome.evince # pdf
     gnome-text-editor
     gnome.cheese # webcam
+    gnome-firmware # firmware updater
 
     yaru-theme
     # whitesur-gtk-theme
