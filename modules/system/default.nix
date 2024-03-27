@@ -7,6 +7,6 @@
     ./networking.nix
     ./sound.nix
     ./thermals.nix
-    # ./fingerprint.nix
+    ./fingerprint.nix
   ];
 }
