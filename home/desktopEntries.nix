@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  # these files are stored at /etc/profiles/per-user/vignesh/share/applications/
+  # these files are stored at /run/current-system/sw/share/applications
   xdg.desktopEntries = {
     balenaEtcher = {
       name = "Balena Etcher";
@@ -8,6 +8,18 @@
       exec = ''appimage-run ${config.home.homeDirectory}/Apps/bin/balenaEtcher-1.18.11-x64.AppImage'';
       terminal = false;
       icon = "${config.home.homeDirectory}/Apps/icons/Etcher.png";
+    };
+
+    # hide htop
+    htop = {
+      name = "htop";
+      noDisplay = true;
+    };
+
+    # hide btop
+    btop = {
+      name = "btop++";
+      noDisplay = true;
     };
 
     # hide KDE Connect entries
