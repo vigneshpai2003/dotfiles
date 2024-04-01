@@ -26,6 +26,7 @@
     cpufetch
     htop
     btop
+    nvme-cli
 
     appimage-run
     desktop-file-utils
