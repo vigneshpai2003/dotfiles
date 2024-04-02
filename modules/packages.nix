@@ -35,4 +35,11 @@
     linux-wifi-hotspot # hotspot
     dell-command-configure # dell bios options
   ];
+
+  fonts.packages = with pkgs; [
+    open-sans
+    noto-fonts
+    noto-fonts-color-emoji
+    nerdfonts
+  ];
 }

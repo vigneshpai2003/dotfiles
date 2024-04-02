@@ -6,6 +6,7 @@
 
     initExtra = ''
       eval "$(zoxide init bash)"
+      eval "$(oh-my-posh init bash --config ~/nix/home/oh-my-posh/themes/catppuccin_mocha.omp.json)"
     '';
 
     shellAliases = {

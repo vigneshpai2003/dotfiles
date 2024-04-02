@@ -25,5 +25,6 @@
     libsForQt5.kdeconnect-kde # wireless connection to other devices
     geogebra6 # math graphing
     telegram-desktop
+    oh-my-posh
   ];
 }

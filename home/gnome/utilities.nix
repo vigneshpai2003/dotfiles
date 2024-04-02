@@ -13,7 +13,6 @@
     gnome.baobab # disk usage
     gnome.evince # pdf
     gnome-text-editor
-    snapshot # camera
     gnome-firmware # firmware updater
     gnome.gnome-characters
     gnome.gnome-font-viewer
