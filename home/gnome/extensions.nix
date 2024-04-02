@@ -17,5 +17,6 @@
     transparent-top-bar
     user-themes
     tiling-assistant
+    clipboard-indicator
   ]);
 }

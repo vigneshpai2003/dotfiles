@@ -72,6 +72,7 @@
         "Vitals@CoreCoding.com"
         "transparent-top-bar@zhanghai.me"
         "tiling-assistant@leleat-on-github"
+        "clipboard-indicator@tudmotu.com"
       ];
     };
 
