@@ -12,7 +12,7 @@
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Control><Alt>t";
-      command = "gnome-terminal";
+      command = "tilix";
       name = "Open Terminal";
     };
 
