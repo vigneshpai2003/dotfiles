@@ -10,6 +10,8 @@
 
     # - text editors
     vscode
+    flatpak-builder
+    gnome-builder
 
     # - virtual machine, containers, emulation and remote machines
     virt-manager

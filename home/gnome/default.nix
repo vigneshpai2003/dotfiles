@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./utilities.nix
-    ./extensions.nix
-    ./dconf.nix
+    ./packages.nix
+    ./terminal.nix
+    ./shell
   ];
 }
