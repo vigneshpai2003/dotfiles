@@ -44,4 +44,6 @@
   ];
 
   environment.localBinInPath = true;
+
+  programs.steam.enable = true;
 }

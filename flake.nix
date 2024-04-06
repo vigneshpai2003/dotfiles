@@ -15,7 +15,9 @@
     nixosConfigurations.vignesh-inspiron =
       let
         system = "x86_64-linux";
-        extra = { pkgs-stable = nixpkgs-stable.legacyPackages.${system}; };
+        extra = {
+          pkgs-stable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; };
+        };
       in
       nixpkgs.lib.nixosSystem {
         system = system;
