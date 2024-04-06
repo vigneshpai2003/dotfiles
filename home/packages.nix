@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  imports = [ ../external/etcher ];
+
   home.packages = with pkgs; [
     brave
 

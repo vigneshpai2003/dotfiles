@@ -17,7 +17,6 @@
     virt-manager
     gnome.gnome-boxes
     podman
-    distrobox # containerized linux
     boxbuddy # distrobox gui
     gnome-connections # connect to remote host
     filezilla # sftp / ftp

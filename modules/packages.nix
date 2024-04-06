@@ -42,4 +42,6 @@
     noto-fonts-color-emoji
     nerdfonts
   ];
+
+  environment.localBinInPath = true;
 }

@@ -14,7 +14,7 @@
     # tilix settings
     "com/gexperts/Tilix" = {
       app-title = "\${sessionName}";
-      terminal-title-style = "none";
+      terminal-title-style = "small";
       use-tabs = true;
       warn-vte-config-issue = false;
     };

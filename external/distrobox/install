@@ -1,0 +1,7 @@
+#!/bin/sh
+
+curl -L https://github.com/89luca89/distrobox/archive/refs/tags/1.7.1.zip -o distrobox.zip
+unzip distrobox.zip
+rm distrobox.zip
+cd distrobox-1.7.1
+./install

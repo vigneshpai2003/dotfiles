@@ -1,0 +1,5 @@
+*.AppImage
+
+external/caa/.caa/caa.pid
+external/caa/logs
+external/distrobox/distrobox-1.7.1
