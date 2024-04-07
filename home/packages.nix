@@ -1,8 +1,7 @@
-{ config, pkgs, pkgs-unstable-new, ... }:
+{ lib, config, pkgs, ... }:
 {
   imports = [
     ../external/etcher
-    # ../external/warp
   ];
 
   home.packages = with pkgs; [
@@ -32,7 +31,24 @@
     telegram-desktop
     oh-my-posh
     geekbench
-  ] ++ (with pkgs-unstable-new; [
-    warp-terminal
-  ]);
+
+    (import ../external/warp/package.nix {
+      lib = lib;
+      inherit (pkgs)
+        stdenvNoCC
+        stdenv
+        fetchurl
+        autoPatchelfHook
+        undmg
+        zstd
+        curl
+        fontconfig
+        libglvnd
+        libxkbcommon
+        vulkan-loader
+        xdg-utils
+        xorg
+        zlib;
+    })
+  ];
 }

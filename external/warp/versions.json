@@ -1,0 +1,10 @@
+{
+  "darwin": {
+    "hash": "sha256-4eeu1JlChD9QvFSpuq5Wh8y+cUqpHYKgi3+SBTJqIwA=",
+    "version": "0.2024.03.26.08.02.stable_02"
+  },
+  "linux": {
+    "hash": "sha256-xnXRg23AdfCk2TKBr+PZ3wDYqTN4+8wLSodWpmh3D/Y=",
+    "version": "0.2024.04.02.08.02.stable_01"
+  }
+}
