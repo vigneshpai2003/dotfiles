@@ -33,5 +33,9 @@
       enable-hot-corners = false;
       clock-show-seconds = true;
     };
+
+    "org/gnome/desktop/sound" = {
+      allow-volume-above-100-percent = true;
+    };
   };
 }
