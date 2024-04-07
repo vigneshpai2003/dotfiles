@@ -16,7 +16,6 @@
     # - virtual machine, containers, emulation and remote machines
     virt-manager
     gnome.gnome-boxes
-    podman
     boxbuddy # distrobox gui
     gnome-connections # connect to remote host
     filezilla # sftp / ftp

@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable-new, ... }:
 {
-  imports = [ ../external/etcher ];
+  imports = [
+    ../external/etcher
+    # ../external/warp
+  ];
 
   home.packages = with pkgs; [
     brave
@@ -28,5 +31,8 @@
     geogebra6 # math graphing
     telegram-desktop
     oh-my-posh
-  ];
+    geekbench
+  ] ++ (with pkgs-unstable-new; [
+    warp-terminal
+  ]);
 }
