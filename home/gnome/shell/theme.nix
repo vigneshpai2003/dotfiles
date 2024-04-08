@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs-stable, ... }:
 {
-  home.packages = with pkgs; [
+  home.packages = with pkgs-stable; [
     yaru-theme
     # whitesur-gtk-theme
   ];

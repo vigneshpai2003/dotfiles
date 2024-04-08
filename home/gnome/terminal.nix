@@ -11,6 +11,12 @@
       name = "Open Terminal";
     };
 
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Control><Alt>w";
+      command = "warp-terminal";
+      name = "Open Warp";
+    };
+
     # tilix settings
     "com/gexperts/Tilix" = {
       app-title = "\${sessionName}";

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, pkgs-stable, lib, ... }:
 {
   home.packages = with pkgs; [
     # - languages, tools and frameworks
@@ -11,7 +11,6 @@
     # - text editors
     vscode
     flatpak-builder
-    gnome-builder
 
     # - virtual machine, containers, emulation and remote machines
     virt-manager
@@ -20,5 +19,7 @@
     gnome-connections # connect to remote host
     filezilla # sftp / ftp
     bottles # wine
-  ];
+  ] ++ (with pkgs-stable; [
+    gnome-builder
+  ]);
 }
