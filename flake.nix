@@ -14,9 +14,11 @@
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: {
     nixosConfigurations.vignesh-inspiron =
       let
+        username = "vignesh";
         system = "x86_64-linux";
         extra = {
-          pkgs-stable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; };
+          pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
+          pkgs-stable = import nixpkgs-stable { system = system; config.allowUnfree = true; };
         };
       in
       nixpkgs.lib.nixosSystem {
@@ -27,10 +29,16 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = extra;
-            home-manager.users.vignesh = import ./home;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = extra;
+              users.${username} = {
+                home.username = username;
+                home.homeDirectory = "/home/${username}";
+                imports = [ ./home ];
+              };
+            };
           }
         ];
       };

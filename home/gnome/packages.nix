@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     gnome.gnome-system-monitor
     resources # better system monitor
-    gnome.seahorse # encryption keys and passwords
     tilix # terminal
     gnome.nautilus # files
     gnome.baobab # disk usage

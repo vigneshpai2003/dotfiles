@@ -11,9 +11,7 @@
     ../../modules/virtualization.nix
   ];
 
-  # NixOS settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader = {
@@ -27,9 +25,6 @@
       enable = true;
     };
   };
-
-  # firmware updater
-  services.fwupd.enable = true;
 
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -50,9 +45,6 @@
     LC_PAPER = "en_IN";
     LC_TELEPHONE = "en_IN";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   users.users.vignesh = {
     isNormalUser = true;
