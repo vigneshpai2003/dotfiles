@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  caa = "/home/vignesh/nix/external/caa";
+  caa = "/home/vignesh/dotfiles/external/caa";
 in
 {
   networking.networkmanager = {
