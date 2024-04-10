@@ -26,6 +26,9 @@
         pkgs-stable = import nixpkgs-stable {
           inherit system;
           config.allowUnfree = true;
+          config.permittedInsecurePackages = [
+            "electron-19.1.9" # for balena etcher
+          ];
         };
       };
     in

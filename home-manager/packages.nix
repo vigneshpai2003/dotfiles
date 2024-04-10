@@ -1,9 +1,5 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, pkgs-stable, ... }:
 {
-  imports = [
-    ../external/etcher
-  ];
-
   home.packages = with pkgs; [
     brave
 
@@ -49,5 +45,7 @@
         xorg
         zlib;
     })
-  ];
+  ] ++ (with pkgs-stable; [
+    etcher
+  ]);
 }
