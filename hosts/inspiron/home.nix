@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./packages.nix
-    ./dev.nix
-    ./desktopEntries.nix
-    ./gnome
-    ./config
+    ../../home-manager/packages.nix
+    ../../home-manager/dev.nix
+    ../../home-manager/desktopEntries.nix
+    ../../home-manager/gnome
+    ../../home-manager/config
   ];
 
   # This value determines the home Manager release that your
