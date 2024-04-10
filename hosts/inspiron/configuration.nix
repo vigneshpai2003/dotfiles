@@ -62,6 +62,7 @@
     htop
     btop
     nvme-cli
+    geekbench
 
     # - Appimage Support
     appimage-run
@@ -71,6 +72,7 @@
 
     # - Browser
     firefox
+    brave
 
     # - Hotspot
     linux-wifi-hotspot
