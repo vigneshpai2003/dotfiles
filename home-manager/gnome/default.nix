@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./packages.nix
-    ./terminal.nix
     ./shell
+    ./keybindings.nix
+    ./packages.nix
+    ./tilix.nix
   ];
 }

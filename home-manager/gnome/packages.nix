@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     gnome.gnome-system-monitor
     resources # better system monitor
-    tilix # terminal
     gnome.nautilus # files
     gnome.baobab # disk usage
     gnome.gnome-disk-utility # disk info
