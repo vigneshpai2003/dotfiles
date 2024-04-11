@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 let
-  caa = "/home/vignesh/dotfiles/external/caa";
+  caaDir = "/home/${username}/dotfiles/external/caa";
 in
 {
   networking.networkmanager = {
@@ -9,14 +9,14 @@ in
         #!/usr/bin/env ${pkgs.bash}/bin/bash
 
         if [[ "$2" == "up" ]]; then
-          export HOME=${caa}
-          ${caa}/caa -d --log=${caa}/caa.log
+          export HOME=${caaDir}
+          ${caaDir}/caa -d --log=${caaDir}/caa.log
           logger "Started IISER login daemon"
         fi
 
         if [[ "$2" == "down" ]]; then
-          export HOME=${caa}
-          ${caa}/caa -s
+          export HOME=${caaDir}
+          ${caaDir}/caa -s
           logger "Stopped IISER login daemon"
         fi
       '';

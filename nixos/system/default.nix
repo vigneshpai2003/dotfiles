@@ -2,7 +2,6 @@
 {
   imports = [
     ./garbage.nix
-    ./cachix.nix
     ./intel_gpu.nix
     ./networking.nix
     ./sound.nix

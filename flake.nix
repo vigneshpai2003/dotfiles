@@ -30,6 +30,9 @@
             "electron-19.1.9" # for balena etcher
           ];
         };
+
+        inherit username;
+        inherit hostname;
       };
     in
     {

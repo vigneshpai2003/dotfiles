@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, hostname, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -8,9 +8,25 @@
     ../../nixos/flatpak.nix
     ../../nixos/virtualization.nix
     ../../nixos/locale.nix
+
+    # logging in to IISER network automatically
+    ../../external/caa
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+
+    trusted-users = [ username ];
+
+    substituters = [
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+    ];
+
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
 
   # - Bootloader
   boot.loader = {
@@ -29,11 +45,13 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # - Users
-  users.users.vignesh = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "vignesh";
+    description = username;
     extraGroups = [ "networkmanager" "wheel" "kvm" ];
   };
+
+  networking.hostName = hostname;
 
   environment.systemPackages = with pkgs; [
     # - Command Line Essentials
