@@ -6,22 +6,25 @@
 
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
-      };
-
-      pkgs-stable = import nixpkgs-stable {
-        inherit system;
-        config.allowUnfree = true;
-        config.permittedInsecurePackages = [
-          "electron-19.1.9"
+        overlays = [
+          (final: prev: {
+            stable = import nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+              config.permittedInsecurePackages = [
+                "electron-19.1.9"
+              ];
+            };
+          })
         ];
+        config.allowUnfree = true;
       };
     in
     lib.nixosSystem {
       inherit system;
 
       specialArgs = {
-        inherit inputs username pkgs pkgs-stable;
+        inherit inputs username pkgs;
       };
 
       modules = [
@@ -33,7 +36,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
-              inherit nixpkgs-stable username pkgs pkgs-stable;
+              inherit nixpkgs-stable username pkgs;
             };
             users.${username} = {
               home.username = username;

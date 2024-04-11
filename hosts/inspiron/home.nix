@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, pkgs-stable, ... }:
+{ config, inputs, pkgs, ... }:
 {
   imports = [
     ../../home-manager/gnome
@@ -67,13 +67,13 @@
         xorg
         zlib;
     })
-  ] ++ (with pkgs-stable; [
-    # - Burn ISO to USB
-    etcher
 
     # - Build GTK Applications
-    gnome-builder
-  ]);
+    stable.gnome-builder
+
+    # - Burn ISO to USB
+    stable.etcher
+  ];
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
