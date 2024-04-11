@@ -12,51 +12,14 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
-    let
-      username = "vignesh";
-      hostname = "vignesh-inspiron";
-      hostDir = "inspiron";
-      system = "x86_64-linux";
-      extra = {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-          config.permittedInsecurePackages = [
-            "electron-19.1.9" # for balena etcher
-          ];
-        };
-
-        inherit username;
-        inherit hostname;
-      };
-    in
     {
-      nixosConfigurations.${hostname} =
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = extra;
-          modules = [
-            ./hosts/${hostDir}/configuration.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = extra;
-                users.${username} = {
-                  home.username = username;
-                  home.homeDirectory = "/home/${username}";
-                  imports = [ ./hosts/${hostDir}/home.nix ];
-                };
-              };
-            }
-          ];
-        };
+      nixosConfigurations = (
+        import ./hosts
+          {
+            inherit (nixpkgs) lib;
+            inherit inputs nixpkgs nixpkgs-stable home-manager;
+            username = "vignesh";
+          }
+      );
     };
 }

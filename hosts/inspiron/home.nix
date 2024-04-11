@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-stable, ... }:
+{ config, inputs, pkgs, pkgs-stable, ... }:
 {
   imports = [
     ../../home-manager/gnome
@@ -28,7 +28,7 @@
     virt-manager
     gnome.gnome-boxes
     boxbuddy
-    
+
     # - Wine
     bottles
 

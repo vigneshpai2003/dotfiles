@@ -1,4 +1,4 @@
-{ config, pkgs, username, hostname, ... }:
+{ config, pkgs, username, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -51,7 +51,7 @@
     extraGroups = [ "networkmanager" "wheel" "kvm" ];
   };
 
-  networking.hostName = hostname;
+  networking.hostName = "vignesh-inspiron";
 
   environment.systemPackages = with pkgs; [
     # - Command Line Essentials
