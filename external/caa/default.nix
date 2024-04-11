@@ -10,7 +10,7 @@ in
 
         if [[ "$2" == "up" ]]; then
           export HOME=${caa}
-          ${caa}/caa -d --log=${caa}/logs/caa.log
+          ${caa}/caa -d --log=${caa}/caa.log
           logger "Started IISER login daemon"
         fi
 
