@@ -1,8 +1,6 @@
 { config, pkgs, pkgs-stable, ... }:
 {
   imports = [
-    ../../home-manager/dev.nix
-    ../../home-manager/desktopEntries.nix
     ../../home-manager/gnome
     ../../home-manager/config
   ];
@@ -19,11 +17,24 @@
     inkscape
 
     # - Audio Video
+    ffmpeg
     pavucontrol
     mpv
     vlc
     spotify
     # spotify # install using flatpak instead (weird titlebar in nixpkgs)
+
+    # - Virtual Machines
+    virt-manager
+    gnome.gnome-boxes
+    boxbuddy
+    
+    # - Wine
+    bottles
+
+    # - Remote Connections
+    gnome-connections
+    filezilla
 
     # - VPN
     riseup-vpn
@@ -59,6 +70,9 @@
   ] ++ (with pkgs-stable; [
     # - Burn ISO to USB
     etcher
+
+    # - Build GTK Applications
+    gnome-builder
   ]);
 
   # This value determines the home Manager release that your

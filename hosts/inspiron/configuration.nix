@@ -79,6 +79,16 @@
 
     # - Dell BIOS options
     dell-command-configure
+
+    # - Development
+    direnv
+    devbox
+    texliveFull
+    fortls
+    flatpak-builder
+
+    # - Text Editors
+    vscode
   ];
 
   # - Steam

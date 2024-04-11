@@ -8,4 +8,9 @@
       show_cpu_temperature = 1;
     };
   };
+
+  xdg.desktopEntries.htop = {
+    name = "htop";
+    noDisplay = true;
+  };
 }
