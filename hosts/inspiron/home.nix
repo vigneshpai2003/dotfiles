@@ -21,7 +21,6 @@
     pavucontrol
     mpv
     vlc
-    spotify
     # spotify # install using flatpak instead (weird titlebar in nixpkgs)
 
     # - Virtual Machines
