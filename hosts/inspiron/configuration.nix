@@ -7,8 +7,9 @@
     ../../nixos/gnome.nix
     ../../nixos/flatpak.nix
     ../../nixos/virtualization.nix
+    ../../nixos/locale.nix
 
-    # logging in to IISER network automatically
+    # - logging in to IISER network automatically
     ../../external/caa
   ];
 
@@ -43,31 +44,12 @@
   # - Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-    # Set your time zone.
-  time.timeZone = "Asia/Kolkata";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-  };
-
   # - Users
   users.users.${username} = {
     isNormalUser = true;
     description = username;
     extraGroups = [ "networkmanager" "wheel" "kvm" ];
   };
-
-  networking.hostName = "vignesh-inspiron";
 
   environment.systemPackages = with pkgs; [
     # - Command Line Essentials

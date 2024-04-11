@@ -18,14 +18,14 @@
 
     # - Audio Video
     ffmpeg
-    pavucontrol
     mpv
     vlc
-    # spotify # install using flatpak instead (weird titlebar in nixpkgs)
+    # spotify # install using flatpak instead (weird titlebar in nixpkgs on gnome)
 
     # - Virtual Machines
-    virt-manager
     gnome.gnome-boxes
+
+    # - Distrobox GUI
     boxbuddy
 
     # - Wine

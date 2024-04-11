@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, hostname, ... }:
 {
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = hostname;
+    networkmanager.enable = true;
+  };
+  
   programs.kdeconnect.enable = true;
 
-  hardware.bluetooth.settings = {
-    General = {
-      Experimental = true;
-    };
+  hardware.bluetooth = {
+    enable = true;
+    settings.General.Experimental = true;
   };
 }

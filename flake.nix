@@ -14,12 +14,11 @@
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      username = "vignesh";
     in
     {
       nixosConfigurations = (
         import ./hosts {
-          inherit inputs nixpkgs nixpkgs-stable home-manager system username;
+          inherit inputs nixpkgs nixpkgs-stable home-manager system;
           inherit (nixpkgs) lib;
           pkgs = import nixpkgs {
             inherit system;
