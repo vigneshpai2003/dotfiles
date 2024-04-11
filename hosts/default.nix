@@ -36,7 +36,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
-              inherit nixpkgs-stable username pkgs;
+              inherit inputs username pkgs;
             };
             users.${username} = {
               home.username = username;

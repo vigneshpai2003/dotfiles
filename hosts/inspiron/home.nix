@@ -49,24 +49,7 @@
     telegram-desktop
 
     # - Warp Terminal
-    (import ../../external/warp/package.nix {
-      lib = lib;
-      inherit (pkgs)
-        stdenvNoCC
-        stdenv
-        fetchurl
-        autoPatchelfHook
-        undmg
-        zstd
-        curl
-        fontconfig
-        libglvnd
-        libxkbcommon
-        vulkan-loader
-        xdg-utils
-        xorg
-        zlib;
-    })
+    (import ../../external/warp/package.nix {inherit lib pkgs;})
 
     # - Build GTK Applications
     stable.gnome-builder
