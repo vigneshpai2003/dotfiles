@@ -7,7 +7,6 @@
     ../../nixos/gnome.nix
     ../../nixos/flatpak.nix
     ../../nixos/virtualization.nix
-    ../../nixos/locale.nix
 
     # logging in to IISER network automatically
     ../../external/caa
@@ -43,6 +42,23 @@
 
   # - Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+    # Set your time zone.
+  time.timeZone = "Asia/Kolkata";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_IN";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_IN";
+    LC_IDENTIFICATION = "en_IN";
+    LC_MEASUREMENT = "en_IN";
+    LC_MONETARY = "en_IN";
+    LC_NAME = "en_IN";
+    LC_NUMERIC = "en_IN";
+    LC_PAPER = "en_IN";
+    LC_TELEPHONE = "en_IN";
+  };
 
   # - Users
   users.users.${username} = {
@@ -112,6 +128,22 @@
   # - Steam
   programs.steam.enable = true;
 
+  # - WayDroid
+  virtualisation.waydroid.enable = true;
+
+  # - Podman (required for distrobox)
+  virtualisation.podman.enable = true;
+
+  # - SSH
+  services.openssh.enable = true;
+
+  # - Firmware Updater
+  services.fwupd.enable = true;
+
+  # - Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # - Fonts
   fonts.packages = with pkgs; [
     open-sans
     noto-fonts
