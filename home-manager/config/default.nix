@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ./tilix
     ./bash.nix
     ./brave.nix
     ./btop.nix
