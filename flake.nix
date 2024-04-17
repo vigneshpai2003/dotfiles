@@ -9,32 +9,21 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-snapd = {
+      url = "github:io12/nix-snapd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+  outputs = { self, ... }@inputs:
     let
       system = "x86_64-linux";
     in
     {
       nixosConfigurations = (
         import ./hosts {
-          inherit inputs nixpkgs nixpkgs-stable home-manager system;
-          inherit (nixpkgs) lib;
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [
-              (final: prev: {
-                stable = import nixpkgs-stable {
-                  inherit system;
-                  config.allowUnfree = true;
-                  config.permittedInsecurePackages = [
-                    "electron-19.1.9"
-                  ];
-                };
-              })
-            ];
-          };
+          inherit inputs system;
+          inherit (inputs.nixpkgs) lib;
         }
       );
     };

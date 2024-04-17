@@ -18,6 +18,7 @@
     user-themes
     tiling-assistant
     clipboard-indicator
+    caffeine
   ]);
 
   dconf.settings = {
@@ -47,6 +48,7 @@
         "transparent-top-bar@zhanghai.me"
         "tiling-assistant@leleat-on-github"
         "clipboard-indicator@tudmotu.com"
+        "caffeine@patapon.info"
       ];
     };
   };

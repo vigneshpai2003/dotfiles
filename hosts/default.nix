@@ -1,9 +1,24 @@
-{ lib, inputs, home-manager, system, pkgs, ... }:
+{ lib, inputs, system, ... }:
 {
   inspiron =
     let
       hostname = "inspiron";
       username = "vignesh";
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [
+          (final: prev: {
+            stable = import inputs.nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+              config.permittedInsecurePackages = [
+                "electron-19.1.9" # for balena etcher
+              ];
+            };
+          })
+        ];
+      };
     in
     lib.nixosSystem {
       inherit system;
@@ -15,7 +30,7 @@
       modules = [
         ./${hostname}/configuration.nix
 
-        home-manager.nixosModules.home-manager
+        inputs.home-manager.nixosModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
@@ -29,6 +44,11 @@
               imports = [ ./${hostname}/home.nix ];
             };
           };
+        }
+
+        inputs.nix-snapd.nixosModules.default
+        {
+          services.snap.enable = true;
         }
       ];
     };

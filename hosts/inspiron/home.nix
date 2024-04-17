@@ -20,7 +20,7 @@
     ffmpeg
     mpv
     vlc
-    # spotify # install using flatpak instead (weird titlebar in nixpkgs on gnome)
+    # spotify # install using flatpak or snap instead (weird titlebar in nixpkgs on gnome)
 
     # - Virtual Machines
     gnome.gnome-boxes

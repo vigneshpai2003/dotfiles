@@ -5,6 +5,7 @@
 
     ../../nixos/system
     ../../nixos/gnome.nix
+    ../../nixos/hyprland.nix
     ../../nixos/flatpak.nix
     ../../nixos/virtualization.nix
     ../../nixos/locale.nix
