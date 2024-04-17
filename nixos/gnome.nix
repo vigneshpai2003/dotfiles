@@ -1,9 +1,6 @@
 { pkgs, config, lib, ... }:
 {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.libinput.enable = true;
-  services.xserver.excludePackages = [ pkgs.xterm ];
+  imports = [ ./x11.nix ];
 
   # for electron/chromium apps to run wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -16,10 +13,4 @@
 
   programs.dconf.enable = true;
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
 }
