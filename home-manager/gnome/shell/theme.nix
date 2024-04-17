@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     stable.yaru-theme
-    # whitesur-gtk-theme
+    whitesur-gtk-theme
   ];
   
   dconf.settings = {
