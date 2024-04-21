@@ -22,5 +22,15 @@
       show-show-apps-button = false;
       show-trash = false;
     };
+    "org/gnome/shell/extensions/dash2dock-lite" = {
+      apps-icon = true;
+      apps-icon-front = true;
+      autohide-dash = true;
+      autohide-dodge = true;
+      running-indicator-style = 1;
+      panel-mode = false;
+      open-app-animation = true;
+      icon-size = 0;
+    };
   };
 }

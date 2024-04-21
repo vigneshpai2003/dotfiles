@@ -10,6 +10,7 @@
     libreoffice
     marktext
     obsidian
+    pdfarranger
 
     # - Pictures
     loupe
