@@ -35,13 +35,13 @@
         "window-list@gnome-shell-extensions.gcampax.github.com"
         "places-menu@gnome-shell-extensions.gcampax.github.com"
         "native-window-placement@gnome-shell-extensions.gcampax.github.com"
-        "dash-to-dock@micxgx.gmail.com"
+        "dash2dock-lite@icedman.github.com"
       ];
 
       enabled-extensions = [
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "runcat@kolesnikov.se"
-        "dash2dock-lite@icedman.github.com"
+        "dash-to-dock@micxgx.gmail.com"
         "gsconnect@andyholmes.github.io"
         "AlphabeticalAppGrid@stuarthayhurst"
         "batterytime@typeof.pw"
