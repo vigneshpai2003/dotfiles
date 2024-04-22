@@ -3,7 +3,7 @@
   dconf.settings = {
     "org/gnome/desktop/wm/keybindings" = {
       toggle-fullscreen = [ "F11" ];
-      close = [ "<Super>q" ];
+      close = [ "<Shift><Super>q" ];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
