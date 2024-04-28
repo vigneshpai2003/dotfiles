@@ -98,7 +98,6 @@
     dell-command-configure
 
     # - Development
-    direnv
     devbox
     texliveFull
     fortls
@@ -107,6 +106,9 @@
     # - Text Editors
     vscode
   ];
+
+  # direnv
+  programs.direnv.enable = true;
 
   # - Steam
   # programs.steam.enable = true;

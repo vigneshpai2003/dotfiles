@@ -16,6 +16,7 @@
                 "electron-19.1.9" # for balena etcher
               ];
             };
+            inherit (inputs.nix-software-center.packages.${system}) nix-software-center;
           })
         ];
       };

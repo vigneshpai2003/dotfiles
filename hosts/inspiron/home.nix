@@ -6,6 +6,9 @@
   ];
 
   home.packages = with pkgs; [
+    # - Software Store
+    nix-software-center
+    
     # - Office Tools
     libreoffice
     marktext

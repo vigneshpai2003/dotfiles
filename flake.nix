@@ -13,6 +13,7 @@
       url = "github:io12/nix-snapd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-software-center.url = "github:snowfallorg/nix-software-center";
   };
 
   outputs = { self, ... }@inputs:
