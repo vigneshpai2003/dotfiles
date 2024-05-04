@@ -20,6 +20,7 @@
     tiling-assistant
     clipboard-indicator
     caffeine
+    live-captions-assistant
   ]);
 
   dconf.settings = {
@@ -51,6 +52,7 @@
         "tiling-assistant@leleat-on-github"
         "clipboard-indicator@tudmotu.com"
         "caffeine@patapon.info"
+        "livecaptions@sapples.net"
       ];
     };
   };

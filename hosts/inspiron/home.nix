@@ -11,9 +11,11 @@
     
     # - Office Tools
     libreoffice
+    stable.onlyoffice-bin_7_5
     marktext
     obsidian
     pdfarranger
+    wike
 
     # - Pictures
     loupe
@@ -24,6 +26,7 @@
     ffmpeg
     mpv
     vlc
+    livecaptions
     # spotify # install using flatpak or snap instead (weird titlebar in nixpkgs on gnome)
 
     # - Virtual Machines

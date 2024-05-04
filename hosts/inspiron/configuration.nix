@@ -74,7 +74,7 @@
     libgcc
 
     # - System Info
-    neofetch
+    fastfetch
     cpufetch
     htop
     btop
