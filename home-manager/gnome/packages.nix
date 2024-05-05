@@ -15,5 +15,8 @@
     gnome.gnome-font-viewer
     gnome.gnome-logs
     gnome.gnome-power-manager
+    snapshot # camera
+    gnome.gnome-maps
+    gnome.gnome-weather
   ];
 }

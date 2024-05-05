@@ -6,9 +6,6 @@
   ];
 
   home.packages = with pkgs; [
-    # - Software Store
-    nix-software-center
-    
     # - Office Tools
     libreoffice
     stable.onlyoffice-bin_7_5
@@ -58,7 +55,7 @@
     (import ../../external/warp/package.nix {inherit lib pkgs;})
 
     # - Build GTK Applications
-    stable.gnome-builder
+    gnome-builder
 
     # - Burn ISO to USB
     stable.etcher

@@ -8,7 +8,6 @@
     ./git.nix
     ./htop.nix
     ./kdeconnect.nix
-    ./neovim.nix
     ./vscode.nix
   ];
 }

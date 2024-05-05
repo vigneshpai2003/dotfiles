@@ -32,7 +32,27 @@
       "waydroid-default" = ''waydroid prop set persist.waydroid.width "" && waydroid prop set persist.waydroid.height "" && waydroid session stop'';
       "waydroid-vertical" = "waydroid prop set persist.waydroid.width 720 && waydroid prop set persist.waydroid.height 1080 && waydroid session stop";
 
-      "devbox-default" = "devbox shell -c devbox/default";
+      "flake-dev" = ''touch flake.nix .envrc && echo '
+{
+  description = "nix flake environment";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  };
+
+  outputs = { self, nixpkgs }:
+    let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    in
+    {
+      devShells.x86_64-linux.default = pkgs.mkShell {
+        packages = with pkgs; [
+        ];
+      };
+    };
+}' > flake.nix
+&& echo 'use flake' > .envrc
+'';
     };
   };
 }
