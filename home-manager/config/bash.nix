@@ -32,8 +32,7 @@
       "waydroid-default" = ''waydroid prop set persist.waydroid.width "" && waydroid prop set persist.waydroid.height "" && waydroid session stop'';
       "waydroid-vertical" = "waydroid prop set persist.waydroid.width 720 && waydroid prop set persist.waydroid.height 1080 && waydroid session stop";
 
-      "flake-dev" = ''touch flake.nix .envrc && echo '
-{
+      "flake-dev" = ''touch flake.nix .envrc && echo '{
   description = "nix flake environment";
 
   inputs = {
@@ -50,8 +49,7 @@
         ];
       };
     };
-}' > flake.nix
-&& echo 'use flake' > .envrc
+}' > flake.nix && echo 'use flake' > .envrc
 '';
     };
   };
