@@ -11,6 +11,9 @@
 
     # - logging in to IISER network automatically
     ../../external/caa
+
+    # - nautilus
+    ../../nixos/nautilus.nix
   ];
 
   nix.settings = {
@@ -61,6 +64,7 @@
     tree
     fzf
     zoxide # cd alternative
+    bc
     nixpkgs-fmt
 
     # - Build Tools
@@ -89,6 +93,7 @@
     # - Browser
     firefox
     brave
+    microsoft-edge-dev
 
     # - Hotspot
     linux-wifi-hotspot
@@ -106,7 +111,7 @@
     vscode
   ];
 
-  # direnv
+  # - direnv
   programs.direnv.enable = true;
 
   # - Steam

@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     gnome.gnome-system-monitor
     resources # better system monitor
-    gnome.nautilus # files
     gnome.baobab # disk usage
     gnome.gnome-disk-utility # disk info
     gnome.gnome-clocks

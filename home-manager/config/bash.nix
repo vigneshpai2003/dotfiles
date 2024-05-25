@@ -13,9 +13,13 @@
       "btop" = "btop --utf-force";
       "powertop" = "sudo powertop";
       "gputop" = "sudo intel_gpu_top";
+      "fetch" = "fastfetch";
+
       "ram" = ''echo $(vmstat -s | grep "used memory" | tr -d -c 0-9 | awk '{printf ("🐏  %.2f\n GiB", $1 / 1024 / 1024)}')'';
-      "power" = ''echo ⚡ $(upower -d | grep -m1 "energy-rate:" | tr -dc "(\.[0-9]+)?\b") W'';
+      "power" = ''bc -l <<< $(cat /sys/class/power_supply/BAT0/current_now)*$(cat /sys/class/power_supply/BAT0/voltage_now)/1000000000000'';
+
       "gnome-wayland-debug" = "dbus-run-session -- gnome-shell --nested --wayland";
+      "logout" = "gnome-session-quit --no-prompt";
 
       "dell-thermal-status" = "sudo cctk --ThermalManagement | sed '/^fopen_wrapper.c\\|^access_wrapper.c/d'";
       "dell-thermal-cool" = "sudo cctk --ThermalManagement=Cool | sed '/^fopen_wrapper.c\\|^access_wrapper.c/d'";
@@ -46,6 +50,10 @@
     {
       devShells.x86_64-linux.default = pkgs.mkShell {
         packages = with pkgs; [
+          nodejs
+          (python311.withPackages (pypkgs: with pypkgs; [
+            numpy
+          ]))
         ];
       };
     };

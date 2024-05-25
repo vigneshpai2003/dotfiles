@@ -52,7 +52,7 @@
     telegram-desktop
 
     # - Warp Terminal
-    (import ../../external/warp/package.nix {inherit lib pkgs;})
+    (import ../../external/warp/package.nix { inherit lib pkgs; })
 
     # - Build GTK Applications
     gnome-builder
