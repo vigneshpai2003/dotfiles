@@ -59,6 +59,8 @@
 
     # - Burn ISO to USB
     stable.etcher
+
+    uxplay
   ];
 
   # This value determines the home Manager release that your
