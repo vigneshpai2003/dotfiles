@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     # - Office Tools
     libreoffice
-    stable.onlyoffice-bin_7_5
+    stable.onlyoffice-bin_latest
     marktext
     obsidian
     pdfarranger
@@ -46,7 +46,7 @@
     libsForQt5.kdeconnect-kde
 
     # - Math Graphing
-    geogebra6
+    # geogebra6
 
     # - Social
     telegram-desktop
@@ -58,7 +58,7 @@
     gnome-builder
 
     # - Burn ISO to USB
-    stable.etcher
+    old-stable.etcher
 
     uxplay
   ];
