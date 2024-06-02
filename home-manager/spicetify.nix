@@ -15,10 +15,7 @@ in
 
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
-      shuffle
-      hidePodcasts
       powerBar
-      history
     ];
   };
 
