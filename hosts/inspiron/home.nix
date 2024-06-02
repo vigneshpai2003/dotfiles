@@ -24,6 +24,7 @@
     ffmpeg
     mpv
     vlc
+    cava
 
     # - Virtual Machines
     gnome.gnome-boxes

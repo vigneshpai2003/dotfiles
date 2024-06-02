@@ -1,6 +1,4 @@
 { config, ... }:
 {
-  home.file.".config/tilix/schemes" = {
-    source = ./schemes;
-  };
+  home.file."${config.xdg.configHome}/tilix/schemes".source = ./schemes;
 }
