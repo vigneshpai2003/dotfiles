@@ -14,6 +14,7 @@
       url = "github:io12/nix-snapd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify.url = "github:the-argus/spicetify-nix";
   };
 
   outputs = { self, ... }@inputs:

@@ -3,6 +3,7 @@
   imports = [
     ../../home-manager/gnome
     ../../home-manager/config
+    ../../home-manager/spicetify.nix
   ];
 
   home.packages = with pkgs; [
@@ -23,8 +24,6 @@
     ffmpeg
     mpv
     vlc
-    livecaptions
-    # spotify # install using flatpak or snap instead (weird titlebar in nixpkgs on gnome)
 
     # - Virtual Machines
     gnome.gnome-boxes
@@ -46,7 +45,7 @@
     libsForQt5.kdeconnect-kde
 
     # - Math Graphing
-    # geogebra6
+    geogebra6
 
     # - Social
     telegram-desktop
@@ -60,7 +59,12 @@
     # - Burn ISO to USB
     old-stable.etcher
 
+    # - Mirror iPhone
     uxplay
+
+    # - Language
+    dialect
+    livecaptions
   ];
 
   # This value determines the home Manager release that your
