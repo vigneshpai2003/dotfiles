@@ -59,6 +59,7 @@
     };
 }' > flake.nix && echo 'use flake' > .envrc
 '';
+      "appletv" = ''uxplay -p -vsync no'';
     };
   };
 }

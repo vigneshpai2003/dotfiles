@@ -21,6 +21,7 @@
     clipboard-indicator
     caffeine
     live-captions-assistant
+    search-light
   ]);
 
   dconf.settings = {
@@ -53,6 +54,7 @@
         "clipboard-indicator@tudmotu.com"
         "caffeine@patapon.info"
         "livecaptions@sapples.net"
+        "search-light@icedman.github.com"
       ];
     };
   };

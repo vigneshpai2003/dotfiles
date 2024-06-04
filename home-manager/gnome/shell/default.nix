@@ -2,9 +2,10 @@
 {
   imports = [
     ./desktop.nix
-    ./extensions.nix
     ./dock.nix
+    ./extensions.nix
     ./monitering.nix
+    ./spotlight.nix
     ./theme.nix
   ];
 }
