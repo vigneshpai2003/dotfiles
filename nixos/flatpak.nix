@@ -15,6 +15,7 @@
         name = "system-icons";
         paths = with pkgs; [
           yaru-theme
+          whitesur-icon-theme
         ];
         pathsToLink = [ "/share/icons" ];
       };

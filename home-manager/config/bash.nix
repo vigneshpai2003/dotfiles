@@ -9,6 +9,7 @@
     '';
 
     shellAliases = {
+      "rebirth" = "sudo nixos-rebuild switch --flake";
       "cd" = "z";
       "btop" = "btop --utf-force";
       "powertop" = "sudo powertop";
