@@ -21,6 +21,11 @@
               inherit system;
               config.allowUnfree = true;
             };
+
+            master = import inputs.nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           })
         ];
       };
@@ -49,11 +54,6 @@
               imports = [ ./${hostname}/home.nix ];
             };
           };
-        }
-
-        inputs.nix-snapd.nixosModules.default
-        {
-          services.snap.enable = true;
         }
       ];
     };

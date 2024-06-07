@@ -50,6 +50,7 @@
 
     # - Social
     telegram-desktop
+    zoom-us
 
     # - Warp Terminal
     (import ../../external/warp/package.nix { inherit lib pkgs; })

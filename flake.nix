@@ -6,12 +6,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-old-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-snapd = {
-      url = "github:io12/nix-snapd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify.url = "github:the-argus/spicetify-nix";
