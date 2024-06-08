@@ -58,9 +58,6 @@
     # - Build GTK Applications
     gnome-builder
 
-    # - Burn ISO to USB
-    old-stable.etcher
-
     # - Mirror iPhone
     uxplay
 

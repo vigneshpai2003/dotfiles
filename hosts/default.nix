@@ -9,14 +9,6 @@
         config.allowUnfree = true;
         overlays = [
           (final: prev: {
-            old-stable = import inputs.nixpkgs-old-stable {
-              inherit system;
-              config.allowUnfree = true;
-              config.permittedInsecurePackages = [
-                "electron-19.1.9" # for balena etcher
-              ];
-            };
-
             stable = import inputs.nixpkgs-stable {
               inherit system;
               config.allowUnfree = true;
