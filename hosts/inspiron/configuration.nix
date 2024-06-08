@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
 
     ../../nixos/system
-    ../../nixos/gnome.nix
+    ../../nixos/hyprland.nix
     ../../nixos/flatpak.nix
     ../../nixos/virtualization.nix
     ../../nixos/locale.nix
@@ -89,6 +89,9 @@
 
     # - .desktop File Utilities
     desktop-file-utils
+
+    # - Terminal Emulator
+    kitty
 
     # - Browser
     firefox

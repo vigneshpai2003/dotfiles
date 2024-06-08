@@ -1,7 +1,6 @@
 { config, inputs, pkgs, ... }:
 {
   imports = [
-    ../../home-manager/gnome
     ../../home-manager/config
     ../../home-manager/spicetify.nix
   ];

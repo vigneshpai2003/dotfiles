@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     pavucontrol
+    playerctl
   ];
 
   sound.enable = true;
