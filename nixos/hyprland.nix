@@ -8,9 +8,13 @@
     xwayland.enable = true;
   };
 
+  programs.hyprlock.enable = true;
+  services.hypridle.enable = true;
+
   environment.systemPackages = with pkgs; [
     wofi
     waybar
+    hyprpaper
   ];
 
   # for electron/chromium apps to run wayland

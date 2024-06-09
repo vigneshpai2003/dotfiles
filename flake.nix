@@ -11,6 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify.url = "github:the-argus/spicetify-nix";
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = { self, ... }@inputs:

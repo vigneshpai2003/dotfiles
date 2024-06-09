@@ -84,6 +84,9 @@
     nvme-cli
     geekbench
 
+    # - Bluetooth
+    overskride
+
     # - Appimage Support
     appimage-run
 

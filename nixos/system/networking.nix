@@ -5,6 +5,10 @@
     networkmanager.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet
+  ];
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -30,4 +34,6 @@
     enable = true;
     settings.General.Experimental = true;
   };
+
+  services.blueman.enable = true;
 }

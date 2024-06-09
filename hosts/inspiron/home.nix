@@ -3,9 +3,17 @@
   imports = [
     ../../home-manager/config
     ../../home-manager/spicetify.nix
+
+    inputs.ags.homeManagerModules.default
   ];
 
   home.packages = with pkgs; [
+    # - Basic Utilities
+    resources # better system monitor
+    gnome.baobab # disk usage
+    gnome.gnome-disk-utility
+    gnome.evince # pdf
+
     # - Office Tools
     libreoffice
     stable.onlyoffice-bin_latest
@@ -64,6 +72,16 @@
     dialect
     livecaptions
   ];
+
+  programs.ags = {
+    enable = true;
+
+    extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+    ];
+  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
