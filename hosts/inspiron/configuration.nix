@@ -140,6 +140,7 @@
 
   # - Fonts
   fonts.packages = with pkgs; [
+    font-awesome
     open-sans
     noto-fonts
     noto-fonts-color-emoji

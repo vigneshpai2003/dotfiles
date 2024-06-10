@@ -31,5 +31,10 @@ in
       fullAppDisplay
       powerBar
     ];
+
+    enabledCustomApps = with spicePkgs.apps; [
+      lyrics-plus
+      marketplace
+    ];
   };
 }

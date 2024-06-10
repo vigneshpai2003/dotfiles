@@ -7,8 +7,7 @@
     gnome.gnome-disk-utility # disk info
     gnome.gnome-clocks
     gnome.gnome-calculator
-    gnome.evin    gnome.evince # pdf
-ce # pdf
+    gnome.evince # pdf
     gnome-text-editor
     gnome-firmware # firmware updater
     gnome.gnome-characters
