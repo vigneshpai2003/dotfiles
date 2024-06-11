@@ -71,8 +71,6 @@
     # - Language
     dialect
     livecaptions
-
-    whitesur-icon-theme
   ];
 
   programs.ags = {
