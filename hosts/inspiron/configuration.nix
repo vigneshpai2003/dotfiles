@@ -11,9 +11,6 @@
 
     # - logging in to IISER network automatically
     ../../external/caa
-
-    # - nautilus
-    ../../nixos/nautilus.nix
   ];
 
   nix.settings = {

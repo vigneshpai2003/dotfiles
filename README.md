@@ -11,12 +11,11 @@ Remember to modify `hosts/default.nix` appropriately as well with the correct ho
 - `distrobox` is best installed locally from their GitHub repo since the nixpkgs version mounts `/nix` in the containers which leads to problems.
 
 ## TODO
-- dconf and GTK theming
 - make bluetooth headset default using wpctl when connected
 - cursor themes
 - customize waybar
 - dunst theme
 - wofi theme
 - colume and brightness sliders using eww
-- caffeine extension using hypridle and environment variables
+- caffeine extension (using hypridle?)
 - eww bar

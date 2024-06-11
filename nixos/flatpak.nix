@@ -14,8 +14,7 @@
       aggregatedIcons = pkgs.buildEnv {
         name = "system-icons";
         paths = with pkgs; [
-          yaru-theme
-          whitesur-icon-theme
+          gnome.adwaita-icon-theme
         ];
         pathsToLink = [ "/share/icons" ];
       };

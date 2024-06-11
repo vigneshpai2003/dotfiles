@@ -1,8 +1,10 @@
 { config, inputs, pkgs, ... }:
 {
   imports = [
+    ../../home-manager/hyprland.nix
     ../../home-manager/config
     ../../home-manager/spicetify.nix
+    ../../home-manager/nautilus-extensions
 
     inputs.ags.homeManagerModules.default
   ];
