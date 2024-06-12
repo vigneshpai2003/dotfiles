@@ -1,4 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, config, username, ... }:
+let
+  waybar-mediaplayer = (import ../.config/waybar/mediaplayer { inherit pkgs; });
+in
 {
   services.xserver.enable = true;
   services.xserver.excludePackages = [ pkgs.xterm ];
@@ -40,9 +43,13 @@
     polkit_gnome
 
     (pkgs.writeShellScriptBin "polkit-gnome" ''
-      ...
       ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
-      ...
+    '')
+
+    waybar-mediaplayer
+
+    (pkgs.writeShellScriptBin "waybar-mediaplayer" ''
+      ${waybar-mediaplayer}/bin/mediaplayer.py
     '')
   ];
 
