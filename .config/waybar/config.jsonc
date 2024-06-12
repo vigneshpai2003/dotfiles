@@ -11,7 +11,9 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "custom/previous",
         "custom/media",
+        "custom/next",
         "pulseaudio",
         "backlight",
         "clock",
@@ -35,7 +37,7 @@
         "format-icons": {
             "default": "",
             "performance": "",
-            "balanced": "",
+            "balanced": " ",
             "power-saver": ""
         }
     },
@@ -53,15 +55,6 @@
                 "",
                 ""
             ]
-        }
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
         }
     },
     "backlight": {
@@ -114,18 +107,10 @@
         "tooltip-format": "Open application launcher",
         "on-click": "pkill wofi || wofi --show drun"
     },
-    "custom/spotify": {
-        "interval": 2,
-        "exec": "sh -c ~/dotfiles/.config/waybar/spotify.sh",
-        "exec-on-event": true,
-        "format": "{}",
-        "return-type": "string",
-        "on-click": "playerctl play-pause"
-    },
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 40,
+        "max-length": 5,
         "format-icons": {
             "spotify": "",
             "default": "🎜"
@@ -133,5 +118,13 @@
         "escape": true,
         "exec": "waybar-mediaplayer 2> /dev/null",
         "on-click": "playerctl play-pause"
+    },
+    "custom/previous": {
+        "format": "󰒮",
+        "on-click": "playerctl previous"
+    },
+    "custom/next": {
+        "format": "󰒭",
+        "on-click": "playerctl next"
     }
 }
