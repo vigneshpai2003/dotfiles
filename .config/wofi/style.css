@@ -1,0 +1,27 @@
+window {
+    font-size: 28px;
+    font-family: "JetBrainsMono Nerd Font";
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+#entry:selected {
+    background-color: #4f76c7;
+    background: linear-gradient(90deg, #2c416f, #4f8053);
+}
+
+#entry {
+    background-color: rgb(50, 50, 50);
+}
+
+#input {
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background: linear-gradient(90deg, rgb(52, 52, 52), rgb(99, 99, 99));
+}
+
+image {
+    margin-right: 10px;
+}
