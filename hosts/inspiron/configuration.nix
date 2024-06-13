@@ -10,7 +10,7 @@
     ../../nixos/locale.nix
 
     # - logging in to IISER network automatically
-    ../../external/caa
+    ../../caa
   ];
 
   nix.settings = {

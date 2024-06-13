@@ -1,6 +1,6 @@
 { config, pkgs, username, ... }:
 let
-  caaDir = "/home/${username}/dotfiles/external/caa";
+  caaDir = "/home/${username}/dotfiles/caa";
 in
 {
   networking.networkmanager = {

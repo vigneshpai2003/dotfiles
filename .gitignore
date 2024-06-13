@@ -1,5 +1,6 @@
 *.AppImage
 *.log
+.direnv
+result
 
-external/caa/.caa/caa.pid
-external/distrobox/distrobox-1.7.1
+caa/.caa/caa.pid
