@@ -14,9 +14,13 @@
               config.allowUnfree = true;
             };
 
-            master = import inputs.nixpkgs-stable {
+            master = import inputs.nixpkgs-master {
               inherit system;
               config.allowUnfree = true;
+            };
+
+            mypkgs = import ../mypkgs {
+              inherit pkgs lib;
             };
           })
         ];

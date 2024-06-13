@@ -1,7 +1,4 @@
-{ pkgs, config, username, ... }:
-let
-  waybar-mediaplayer = (import ../.config/waybar/mediaplayer { inherit pkgs; });
-in
+{ pkgs, config, username, inputs, ... }:
 {
   services.xserver.enable = true;
   services.xserver.excludePackages = [ pkgs.xterm ];
@@ -28,7 +25,6 @@ in
     # - gtk theming
     gnome.adwaita-icon-theme
     gnome.dconf-editor
-    nwg-look
     gsettings-desktop-schemas
     glib
 
@@ -46,11 +42,7 @@ in
       ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     '')
 
-    waybar-mediaplayer
-
-    (pkgs.writeShellScriptBin "waybar-mediaplayer" ''
-      ${waybar-mediaplayer}/bin/mediaplayer.py
-    '')
+    mypkgs.waybar-mediaplayer
   ];
 
   xdg.portal = {

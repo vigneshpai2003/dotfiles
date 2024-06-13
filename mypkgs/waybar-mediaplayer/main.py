@@ -127,12 +127,15 @@ class PlayerManager:
                 track_info = " " + track_info
             else:
                 track_info = " " + track_info
+                
+        self.write_output(track_info, player)
+        
         # only print output if no other player is playing
-        current_playing = self.get_first_playing_player()
-        if current_playing is None or current_playing.props.player_name == player.props.player_name:
-            self.write_output(track_info, player)
-        else:
-            logger.debug(f"Other player {current_playing.props.player_name} is playing, skipping")
+        # current_playing = self.get_first_playing_player()
+        # if current_playing is None or current_playing.props.player_name == player.props.player_name:
+        #     self.write_output(track_info, player)
+        # else:
+        #     logger.debug(f"Other player {current_playing.props.player_name} is playing, skipping")
 
     def on_player_appeared(self, _, player):
         logger.info(f"Player has appeared: {player.name}")
