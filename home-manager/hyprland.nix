@@ -1,20 +1,20 @@
 { config, pkgs, inputs, ... }:
 {
+  imports = [ inputs.ags.homeManagerModules.default ];
+
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     extraConfig = "source = ~/dotfiles/.config/hypr/hyprland.conf";
   };
 
-  services.hypridle = {
+  programs.ags = {
     enable = true;
-    importantPrefixes = [
-      "$"
-      "source"
+    configDir = null;
+    extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
     ];
-    settings = {
-      "source" = "${config.home.homeDirectory}/dotfiles/.config/hypr/hypridle.conf";
-    };
   };
 
   home.packages = with pkgs; [

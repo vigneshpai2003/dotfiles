@@ -136,14 +136,18 @@ window#waybar {
   min-width: 400px;
 }
 
+#custom-previous, #custom-next {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 1.4em;
+}
+
 #custom-previous {
   border-radius: 10px 0px 0px 10px;
-  font-size: 1.5em;
 }
 
 #custom-next {
   border-radius: 0px 10px 10px 0px;
-  font-size: 1.5em;
 }
 
 tooltip {

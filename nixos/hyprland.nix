@@ -7,7 +7,6 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   xdg.portal = {
@@ -28,9 +27,14 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; # - for electron/chromium apps to run wayland
 
+  services.hypridle.enable = true;
   programs.hyprlock.enable = true;
 
-  environment.systemPackages = with pkgs; [    
+  services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+  '';
+
+  environment.systemPackages = with pkgs; [
     # - launcher
     wofi
 

@@ -105,7 +105,7 @@
         "format": " ",
         "tooltip": true,
         "tooltip-format": "Open application launcher",
-        "on-click": "pkill wofi || wofi --show drun"
+        "on-click": "pkill wofi || wofi --conf ~/dotfiles/.config/wofi/config --style ~/dotfiles/.config/wofi/style.css"
     },
     "custom/media": {
         "format": "{icon} {}",
