@@ -111,7 +111,7 @@
     flatpak-builder
 
     # - Text Editors
-    master.vscode
+    vscode
   ];
 
   # - direnv

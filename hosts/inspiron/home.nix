@@ -4,9 +4,7 @@
     ../../home-manager/hyprland.nix
     ../../home-manager/config
     ../../home-manager/spicetify.nix
-    ../../home-manager/nautilus-extensions
-
-    inputs.ags.homeManagerModules.default
+    ../../home-manager/nautilus
   ];
 
   home.packages = with pkgs; [
@@ -15,6 +13,7 @@
     gnome.baobab # disk usage
     gnome.gnome-disk-utility
     gnome.evince # pdf
+    gnome.gnome-logs
 
     # - Office Tools
     libreoffice
@@ -71,16 +70,6 @@
     dialect
     livecaptions
   ];
-
-  programs.ags = {
-    enable = true;
-
-    extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-    ];
-  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

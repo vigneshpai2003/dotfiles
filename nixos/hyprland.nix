@@ -7,20 +7,48 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
-  # - make nautilus extensions work
-  environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${config.system.path}/lib/nautilus/extensions-4";
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
+  # - gnome virtual file system, for trash support and evince history etc.
+  services.gvfs.enable = true;
+
+  # - configure gtk settings
+  programs.dconf.enable = true;
+
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1"; # - for electron/chromium apps to run wayland
 
   programs.hyprlock.enable = true;
-  services.hypridle.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [    
+    # - launcher
     wofi
+
+    # - bar
     waybar
-    hyprpaper
-    dunst
+    mypkgs.waybar-mediaplayer
+
+    # - notifications
     libnotify
+    dunst
+
+    # - clipboard
+    wl-clipboard
+    cliphist
+
+    # - screen capture
+    grim
+    slurp
 
     # - gtk theming
     gnome.adwaita-icon-theme
@@ -31,37 +59,10 @@
     # - qt6 theming
     kdePackages.qt6ct
 
-    # - nautilus
-    gnome.nautilus
-    gnome.nautilus-python
-
     # - to be started by hyprland
     polkit_gnome
-
     (pkgs.writeShellScriptBin "polkit-gnome" ''
       ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     '')
-
-    mypkgs.waybar-mediaplayer
   ];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
-  };
-
-  # - gnome virtual file system, for trash support and evince history etc.
-  services.gvfs.enable = true;
-
-  # - configure gtk themes
-  programs.dconf.enable = true;
-
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
-  # - for electron/chromium apps to run wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

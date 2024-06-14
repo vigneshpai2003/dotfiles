@@ -2,25 +2,25 @@
     "layer": "top",
     "modules-left": [
         "custom/launcher",
-        "power-profiles-daemon",
         "cpu",
         "memory",
-        "tray"
+        "custom/previous",
+        "custom/media",
+        "custom/next"
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "custom/previous",
-        "custom/media",
-        "custom/next",
+        "tray",
         "pulseaudio",
         "backlight",
-        "clock",
-        "battery"
+        "power-profiles-daemon",
+        "battery",
+        "clock"
     ],
     "hyprland/workspaces": {
-        "format": "{icon}",
+        "format": "{name}",
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
@@ -31,14 +31,14 @@
         "sort-by-number": true
     },
     "power-profiles-daemon": {
-        "format": "{icon} {profile}",
+        "format": "{icon}",
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
             "default": "",
             "performance": "",
             "balanced": " ",
-            "power-saver": ""
+            "power-saver": " "
         }
     },
     "pulseaudio": {
@@ -69,12 +69,12 @@
         "states": {
             "good": 95,
             "warning": 30,
-            "critical": 20
+            "critical": 15
         },
-        "format": "{icon}  {capacity}% {power}",
+        "format": "{icon}  {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
+        "format-alt": "{power} W",
         "format-icons": [
             "",
             "",
@@ -121,10 +121,14 @@
     },
     "custom/previous": {
         "format": "󰒮",
+        "return-type": "json",
+        "exec": "waybar-mediaplayer 2> /dev/null",
         "on-click": "playerctl previous"
     },
     "custom/next": {
         "format": "󰒭",
-        "on-click": "playerctl next"
+        "return-type": "json",
+        "exec": "waybar-mediaplayer 2> /dev/null",
+        "on-click": "playerctl previous"
     }
 }

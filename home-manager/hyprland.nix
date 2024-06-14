@@ -1,4 +1,23 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
-  home.file."${config.xdg.configHome}/hypr/hyprland.conf".text = "source = ~/dotfiles/.config/hypr/hyprland.conf";
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    extraConfig = "source = ~/dotfiles/.config/hypr/hyprland.conf";
+  };
+
+  services.hypridle = {
+    enable = true;
+    importantPrefixes = [
+      "$"
+      "source"
+    ];
+    settings = {
+      "source" = "${config.home.homeDirectory}/dotfiles/.config/hypr/hypridle.conf";
+    };
+  };
+
+  home.packages = with pkgs; [
+    hyprpaper
+  ];
 }
