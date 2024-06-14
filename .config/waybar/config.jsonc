@@ -89,7 +89,8 @@
     },
     "clock": {
         "format": "{:%H:%M:%S}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%Y-%m-%d}",
+        "interval": 1
     },
     "cpu": {
         "interval": 10,
