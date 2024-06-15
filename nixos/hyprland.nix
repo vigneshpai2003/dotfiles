@@ -31,9 +31,8 @@
   services.hypridle.enable = true;
   programs.hyprlock.enable = true;
 
-  services.logind.extraConfig = ''
-    HandlePowerKey=ignore
-  '';
+  services.logind.powerKey = "ignore";
+  services.logind.lidSwitch = "ignore";
 
   environment.systemPackages = with pkgs; [
     # - launcher
