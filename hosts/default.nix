@@ -1,4 +1,4 @@
-{ lib, inputs, system, ... }:
+{ lib, inputs, mypkgs, system, ... }:
 {
   inspiron =
     let
@@ -19,9 +19,7 @@
               config.allowUnfree = true;
             };
 
-            mypkgs = import ../mypkgs {
-              inherit pkgs lib;
-            };
+            inherit mypkgs;
           })
         ];
       };

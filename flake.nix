@@ -1,6 +1,5 @@
 {
   description = "System flake";
-  # build using: sudo nixos-rebuild switch --flake .
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -18,12 +17,21 @@
   outputs = { self, ... }@inputs:
     let
       system = "x86_64-linux";
+      inherit (inputs.nixpkgs) lib;
+      genSystems = (lib.genAttrs [
+        "aarch64-linux"
+        "x86_64-linux"
+      ]);
     in
     {
+      packages = genSystems (system: import ./mypkgs {
+        inherit lib inputs system;
+      });
+
       nixosConfigurations = (
         import ./hosts {
-          inherit inputs system;
-          inherit (inputs.nixpkgs) lib;
+          inherit lib inputs system;
+          mypkgs = self.packages.${system};
         }
       );
     };
