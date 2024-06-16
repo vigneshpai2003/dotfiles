@@ -15,8 +15,6 @@ do
         systemd-cat -t "vignesh@hyprlock" echo "Verified left-index-finger."
         break
     fi
-
-    systemd-cat -t "vignesh@hyprlock" echo "Failed to verify fingerprint."
 done
 
 pkill -USR1 hyprlock
