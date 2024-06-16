@@ -10,6 +10,10 @@ window#waybar {
   background-color: transparent;
 }
 
+#window {
+  margin-left: 10px;
+}
+
 #workspaces {
   background-color: transparent;
 }

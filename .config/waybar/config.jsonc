@@ -2,11 +2,10 @@
     "layer": "top",
     "modules-left": [
         "custom/launcher",
-        "cpu",
-        "memory",
         "custom/previous",
         "custom/media",
-        "custom/next"
+        "custom/next",
+        "hyprland/window"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -16,9 +15,14 @@
         "pulseaudio",
         "backlight",
         "power-profiles-daemon",
+        "cpu",
+        "memory",
         "battery",
         "clock"
     ],
+    "hyprland/window": {
+        "icon": true
+    },
     "hyprland/workspaces": {
         "format": "{name}",
         "on-click": "activate",
@@ -93,12 +97,12 @@
         "interval": 1
     },
     "cpu": {
-        "interval": 10,
-        "format": " {}%",
+        "interval": 5,
+        "format": " {usage}%",
         "max-length": 10
     },
     "memory": {
-        "interval": 30,
+        "interval": 20,
         "format": " {}%",
         "max-length": 10
     },

@@ -53,6 +53,7 @@
     # - screen capture
     grim
     slurp
+    grimblast
 
     # - gtk theming
     gnome.adwaita-icon-theme
