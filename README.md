@@ -1,6 +1,9 @@
 # dotfiles
 
-These are my personal nixos system configuration files using flakes.
+These are my personal nixos system configuration files using flakes in constant development.
+This is how it looks right now.
+
+![Screenshot of Desktop](desktop.png)
 
 ## Important Notes
 - Modify `home-manager/config/git.nix` with your user name and email.
