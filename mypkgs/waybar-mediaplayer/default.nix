@@ -35,6 +35,6 @@ python3Packages.buildPythonApplication rec {
   meta = with lib; {
     description = "A simple media player widget backend for Waybar";
     platforms = platforms.linux;
-    mainProgram = "mediaplayer.py";
+    mainProgram = "waybar-mediaplayer";
   };
 }
