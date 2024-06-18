@@ -52,6 +52,8 @@
 
   environment.systemPackages = with pkgs; [
     linux-wifi-hotspot # - Hotspot GUI
+    riseup-vpn # - VPN
+    resources # - System Monitor
   ];
 
   programs.kdeconnect.enable = true;

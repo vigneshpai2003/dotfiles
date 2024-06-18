@@ -79,8 +79,6 @@
     gnome.gnome-disk-utility
     nvme-cli
     gnome.gnome-logs # - Logs
-    riseup-vpn # - VPN
-    resources # - System Monitor
     brightnessctl # - Brightness Control
     curl # - Download Tools
     wget
@@ -143,6 +141,8 @@
     slurp # - Select Screen Region
     grimblast # - Screen Capture GUI
     gsettings-desktop-schemas # - gsettings Schemas
+
+    mypkgs.iiserpune-selenium-login # - IISER Pune LAN Login
   ];
 
   # This value determines the home Manager release that your

@@ -9,7 +9,5 @@
     libsForQt5.qtstyleplugin-kvantum # - Qt5 Theming
 
     gnome.adwaita-icon-theme
-    papirus-icon-theme
-    catppuccin-kvantum
   ];
 }

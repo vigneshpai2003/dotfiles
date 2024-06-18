@@ -3,6 +3,13 @@
   networking = {
     hostName = hostname;
     networkmanager.enable = true;
+
+    firewall = {
+      enable = true;
+      # passthrough uxplay
+      allowedTCPPorts = [ 7100 7000 7001 ];
+      allowedUDPPorts = [ 7011 6001 6000 ];
+    };
   };
 
   services.avahi = {
@@ -15,13 +22,6 @@
       userServices = true;
       domain = true;
     };
-  };
-
-  networking.firewall = {
-    enable = true;
-    # passthrough uxplay
-    allowedTCPPorts = [ 7100 7000 7001 ]; 
-    allowedUDPPorts = [ 7011 6001 6000 ];
   };
 
   hardware.bluetooth = {
