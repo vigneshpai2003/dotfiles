@@ -8,9 +8,6 @@
     ../../nixos/flatpak.nix
     ../../nixos/virtualization.nix
     ../../nixos/locale.nix
-
-    # - logging in to IISER network automatically
-    ../../caa
   ];
 
   nix.settings = {
@@ -21,10 +18,12 @@
     substituters = [
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"
+      "https://hyprland.cachix.org"
     ];
 
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
 
@@ -52,73 +51,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # - Command Line Essentials
-    git
-    curl
-    wget
-    zip
-    unzip
-    tree
-    fzf
-    zoxide # cd alternative
-    bc
-    nixpkgs-fmt
-
-    # - Build Tools
-    taglib
-    openssl
-    libxml2
-    libxslt
-    libzip
-    zlib
-    libgcc
-
-    # - System Info
-    fastfetch
-    cpufetch
-    htop
-    btop
-    nvme-cli
-    geekbench
-
-    # - Bluetooth
-    overskride
-
-    # - Appimage Support
-    appimage-run
-
-    # - .desktop File Utilities
-    desktop-file-utils
-
-    # - Terminal Emulator
-    kitty
-
-    # - Browser
-    firefox
-    brave
-    microsoft-edge-dev
-
-    # - Hotspot
-    linux-wifi-hotspot
-
-    # - Dell BIOS options
-    dell-command-configure
-
-    # - Development
-    devbox
-    texliveFull
-    fortls
-    flatpak-builder
-
-    # - Text Editors
-    master.vscode
+    linux-wifi-hotspot # - Hotspot GUI
   ];
+
+  programs.kdeconnect.enable = true;
 
   # - direnv
   programs.direnv.enable = true;
-
-  # - Steam
-  # programs.steam.enable = true;
 
   # - WayDroid
   virtualisation.waydroid.enable = true;

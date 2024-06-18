@@ -3,6 +3,7 @@ window {
     font-family: "JetBrainsMono Nerd Font";
     border-radius: 10px;
     background-color: transparent;
+    color: rgb(190, 190, 190);
 }
 
 #entry:selected {
@@ -20,6 +21,7 @@ window {
     margin-left: 100px;
     margin-right: 100px;
     background: linear-gradient(90deg, rgb(52, 52, 52), rgb(99, 99, 99));
+    color: rgb(193, 193, 193);
 }
 
 image {

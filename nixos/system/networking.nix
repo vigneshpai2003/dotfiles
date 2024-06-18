@@ -5,10 +5,6 @@
     networkmanager.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    networkmanagerapplet
-  ];
-
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -27,8 +23,6 @@
     allowedTCPPorts = [ 7100 7000 7001 ]; 
     allowedUDPPorts = [ 7011 6001 6000 ];
   };
-
-  programs.kdeconnect.enable = true;
 
   hardware.bluetooth = {
     enable = true;

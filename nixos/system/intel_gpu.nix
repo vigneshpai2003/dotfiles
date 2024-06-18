@@ -1,12 +1,5 @@
 { pkgs, config, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    intel-gpu-tools
-    libva-utils
-    vulkan-tools
-    clinfo
-  ];
-
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -17,8 +10,7 @@
       vaapiVdpau
       libvdpau-va-gl
       mesa.drivers
-      intel-ocl
     ];
   };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 }

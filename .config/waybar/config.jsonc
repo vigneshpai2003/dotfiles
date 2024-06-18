@@ -134,6 +134,6 @@
         "format": "󰒭",
         "return-type": "json",
         "exec": "waybar-mediaplayer 2> /dev/null",
-        "on-click": "playerctl previous"
+        "on-click": "playerctl next"
     }
 }

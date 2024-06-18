@@ -1,14 +1,13 @@
 { pkgs, config, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    lm_sensors
-    powertop
-    powerstat
-  ];
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
+  };
 
-  powerManagement.enable = true;
-  powerManagement.cpuFreqGovernor = "powersave";
-  services.thermald.enable = true;
-  services.upower.enable = true;
-  services.power-profiles-daemon.enable = true;
+  services = {
+    thermald.enable = true;
+    upower.enable = true;
+    power-profiles-daemon.enable = true;
+  };
 }

@@ -1,10 +1,5 @@
 { config, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    pavucontrol
-    playerctl
-  ];
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

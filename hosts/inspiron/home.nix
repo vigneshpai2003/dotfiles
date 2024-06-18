@@ -1,74 +1,148 @@
 { config, inputs, pkgs, ... }:
 {
   imports = [
+    ../../home-manager/bash.nix
     ../../home-manager/hyprland.nix
-    ../../home-manager/config
-    ../../home-manager/spicetify.nix
     ../../home-manager/nautilus
+    ../../home-manager/spicetify.nix
+    ../../home-manager/theme.nix
+    ../../home-manager/xdg-desktop-entries.nix
   ];
 
+  services = {
+    network-manager-applet.enable = true;
+    blueman-applet.enable = true;
+  };
+
+  programs = {
+    # - git
+    git = {
+      enable = true;
+      userName = "Vignesh Pai";
+      userEmail = "vigneshpai2003@gmail.com";
+    };
+
+    # - Terminal System Monitor
+    htop = {
+      enable = true;
+      settings = {
+        show_cpu_usage = 1;
+        show_cpu_frequency = 1;
+        show_cpu_temperature = 1;
+      };
+    };
+
+    btop.enable = true;
+
+    # - Fuzzy File Search in Terminal
+    fzf.enable = true;
+
+    # - Fuzzy cd
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+    };
+
+    # - Terminal Emulator
+    kitty = {
+      enable = true;
+      theme = "Chalk";
+      shellIntegration.enableBashIntegration = true;
+    };
+
+    # - Audio Visualizer
+    cava = {
+      enable = true;
+      settings = {
+        color = {
+          gradient = 1;
+          gradient_count = 2;
+          gradient_color_1 = "#fc5c7d";
+          gradient_color_2 = "#6a82fb";
+        };
+      };
+    };
+  };
+
   home.packages = with pkgs; [
-    # - Basic Utilities
-    resources # better system monitor
-    gnome.baobab # disk usage
+    ### - System Tools
+    fastfetch # - System Info
+    dell-command-configure # - Dell BIOS options
+    cpufetch # - CPU Info
+    geekbench # - CPU Benchmarker
+    intel-gpu-tools # - GPU Tools
+    libva-utils
+    vulkan-tools
+    lm_sensors # - Temperature Sensors
+    powertop # - Power Management
+    gnome.baobab # - Disk Tools
     gnome.gnome-disk-utility
-    gnome.evince # pdf
-    gnome.gnome-logs
+    nvme-cli
+    gnome.gnome-logs # - Logs
+    riseup-vpn # - VPN
+    resources # - System Monitor
+    brightnessctl # - Brightness Control
+    curl # - Download Tools
+    wget
+    zip # - Compression
+    unzip
+    desktop-file-utils # - .desktop File Support
+    libnotify # - Notifications Library
 
-    # - Office Tools
-    libreoffice
-    stable.onlyoffice-bin_latest
-    marktext
-    obsidian
-    pdfarranger
-    wike
-
-    # - Pictures
-    loupe
-    pinta
-    inkscape
-
-    # - Audio Video
-    ffmpeg
-    mpv
-    vlc
-    cava
-
-    # - Virtual Machines
-    gnome.gnome-boxes
-
-    # - Distrobox GUI
-    boxbuddy
-
-    # - Wine
-    bottles
-
-    # - Remote Connections
-    gnome-connections
-    filezilla
-
-    # - VPN
-    riseup-vpn
-
-    # - KDE Connect GUI
-    libsForQt5.kdeconnect-kde
-
-    # - Math Graphing
-    geogebra6
-
-    # - Social
-    telegram-desktop
-    zoom-us
-
-    # - Build GTK Applications
+    ### - Development Tools
+    nixpkgs-fmt # - .nix File Formatter
+    tree # - Directory Tree
+    libgcc # - Build Tools
+    gnumake
     gnome-builder
+    flatpak-builder
+    appimage-run # - Appimage Support
+    texliveFull # - LaTeX Compiler
+    gnome.gnome-boxes # - Virtual Machine Manager
+    boxbuddy # - Distrobox GUI
+    bottles # - Wine
+    gnome-connections # - Remote Connections
+    filezilla # - FTP Client
+    master.vscode # - Text Editors
 
-    # - Mirror iPhone
-    uxplay
+    ### - Audio/Video Tools
+    pavucontrol # - Audio Control
+    playerctl # - Media Control
+    ffmpeg # - Audio Video Library
+    mpv # - Media Players
+    vlc
+    livecaptions # - Live Captions
+    uxplay # - iPhone Mirroring
 
-    # - Language
-    dialect
-    livecaptions
+    ### - General/Office Tools
+    firefox # - Browser
+    brave
+    gnome.evince # - Document Viewer
+    wike # - Wikipedia App
+    marktext # - Markdown Editor
+    obsidian
+    libreoffice # - Office Tools
+    onlyoffice-bin_latest
+    pdfarranger # - pdf Editor
+    loupe # - Image Viewer
+    pinta # - Image Editor
+    inkscape # - Vector Graphics Editor
+    geogebra6 # - Math Graphing
+    telegram-desktop # - Telegram
+    zoom-us # - Zoom
+    dialect # - Translations
+
+    ### - Hyprland/Wayland Desktop Tools
+    wofi # - Launcher
+    waybar # - Bar
+    mypkgs.waybar-mediaplayer
+    dunst # - Notifications Daemon
+    wl-clipboard # - Wayland Copy Paste
+    cliphist # - Clipboard Manager
+    grim # - Screen Capture
+    slurp # - Select Screen Region
+    grimblast # - Screen Capture GUI
+    gsettings-desktop-schemas # - gsettings Schemas
   ];
 
   # This value determines the home Manager release that your

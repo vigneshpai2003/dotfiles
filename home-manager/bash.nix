@@ -3,11 +3,6 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-
-    initExtra = ''
-      eval "$(zoxide init bash)"
-    '';
-
     shellAliases = {
       "rebirth" = "sudo nixos-rebuild switch --flake";
       "cd" = "z";
@@ -15,12 +10,7 @@
       "powertop" = "sudo powertop";
       "gputop" = "sudo intel_gpu_top";
       "fetch" = "fastfetch";
-
-      "ram" = ''echo $(vmstat -s | grep "used memory" | tr -d -c 0-9 | awk '{printf ("🐏  %.2f\n GiB", $1 / 1024 / 1024)}')'';
       "power" = ''bc -l <<< $(cat /sys/class/power_supply/BAT0/current_now)*$(cat /sys/class/power_supply/BAT0/voltage_now)/1000000000000'';
-
-      "gnome-wayland-debug" = "dbus-run-session -- gnome-shell --nested --wayland";
-      "logout" = "gnome-session-quit --no-prompt";
 
       "dell-thermal-status" = "sudo cctk --ThermalManagement | sed '/^fopen_wrapper.c\\|^access_wrapper.c/d'";
       "dell-thermal-cool" = "sudo cctk --ThermalManagement=Cool | sed '/^fopen_wrapper.c\\|^access_wrapper.c/d'";
@@ -36,6 +26,8 @@
       "waydroid-terminate" = "waydroid session stop && sudo waydroid container stop && rm ~/.local/share/applications/waydroid.*";
       "waydroid-default" = ''waydroid prop set persist.waydroid.width "" && waydroid prop set persist.waydroid.height "" && waydroid session stop'';
       "waydroid-vertical" = "waydroid prop set persist.waydroid.width 720 && waydroid prop set persist.waydroid.height 1080 && waydroid session stop";
+
+      "appletv" = ''uxplay -p -vsync no'';
 
       "flake-dev" = ''touch flake.nix .envrc && echo '{
   description = "nix flake environment";
@@ -60,7 +52,6 @@
     };
 }' > flake.nix && echo 'use flake' > .envrc
 '';
-      "appletv" = ''uxplay -p -vsync no'';
     };
   };
 }

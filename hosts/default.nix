@@ -39,6 +39,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
+            backupFileExtension = "hmbak";
             extraSpecialArgs = {
               inherit inputs username hostname pkgs;
             };
