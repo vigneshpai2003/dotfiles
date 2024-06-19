@@ -50,6 +50,7 @@
     extraGroups = [ "networkmanager" "wheel" "kvm" ];
   };
 
+  # - Packages that frequently require sudo permissions
   environment.systemPackages = with pkgs; [
     linux-wifi-hotspot # - Hotspot GUI
     riseup-vpn # - VPN

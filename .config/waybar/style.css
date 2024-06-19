@@ -52,12 +52,19 @@ window#waybar {
 #tray,
 #custom-media,
 #custom-previous,
-#custom-next {
+#custom-next,
+#submap {
   border-radius: 4px;
   margin: 6px 3px;
   padding: 6px 12px;
   background-color: #1e1e2e;
   color: #181825;
+}
+
+#submap {
+  margin-left: 10px;
+  background-color: white;
+  color: black;
 }
 
 #custom-launcher {

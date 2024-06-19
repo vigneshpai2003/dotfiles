@@ -5,6 +5,7 @@
         "custom/previous",
         "custom/media",
         "custom/next",
+        "hyprland/submap",
         "hyprland/window"
     ],
     "modules-center": [
@@ -22,6 +23,11 @@
     ],
     "hyprland/window": {
         "icon": true
+    },
+    "hyprland/submap": {
+        "on-scroll-up": "hyprctl dispatch submap reset",
+        "on-scroll-down": "hyprctl dispatch submap reset",
+        "tooltip": false
     },
     "hyprland/workspaces": {
         "format": "{name}",
