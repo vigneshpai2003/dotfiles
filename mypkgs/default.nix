@@ -15,7 +15,5 @@ let
 in
 {
   waybar-mediaplayer = (pkgs.callPackage ./waybar-mediaplayer { });
-  iiserpune-selenium-login = (pkgs.callPackage ./iiserpune-selenium-login { }).override({
-    python3Packages = pkgs.python312Packages;
-  });
+  iiserpune-selenium-login = (pkgs.callPackage ./iiserpune-selenium-login { });
 }

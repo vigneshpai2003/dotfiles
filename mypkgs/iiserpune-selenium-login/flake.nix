@@ -13,6 +13,7 @@
       devShells.x86_64-linux.default = pkgs.mkShell {
         packages = with pkgs; [
           firefox
+          geckodriver
           (python311.withPackages (pypkgs: with pypkgs; [
             selenium
             keyring

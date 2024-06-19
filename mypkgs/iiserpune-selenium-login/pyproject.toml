@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "iiserpune-selenium-login"
 version = "1"
+dependencies = ["selenium", "keyring", "secretstorage", "dbus-python"]
 
 [project.scripts]
 iiserpune-selenium-login = "main:main"

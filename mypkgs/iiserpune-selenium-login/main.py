@@ -5,7 +5,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, WebDriverException
 
 service = "iiserpune-selenium-login"
 
@@ -13,7 +13,11 @@ def login():
     options = Options()
     options.add_argument("--headless")
     driver = webdriver.Firefox(options=options)
-    driver.get("http://10.111.1.1:8090/httpclient.html")
+    try:
+        driver.get("http://10.111.1.1:8090/httpclient.html")
+    except WebDriverException:
+        print("You are not connect to the LAN.")
+        exit(1)
 
     credentials = keyring.get_credential(service, None)
     
@@ -77,7 +81,7 @@ def main():
         login()
         exit(0)
 
-    parser.print_help()    
+    parser.print_help()
 
 if __name__ == "__main__":
     main()

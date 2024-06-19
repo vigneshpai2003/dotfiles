@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "waybar-mediaplayer"
 version = "1"
+dependencies = [ "pygobject" ]
 
 [project.scripts]
 waybar-mediaplayer = "main:main"

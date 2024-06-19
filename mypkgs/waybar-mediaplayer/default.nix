@@ -15,14 +15,13 @@ python3Packages.buildPythonApplication rec {
     gobject-introspection
   ];
 
-  buildInputs = [
-    playerctl
+  build-system = with python3Packages; [
+    setuptools
   ];
 
   dependencies = with python3Packages; [
-    setuptools
     pygobject3
-  ];
+  ] ++ [ playerctl ];
 
   dontWrapGApps = true;
 
