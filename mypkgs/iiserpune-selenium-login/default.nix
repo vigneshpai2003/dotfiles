@@ -1,7 +1,7 @@
 { lib
 , python3Packages
-, firefox
-, geckodriver
+, chromedriver
+, chromium
 }:
 
 python3Packages.buildPythonApplication rec {
@@ -19,8 +19,8 @@ python3Packages.buildPythonApplication rec {
     secretstorage
     dbus-python
   ] ++ [
-    firefox
-    geckodriver
+    chromedriver
+    chromium
   ];
 
   src = ./.;

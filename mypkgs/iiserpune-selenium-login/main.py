@@ -4,7 +4,7 @@ import keyring
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
 
 service = "iiserpune-selenium-login"
@@ -12,7 +12,7 @@ service = "iiserpune-selenium-login"
 def login():
     options = Options()
     options.add_argument("--headless")
-    driver = webdriver.Firefox(options=options)
+    driver = webdriver.Chrome(options=options)
     try:
         driver.get("http://10.111.1.1:8090/httpclient.html")
     except WebDriverException:
