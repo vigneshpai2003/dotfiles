@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, inputs, username, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -8,6 +8,11 @@
     ../../nixos/flatpak.nix
     ../../nixos/virtualization.nix
     ../../nixos/locale.nix
+
+    inputs.nix-snapd.nixosModules.default
+    {
+      services.snap.enable = true;
+    }
   ];
 
   nix.settings = {
@@ -53,7 +58,6 @@
   # - Packages that frequently require sudo permissions
   environment.systemPackages = with pkgs; [
     linux-wifi-hotspot # - Hotspot GUI
-    riseup-vpn # - VPN
     resources # - System Monitor
   ];
 
