@@ -13,12 +13,14 @@ def login():
     options = Options()
     options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
+    driver.set_page_load_timeout(5)
+    
     try:
         driver.get("http://10.111.1.1:8090/httpclient.html")
     except WebDriverException:
-        print("You are not connect to the LAN.")
+        print("You LAN connection is too weak or is dead.")
         exit(1)
-
+    
     credentials = keyring.get_credential(service, None)
     
     if not credentials:
