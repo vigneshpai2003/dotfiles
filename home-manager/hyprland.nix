@@ -11,7 +11,7 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
       # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
   };
 
