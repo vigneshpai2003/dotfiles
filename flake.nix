@@ -16,9 +16,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify.url = "github:the-argus/spicetify-nix";
+    spicetify = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    ags.url = "github:Aylur/ags";
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland = {
       type = "git";

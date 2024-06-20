@@ -48,6 +48,9 @@
       enable = true;
       theme = "Chalk";
       shellIntegration.enableBashIntegration = true;
+      settings = {
+        background_opacity = "0.8";
+      };
     };
 
     # - Audio Visualizer
@@ -57,8 +60,8 @@
         color = {
           gradient = 1;
           gradient_count = 2;
-          gradient_color_1 = "#fc5c7d";
-          gradient_color_2 = "#6a82fb";
+          gradient_color_1 = "'#fc5c7d'";
+          gradient_color_2 = "'#6a82fb'";
         };
       };
     };
@@ -102,6 +105,7 @@
     gnome-connections # - Remote Connections
     filezilla # - FTP Client
     master.vscode # - Text Editors
+    master.zed-editor
 
     ### - Audio/Video Tools
     pavucontrol # - Audio Control
