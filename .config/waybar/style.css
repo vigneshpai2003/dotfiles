@@ -53,12 +53,23 @@ window#waybar {
 #custom-media,
 #custom-previous,
 #custom-next,
-#submap {
+#submap,
+#idle_inhibitor {
   border-radius: 4px;
   margin: 6px 3px;
   padding: 6px 12px;
-  background-color: #1e1e2e;
+  background-color: #7b7b95;
   color: #181825;
+}
+
+#tray {
+  background-color: #1e1e2e;
+}
+
+#idle_inhibitor {
+  color: white;
+  margin-right: 5px;
+  padding-right: 24px;
 }
 
 #submap {

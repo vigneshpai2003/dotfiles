@@ -19,8 +19,16 @@
         "cpu",
         "memory",
         "battery",
-        "clock"
+        "clock",
+        "idle_inhibitor"
     ],
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
     "hyprland/window": {
         "icon": true
     },
