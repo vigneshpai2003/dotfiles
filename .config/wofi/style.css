@@ -1,27 +1,38 @@
 window {
     font-size: 28px;
     font-family: "JetBrainsMono Nerd Font";
-    border-radius: 10px;
-    background-color: transparent;
+    border-radius: 20px;
+    background-color: rgb(38, 38, 38);
     color: rgb(190, 190, 190);
+    padding: 50px;
 }
 
 #entry:selected {
     background-color: #4f76c7;
-    background: linear-gradient(90deg, #2c416f, #4f8053);
+    background: linear-gradient(90deg, #6d5f6f, #5a7679);
+    border-radius: 5px;
 }
 
 #entry {
-    background-color: rgb(50, 50, 50);
+    background: transparent;
+}
+
+#outer-box {
+    padding: 20px;
+    border: 2px solid #33ccff;
+    border-radius: 20px;
 }
 
 #input {
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     margin-left: 100px;
     margin-right: 100px;
-    background: linear-gradient(90deg, rgb(52, 52, 52), rgb(99, 99, 99));
+    background: #4f76c7;
+    background: transparent;
     color: rgb(193, 193, 193);
+    border: none;
+    box-shadow: none;
 }
 
 image {

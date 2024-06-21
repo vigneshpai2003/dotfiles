@@ -74,6 +74,7 @@
     cpufetch # - CPU Info
     geekbench # - CPU Benchmarker
     intel-gpu-tools # - GPU Tools
+    nvtopPackages.full
     libva-utils
     vulkan-tools
     lm_sensors # - Temperature Sensors
@@ -106,6 +107,7 @@
     filezilla # - FTP Client
     master.vscode # - Text Editors
     master.zed-editor
+    gnome-text-editor
 
     ### - Audio/Video Tools
     pavucontrol # - Audio Control

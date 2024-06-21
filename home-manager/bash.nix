@@ -4,7 +4,7 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      "rebirth" = "sudo nixos-rebuild switch --flake";
+      "arise" = ''notify-send "Shadow extraction in progress ..."; (sudo nixos-rebuild switch --flake ~/dotfiles && notify-send "Shadow extraction succeeded.") || notify-send "Shadow extraction failed."'';
       "cd" = "z";
       "btop" = "btop --utf-force";
       "powertop" = "sudo powertop";
