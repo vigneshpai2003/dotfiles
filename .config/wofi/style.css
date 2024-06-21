@@ -8,13 +8,14 @@ window {
 }
 
 #entry:selected {
-    background-color: #4f76c7;
-    background: linear-gradient(90deg, #6d5f6f, #5a7679);
-    border-radius: 5px;
+    background-color: rgb(76, 76, 76);
+    border-color: rgb(160, 128, 211);
 }
 
 #entry {
     background: transparent;
+    border: 3px solid rgba(00, 00, 00, 0);
+    border-radius: 10px;
 }
 
 #outer-box {

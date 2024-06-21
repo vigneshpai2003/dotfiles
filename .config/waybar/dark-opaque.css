@@ -1,0 +1,182 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 18px;
+}
+
+window#waybar {
+  background-color: @base;
+  color: @text;
+}
+
+#memory,
+#battery,
+#power-profiles-daemon,
+#cpu,
+#backlight,
+#pulseaudio,
+#clock,
+#tray,
+#custom-media,
+#custom-previous,
+#custom-next,
+#submap,
+#idle_inhibitor {
+  border-radius: 5px;
+  margin: 10px 3px;
+  padding: 6px 12px;
+  background-color: @surface0;
+  color: @text;
+  border: 2px solid @mantle;
+}
+
+/* Workspaces */
+
+#workspaces {
+  background-color: transparent;
+}
+
+#workspaces button {
+  all: initial;
+  min-width: 0;
+  box-shadow: inset 0 -3px transparent;
+  padding: 6px 14px;
+  margin: 10px 3px;
+  border-radius: 40px;
+  background-color: @base;
+  color: @text;
+  border: 2px solid @crust;
+}
+
+#workspaces button.active {
+  color: @base;
+  background-color: @lavender;
+  border-color: @lavender;
+}
+
+#workspaces button:hover:not(.active) {
+  color: @mantle;
+  background-color: @maroon;
+  border-color: @maroon;
+}
+
+/* Left Modules */
+
+#custom-launcher {
+  padding: 0 7px;
+  margin-left: 5px;
+  font-size: 26px;
+  color: @sky;
+}
+
+#custom-media {
+  margin-left: 0;
+  margin-right: 0;
+  transition: 1s;
+}
+
+#custom-media,
+#custom-previous,
+#custom-next {
+  background-color: @surface1;
+  border-color: @crust;
+}
+
+#custom-media:hover {
+  min-width: 400px;
+}
+
+#custom-previous, #custom-next {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 1.4em;
+}
+
+#custom-previous {
+  border-radius: 10px 0px 0px 10px;
+}
+
+#custom-next {
+  border-radius: 0px 10px 10px 0px;
+}
+
+#submap {
+  margin-left: 10px;
+  background-color: @text;
+  color: @base;
+}
+
+#window {
+  margin-left: 10px;
+}
+
+/* Right Modules */
+
+#tray {
+}
+
+#idle_inhibitor {
+  padding-right: 24px;
+}
+
+#pulseaudio {
+  background-color: @sapphire;
+  color: @base;
+}
+
+#backlight {
+  background-color: @sapphire;
+  color: @base;
+}
+
+#power-profiles-daemon {
+  min-width: 30px;
+  color: @base;
+}
+
+#power-profiles-daemon.power-saver {
+  background: @green;
+}
+
+#power-profiles-daemon.balanced {
+  background: @yellow;
+}
+
+#power-profiles-daemon.performance {
+  background: @red;
+}
+
+#cpu {
+  background-color: @lavender;
+  color: @base;
+}
+
+#memory {
+  background-color: @lavender;
+  color: @base;
+}
+
+#battery {
+  color: @base;
+}
+
+#battery.good {
+  background-color: @green;
+}
+
+#battery.warning {
+  background-color: @yellow;
+}
+
+#battery.critical {
+  background-color: @red;
+}
+
+#battery.charging {
+  background-color: @mauve;
+}
+
+#clock {
+  background-color: @base;
+  border-color: @base;
+  color: @text;
+}

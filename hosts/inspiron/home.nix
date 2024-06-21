@@ -83,6 +83,8 @@
     gnome.gnome-disk-utility
     nvme-cli
     gnome.gnome-logs # - Logs
+    gnome.gnome-characters # - Emojis
+    gnome.gnome-font-viewer # - Installed Fonts
     brightnessctl # - Brightness Control
     curl # - Download Tools
     wget
@@ -90,6 +92,8 @@
     unzip
     desktop-file-utils # - .desktop File Support
     libnotify # - Notifications Library
+    gnome-firmware # - Firmware Updater
+    mypkgs.iiserpune-selenium-login # - IISER Pune LAN Login
 
     ### - Development Tools
     nixpkgs-fmt # - .nix File Formatter
@@ -117,6 +121,7 @@
     vlc
     livecaptions # - Live Captions
     uxplay # - iPhone Mirroring
+    snapshot # - Camera
 
     ### - General/Office Tools
     firefox # - Browser
@@ -132,9 +137,13 @@
     pinta # - Image Editor
     inkscape # - Vector Graphics Editor
     geogebra6 # - Math Graphing
+    gnome.gnome-calculator # - Calculator
     telegram-desktop # - Telegram
     zoom-us # - Zoom
     dialect # - Translations
+    gnome.gnome-clocks # - Clock
+    gnome.gnome-maps # - Maps
+    gnome.gnome-weather # - Weather
 
     ### - Hyprland/Wayland Desktop Tools
     wofi # - Launcher
@@ -147,8 +156,6 @@
     slurp # - Select Screen Region
     grimblast # - Screen Capture GUI
     gsettings-desktop-schemas # - gsettings Schemas
-
-    mypkgs.iiserpune-selenium-login # - IISER Pune LAN Login
   ];
 
   # This value determines the home Manager release that your

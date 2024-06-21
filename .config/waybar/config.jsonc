@@ -13,14 +13,14 @@
     ],
     "modules-right": [
         "tray",
+        "idle_inhibitor",
         "pulseaudio",
         "backlight",
         "power-profiles-daemon",
         "cpu",
         "memory",
         "battery",
-        "clock",
-        "idle_inhibitor"
+        "clock"
     ],
     "idle_inhibitor": {
         "format": "{icon}",
