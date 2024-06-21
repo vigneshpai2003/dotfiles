@@ -2,12 +2,19 @@
 , python3Packages
 , chromedriver
 , chromium
+, wrapGAppsNoGuiHook
+, gobject-introspection
 }:
 
 python3Packages.buildPythonApplication rec {
   pname = "iiserpune-selenium-login";
   version = "1.0";
   format = "pyproject";
+
+  nativeBuildInputs = [
+    wrapGAppsNoGuiHook
+    gobject-introspection
+  ];
 
   build-system = with python3Packages; [
     setuptools
@@ -16,12 +23,18 @@ python3Packages.buildPythonApplication rec {
   dependencies = with python3Packages; [
     selenium
     keyring
-    secretstorage
-    dbus-python
+    pydbus
+    pygobject3
   ] ++ [
     chromedriver
     chromium
   ];
+
+  dontWrapGApps = true;
+
+  preFixup = ''
+    makeWrapperArgs+=("''${gappsWrapperArgs[@]}")
+  '';
 
   src = ./.;
 

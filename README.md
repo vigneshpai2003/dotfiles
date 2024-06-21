@@ -9,6 +9,7 @@ This is how it looks right now.
 - `distrobox` is best installed locally from their GitHub repo since the nixpkgs version mounts `/nix` in the containers which leads to problems.
 
 ## TODO
+- notification support in `iiserpune-selenium-login`
 - inspect `caa` issues, add it to bar
 - make bluetooth headset default using wpctl when connected
 - cursor themes

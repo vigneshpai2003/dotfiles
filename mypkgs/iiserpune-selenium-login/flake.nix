@@ -14,11 +14,14 @@
         packages = with pkgs; [
           chromium
           chromedriver
+          gobject-introspection
           (python311.withPackages (pypkgs: with pypkgs; [
             selenium
             keyring
             secretstorage
             dbus-python
+            pydbus
+            pygobject3
           ]))
         ];
       };
