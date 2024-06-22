@@ -132,7 +132,7 @@
         "max-length": 5,
         "format-icons": {
             "spotify": "",
-            "default": "🎜"
+            "default": "󰝚"
         },
         "escape": true,
         "exec": "waybar-mediaplayer 2> /dev/null",

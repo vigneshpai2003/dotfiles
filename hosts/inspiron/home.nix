@@ -46,7 +46,7 @@
     # - Terminal Emulator
     kitty = {
       enable = true;
-      theme = "Chalk";
+      theme = "Adwaita darker";
       shellIntegration.enableBashIntegration = true;
       settings = {
         background_opacity = "0.8";
