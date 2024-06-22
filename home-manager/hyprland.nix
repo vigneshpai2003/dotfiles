@@ -28,4 +28,11 @@
   home.packages = with pkgs; [
     hyprpaper
   ];
+
+  systemd.user.services.mylock = {
+    Service = {
+      Type = "oneshot";
+      ExecStart = "loginctl lock-session";
+    };
+  };
 }

@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, inputs, username, ... }:
 {
   services.xserver.enable = true;
   services.xserver.excludePackages = [ pkgs.xterm ];
@@ -32,7 +32,17 @@
   # - to be handled by hyprland
   services.logind = {
     powerKey = "ignore";
-    lidSwitch = "ignore";
+  };
+
+  systemd.services.mysuspend = {
+    enable = true;
+    before = ["systemd-suspend.service"];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = ''systemctl --user -M ${username}@ start --wait mylock.service'';
+      ExecStartPost = ''/run/current-system/sw/bin/sleep 3'';
+    };
+    wantedBy = ["suspend.target"];
   };
 
   # - security
