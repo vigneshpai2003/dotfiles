@@ -22,6 +22,13 @@
       userEmail = "vigneshpai2003@gmail.com";
     };
 
+    # - direnv for Development Environments
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     # - Terminal System Monitor
     htop = {
       enable = true;

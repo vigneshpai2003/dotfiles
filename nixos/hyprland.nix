@@ -26,8 +26,8 @@
   # - for electron/chromium apps to run wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # - hyprland idle management
   services.hypridle.enable = true;
-  programs.hyprlock.enable = true;
 
   # - to be handled by hyprland
   services.logind = {

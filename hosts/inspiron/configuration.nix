@@ -3,11 +3,15 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../nixos/system
-    ../../nixos/hyprland.nix
+    ../../nixos/fingerprint.nix
     ../../nixos/flatpak.nix
-    ../../nixos/virtualization.nix
+    ../../nixos/garbage.nix
+    ../../nixos/hyprland.nix
+    ../../nixos/intel_gpu.nix
     ../../nixos/locale.nix
+    ../../nixos/networking.nix
+    ../../nixos/sound.nix
+    ../../nixos/thermals.nix
 
     inputs.nix-snapd.nixosModules.default
     {
@@ -61,19 +65,17 @@
     resources # - System Monitor
   ];
 
+  # - Virtualisation
+  virtualisation = {
+    libvirtd.enable = true;
+    kvmgt.enable = true;
+    containers.enable = true;
+    waydroid.enable = true;
+    podman.enable = true;
+  };
+  
+  # - File Transfer
   programs.kdeconnect.enable = true;
-
-  # - direnv
-  programs.direnv.enable = true;
-
-  # - WayDroid
-  virtualisation.waydroid.enable = true;
-
-  # - Podman (required for distrobox)
-  virtualisation.podman.enable = true;
-
-  # - SSH
-  services.openssh.enable = true;
 
   # - Firmware Updater
   services.fwupd.enable = true;
