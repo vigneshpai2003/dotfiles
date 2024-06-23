@@ -33,23 +33,6 @@
 
       modules = [
         ./${hostname}/configuration.nix
-
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "hmbak";
-            extraSpecialArgs = {
-              inherit inputs username hostname pkgs;
-            };
-            users.${username} = {
-              home.username = username;
-              home.homeDirectory = "/home/${username}";
-              imports = [ ./${hostname}/home.nix ];
-            };
-          };
-        }
       ];
     };
 }

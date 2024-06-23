@@ -1,56 +1,82 @@
 { config, pkgs, inputs, username, ... }:
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
+    inputs.nix-snapd.nixosModules.default
+
     ./hardware-configuration.nix
 
     ../../nixos/fingerprint.nix
     ../../nixos/flatpak.nix
-    ../../nixos/garbage.nix
     ../../nixos/hyprland.nix
     ../../nixos/intel_gpu.nix
     ../../nixos/locale.nix
     ../../nixos/networking.nix
     ../../nixos/sound.nix
     ../../nixos/thermals.nix
-
-    inputs.nix-snapd.nixosModules.default
-    {
-      services.snap.enable = true;
-    }
   ];
 
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+  # - nix Settings
+  nix = {
+    optimise.automatic = true;
 
-    trusted-users = [ username ];
-
-    substituters = [
-      "https://cache.nixos.org"
-      "https://nix-community.cachix.org"
-      "https://hyprland.cachix.org"
-    ];
-
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
-  };
-
-  # - Bootloader
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
     };
-    grub = {
-      devices = [ "nodev" ];
-      efiSupport = true;
-      enable = true;
+
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+
+      trusted-users = [ username ];
+
+      substituters = [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+        "https://hyprland.cachix.org"
+      ];
+
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      ];
     };
   };
 
-  # - Use latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # - Home Manager Configuration
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "hmbak";
+    extraSpecialArgs = {
+      inherit inputs username pkgs;
+    };
+    users.${username} = {
+      home.username = username;
+      home.homeDirectory = "/home/${username}";
+      imports = [ ./home.nix ];
+    };
+  };
+
+  # - Boot
+  boot = {
+    # - Latest Kernel
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    # - Bootloader
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+      grub = {
+        devices = [ "nodev" ];
+        efiSupport = true;
+        enable = true;
+      };
+    };
+  };
 
   # - Users
   users.users.${username} = {
@@ -73,7 +99,10 @@
     waydroid.enable = true;
     podman.enable = true;
   };
-  
+
+  # - Snap
+  services.snap.enable = true;
+
   # - File Transfer
   programs.kdeconnect.enable = true;
 
