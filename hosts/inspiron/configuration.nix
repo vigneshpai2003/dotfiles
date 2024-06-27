@@ -89,7 +89,11 @@
   environment.systemPackages = with pkgs; [
     linux-wifi-hotspot # - Hotspot GUI
     resources # - System Monitor
+    cloudflare-warp
   ];
+  
+  systemd.packages = [ pkgs.cloudflare-warp ];
+  systemd.targets.multi-user.wants = [ "warp-svc.service" ];
 
   # - Virtualisation
   virtualisation = {

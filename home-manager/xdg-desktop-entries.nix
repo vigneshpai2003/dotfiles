@@ -12,6 +12,11 @@
       noDisplay = true;
     };
 
+    "org.gnome.Nautilus" = {
+      name = "Files";
+      noDisplay = true;
+    };
+
     # - Enable Video Decode and Touchpad Gestures
     brave-browser = {
       name = "Brave Web Browser";
