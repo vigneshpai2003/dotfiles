@@ -9,6 +9,7 @@
         "hyprland/window"
     ],
     "modules-center": [
+        "custom/special-workspace",
         "hyprland/workspaces"
     ],
     "modules-right": [
@@ -28,6 +29,11 @@
             "activated": "",
             "deactivated": ""
         }
+    },
+    "custom/special-workspace": {
+        "format": "S",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch togglespecialworkspace magic"
     },
     "hyprland/window": {
         "icon": true

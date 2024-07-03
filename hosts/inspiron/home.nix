@@ -66,9 +66,10 @@
       settings = {
         color = {
           gradient = 1;
-          gradient_count = 2;
-          gradient_color_1 = "'#fc5c7d'";
-          gradient_color_2 = "'#6a82fb'";
+          gradient_count = 3;
+          gradient_color_1 = "'#81c8be'";
+          gradient_color_2 = "'#e78284'";
+          gradient_color_3 = "'#f4b8e4'";
         };
       };
     };
@@ -86,6 +87,7 @@
     vulkan-tools
     lm_sensors # - Temperature Sensors
     powertop # - Power Management
+    impression # - Bootable Drive Creator
     gnome.baobab # - Disk Tools
     gnome.gnome-disk-utility
     nvme-cli
@@ -120,6 +122,14 @@
     master.zed-editor
     gnome-text-editor
 
+    ### - ags
+    bun
+    dart-sass
+    fd
+    wf-recorder
+    wayshot
+    swappy
+
     ### - Audio/Video Tools
     pavucontrol # - Audio Control
     playerctl # - Media Control
@@ -129,6 +139,7 @@
     livecaptions # - Live Captions
     uxplay # - iPhone Mirroring
     snapshot # - Camera
+    cli-visualizer # - Audio Visualizer
 
     ### - General/Office Tools
     firefox # - Browser
@@ -151,6 +162,7 @@
     gnome.gnome-clocks # - Clock
     gnome.gnome-maps # - Maps
     gnome.gnome-weather # - Weather
+    gnome.gnome-calendar # - Calendar
 
     ### - Hyprland/Wayland Desktop Tools
     wofi # - Launcher
@@ -162,6 +174,7 @@
     grim # - Screen Capture
     slurp # - Select Screen Region
     grimblast # - Screen Capture GUI
+    # kooha # - Screen Recorder GUI # - Not Working, use flatpak
     gsettings-desktop-schemas # - gsettings Schemas
   ];
 
