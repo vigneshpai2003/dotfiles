@@ -161,7 +161,7 @@
     dialect # - Translations
     gnome.gnome-clocks # - Clock
     gnome.gnome-maps # - Maps
-    gnome.gnome-weather # - Weather
+    mousam # - Weather
     gnome.gnome-calendar # - Calendar
 
     ### - Hyprland/Wayland Desktop Tools

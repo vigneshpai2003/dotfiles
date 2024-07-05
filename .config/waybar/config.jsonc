@@ -2,9 +2,9 @@
     "layer": "top",
     "modules-left": [
         "custom/launcher",
-        "custom/previous",
-        "custom/media",
-        "custom/next",
+        // "custom/previous",
+        // "custom/media",
+        // "custom/next",
         "hyprland/submap",
         "hyprland/window"
     ],
@@ -70,7 +70,7 @@
         "scroll-step": 5,
         "format": "{icon} {volume}%",
         "format-muted": " {volume}%",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click": "pavucontrol",
         "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+",
         "on-scroll-down": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-",
         "format-icons": {
