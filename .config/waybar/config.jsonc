@@ -31,9 +31,9 @@
         }
     },
     "custom/special-workspace": {
-        "format": "S",
+        "format": "  ",
         "tooltip": false,
-        "on-click": "hyprctl dispatch togglespecialworkspace magic"
+        "on-click": "hyprctl dispatch togglespecialworkspace spotify; pidof spotify || spotify"
     },
     "hyprland/window": {
         "icon": true
@@ -70,7 +70,7 @@
         "scroll-step": 5,
         "format": "{icon} {volume}%",
         "format-muted": " {volume}%",
-        "on-click": "pavucontrol",
+        "on-click": "pkill pavucontrol || pavucontrol",
         "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+",
         "on-scroll-down": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-",
         "format-icons": {
@@ -127,7 +127,7 @@
         "max-length": 10
     },
     "custom/launcher": {
-        "format": " ",
+        "format": " ",
         "tooltip": true,
         "tooltip-format": "Open application launcher",
         "on-click": "pkill wofi || wofi --conf ~/dotfiles/.config/wofi/config --style ~/dotfiles/.config/wofi/style.css"

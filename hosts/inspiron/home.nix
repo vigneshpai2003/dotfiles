@@ -97,6 +97,7 @@
     brightnessctl # - Brightness Control
     curl # - Download Tools
     wget
+    jq # - JSON Parser
     zip # - Compression
     unzip
     desktop-file-utils # - .desktop File Support
