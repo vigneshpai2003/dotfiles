@@ -2,3 +2,4 @@ mode=drun
 allow_images=true
 allow_markup=true
 key_expand=Tab
+insensitive=true

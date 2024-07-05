@@ -171,6 +171,7 @@
     mypkgs.waybar-mediaplayer
     dunst # - Notifications Daemon
     wl-clipboard # - Wayland Copy Paste
+    hyprpicker # - Color Picker
     cliphist # - Clipboard Manager
     grim # - Screen Capture
     slurp # - Select Screen Region
