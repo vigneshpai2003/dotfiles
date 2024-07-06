@@ -146,6 +146,7 @@
     firefox # - Browser
     brave
     gnome.evince # - Document Viewer
+    papers
     wike # - Wikipedia App
     marktext # - Markdown Editor
     obsidian
@@ -164,6 +165,9 @@
     gnome.gnome-maps # - Maps
     mousam # - Weather
     gnome.gnome-calendar # - Calendar
+
+    ### - Games
+    gnome.gnome-mines # - Minesweeper
 
     ### - Hyprland/Wayland Desktop Tools
     wofi # - Launcher
