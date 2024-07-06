@@ -7,7 +7,7 @@
 }:
 
 python3Packages.buildPythonApplication rec {
-  pname = "iiserpune-selenium-login";
+  pname = "iiserpune-login-daemon";
   version = "1.0";
   format = "pyproject";
 
@@ -41,7 +41,7 @@ python3Packages.buildPythonApplication rec {
   meta = with lib; {
     description = "A simple login script for IISER Pune student networks using selenium.";
     platforms = platforms.linux;
-    mainProgram = "iiserpune-selenium-login";
+    mainProgram = "iiserpune-login-daemon";
     priority = 1;
   };
 }

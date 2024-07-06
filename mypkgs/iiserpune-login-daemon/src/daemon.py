@@ -74,7 +74,11 @@ class Daemon:
                             logging.info(
                                 "IISER Pune domain detected, attempting login."
                             )
-                            self.login()
+                            try:
+                                self.login()
+                            except:
+                                logging.warning("Could not login, try running `iiserpune-login-daemon -l`.")
+                                return
                     except:
                         logging.warning("Could not get domains.")
                         return

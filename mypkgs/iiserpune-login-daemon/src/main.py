@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
 
-service = "iiserpune-selenium-login"
+service = "iiserpune-login-daemon"
 
 
 def login():
@@ -73,7 +73,7 @@ def set_credentials():
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="iiserpune-selenium-login",
+        prog="iiserpune-login-daemon",
         description="Login to IISER Pune network using Selenium.",
     )
     parser.add_argument("--log", action="store_true", help="enable logging")

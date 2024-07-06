@@ -15,5 +15,5 @@ let
 in
 {
   waybar-mediaplayer = (pkgs.callPackage ./waybar-mediaplayer { });
-  iiserpune-selenium-login = (pkgs.callPackage ./iiserpune-selenium-login { });
+  iiserpune-login-daemon = (pkgs.callPackage ./iiserpune-login-daemon { });
 }

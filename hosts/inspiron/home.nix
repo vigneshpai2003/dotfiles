@@ -103,7 +103,7 @@
     desktop-file-utils # - .desktop File Support
     libnotify # - Notifications Library
     gnome-firmware # - Firmware Updater
-    mypkgs.iiserpune-selenium-login # - IISER Pune LAN Login
+    mypkgs.iiserpune-login-daemon # - IISER Pune LAN Login
 
     ### - Development Tools
     nixpkgs-fmt # - .nix File Formatter
