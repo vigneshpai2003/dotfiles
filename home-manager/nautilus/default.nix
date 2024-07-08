@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    gnome.nautilus
-    gnome.nautilus-python
+    nautilus
+    nautilus-python
   ];
 
   # - the actual extension

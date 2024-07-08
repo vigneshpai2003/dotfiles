@@ -88,12 +88,12 @@
     lm_sensors # - Temperature Sensors
     powertop # - Power Management
     impression # - Bootable Drive Creator
-    gnome.baobab # - Disk Tools
-    gnome.gnome-disk-utility
+    baobab # - Disk Tools
+    gnome-disk-utility
     nvme-cli
     gnome.gnome-logs # - Logs
     gnome.gnome-characters # - Emojis
-    gnome.gnome-font-viewer # - Installed Fonts
+    gnome-font-viewer # - Installed Fonts
     brightnessctl # - Brightness Control
     curl # - Download Tools
     wget
@@ -120,7 +120,7 @@
     gnome-connections # - Remote Connections
     filezilla # - FTP Client
     master.vscode # - Text Editors
-    master.zed-editor
+    zed-editor
     gnome-text-editor
 
     ### - ags
@@ -145,7 +145,7 @@
     ### - General/Office Tools
     firefox # - Browser
     brave
-    gnome.evince # - Document Viewer
+    evince # - Document Viewer
     papers
     wike # - Wikipedia App
     marktext # - Markdown Editor
@@ -157,14 +157,14 @@
     pinta # - Image Editor
     inkscape # - Vector Graphics Editor
     geogebra6 # - Math Graphing
-    gnome.gnome-calculator # - Calculator
+    gnome-calculator # - Calculator
     telegram-desktop # - Telegram
     zoom-us # - Zoom
     dialect # - Translations
     gnome.gnome-clocks # - Clock
     gnome.gnome-maps # - Maps
     mousam # - Weather
-    gnome.gnome-calendar # - Calendar
+    gnome-calendar # - Calendar
 
     ### - Games
     gnome.gnome-mines # - Minesweeper

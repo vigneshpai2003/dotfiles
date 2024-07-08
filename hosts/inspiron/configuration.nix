@@ -89,8 +89,10 @@
   environment.systemPackages = with pkgs; [
     linux-wifi-hotspot # - Hotspot GUI
     resources # - System Monitor
+    libimobiledevice
+    ifuse
   ];
-  
+
   # - Virtualisation
   virtualisation = {
     libvirtd.enable = true;
@@ -100,17 +102,15 @@
     podman.enable = true;
   };
 
-  # - Snap
-  services.snap.enable = true;
+  services = {
+    fwupd.enable = true; # - Firmware Updater
+    printing.enable = true; # - Printing via CUPS
+    snap.enable = true; # - Snap
+    usbmuxd.enable = true; # - iOS Device Support
+  };
 
   # - File Transfer
   programs.kdeconnect.enable = true;
-
-  # - Firmware Updater
-  services.fwupd.enable = true;
-
-  # - Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # - Fonts
   fonts.packages = with pkgs; [
