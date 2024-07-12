@@ -46,5 +46,14 @@
         "x-scheme-handler/ipns"
       ];
     };
+
+    smassh = {
+      name = "SMASSH";
+      genericName = "Typing Game";
+      exec = ''kitty sh -c "smassh"'';
+      terminal = false;
+      icon = "keyboard";
+      type = "Application";
+    };
   };
 }

@@ -6,9 +6,18 @@
 
     firewall = {
       enable = true;
-      # passthrough uxplay
-      allowedTCPPorts = [ 7100 7000 7001 ];
-      allowedUDPPorts = [ 7011 6001 6000 ];
+      allowedTCPPorts = [
+        7100 # - uxplay
+        7000
+        7001
+        53317 # - localsend
+      ];
+      allowedUDPPorts = [
+        7011 # - passthrough uxplay
+        6001
+        6000
+        53317 # - localsend
+      ];
     };
   };
 

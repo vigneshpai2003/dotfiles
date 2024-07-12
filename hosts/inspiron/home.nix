@@ -104,6 +104,7 @@
     libnotify # - Notifications Library
     gnome-firmware # - Firmware Updater
     mypkgs.iiserpune-login-daemon # - IISER Pune LAN Login
+    localsend # - Share Files
 
     ### - Development Tools
     nixpkgs-fmt # - .nix File Formatter
@@ -168,6 +169,7 @@
 
     ### - Games
     gnome.gnome-mines # - Minesweeper
+    smassh # - Typing Game
 
     ### - Hyprland/Wayland Desktop Tools
     wofi # - Launcher
@@ -175,6 +177,8 @@
     mypkgs.waybar-mediaplayer
     dunst # - Notifications Daemon
     wl-clipboard # - Wayland Copy Paste
+    wlsunset # - Night Light
+    hyprshade # - Custom Shaders
     hyprpicker # - Color Picker
     cliphist # - Clipboard Manager
     grim # - Screen Capture

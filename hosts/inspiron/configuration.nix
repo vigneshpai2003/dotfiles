@@ -89,8 +89,8 @@
   environment.systemPackages = with pkgs; [
     linux-wifi-hotspot # - Hotspot GUI
     resources # - System Monitor
-    libimobiledevice
-    ifuse
+    libimobiledevice # - Wired Connection to iPhone
+    ifuse # - Mount iPhone
   ];
 
   # - Virtualisation
@@ -108,9 +108,6 @@
     snap.enable = true; # - Snap
     usbmuxd.enable = true; # - iOS Device Support
   };
-
-  # - File Transfer
-  programs.kdeconnect.enable = true;
 
   # - Fonts
   fonts.packages = with pkgs; [
