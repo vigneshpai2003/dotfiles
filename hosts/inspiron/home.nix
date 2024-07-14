@@ -133,7 +133,8 @@
     swappy
 
     ### - Audio/Video Tools
-    pavucontrol # - Audio Control
+    pwvucontrol # - PipeWire Audio Control
+    pavucontrol # - PulseAudio Audio Control
     playerctl # - Media Control
     ffmpeg # - Audio Video Library
     mpv # - Media Players

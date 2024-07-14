@@ -55,5 +55,10 @@
       icon = "keyboard";
       type = "Application";
     };
+
+    "com.saivert.pwvucontrol" = {
+      name = "PipeWire Volume Control";
+      icon = "multimedia-volume-control";
+    };
   };
 }
