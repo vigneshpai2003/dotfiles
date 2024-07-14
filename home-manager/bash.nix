@@ -5,6 +5,10 @@
     enableCompletion = true;
     shellAliases = {
       "arise" = ''notify-send "Shadow extraction in progress ..."; (sudo nixos-rebuild switch --flake ~/dotfiles && notify-send "Shadow extraction succeeded.") || notify-send "Shadow extraction failed."'';
+      "itachi-show" = "sudo nix-env --profile /nix/var/nix/profiles/system --list-generations";
+      "itachi-killall" = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old";
+      "itachi-clean" = "sudo nix-collect-garbage; nix-collect-garbage";
+      
       "cd" = "z";
       "btop" = "btop --utf-force";
       "powertop" = "sudo powertop";
