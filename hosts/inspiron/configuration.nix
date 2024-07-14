@@ -85,6 +85,18 @@
     extraGroups = [ "networkmanager" "wheel" "kvm" ];
   };
 
+  security.sudo.extraRules = [
+    {
+      users = [ username ];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/create_ap";
+          options = [ "SETENV" "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   # - Packages that frequently require sudo permissions
   environment.systemPackages = with pkgs; [
     linux-wifi-hotspot # - Hotspot GUI

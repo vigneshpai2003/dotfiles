@@ -39,4 +39,9 @@
   };
 
   services.blueman.enable = true;
+
+  # - Hotspot
+  environment.systemPackages = [
+    (pkgs.writeShellScriptBin "hotspot" (builtins.readFile ./hotspot.sh))
+  ];
 }

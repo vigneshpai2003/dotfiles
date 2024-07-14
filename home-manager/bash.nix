@@ -9,7 +9,7 @@
       "itachi-kill" = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old";
       "itachi-clean" = "sudo nix-collect-garbage; nix-collect-garbage";
       "itachi-optimize" = "nix-store --optimise";
-      
+
       "cd" = "z";
       "btop" = "btop --utf-force";
       "powertop" = "sudo powertop";
