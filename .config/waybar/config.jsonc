@@ -18,8 +18,8 @@
         "pulseaudio",
         "backlight",
         "power-profiles-daemon",
-        "cpu",
-        "memory",
+        // "cpu",
+        // "memory",
         "battery",
         "clock"
     ],
