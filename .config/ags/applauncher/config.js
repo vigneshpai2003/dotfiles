@@ -25,39 +25,51 @@ const AppItem = app => Widget.Button({
 })
 
 const LibraryLauncher = ({ width = 500, height = 500, spacing = 12 }) => {
-    let library = [
-        { title: "The Great Gatsby", path: "/path/to/gatsby" },
-    ]
+    const searchDir = "/home/vignesh/Documents"
+    const paths = Utils.exec(`bash -c "find ${searchDir} -type f -not -path '*/\.git*' -not -path '*/\.config*' | grep -E '.pdf|.djvu' | sed 's|${searchDir}/||g'"`).split("\n")
+    
+    const library = paths.map(path => {
+        let title = path.split("/").pop()
+        let author = ""
 
-    let items = library.map(book => Object.assign(Widget.Box({
-        children: [
-            Widget.Icon({
-                icon: "document",
-                size: 42,
-            }),
-            Widget.Box({
-                vertical: true,
-                children: [
-                    Widget.Label({
-                        label: book.title,
-                        xalign: 0,
-                        vpack: "center",
-                        truncate: "end",
-                    }),
-                    Widget.Label({
-                        label: book.path,
-                        xalign: 0,
-                        vpack: "center",
-                        truncate: "end",
-                    }),
-                ]
-            })
-        ],
+        const decomp = title.split("_ ")
+        if (decomp.length == 2) {
+            [author, title] = decomp
+        }
+
+        return { title: title, path: path }
+    })
+
+    let items = library.map(book => Object.assign(
+        Widget.Box({
+            children: [
+                Widget.Icon({
+                    icon: "document",
+                    size: 42,
+                }),
+                Widget.Box({
+                    vertical: true,
+                    children: [
+                        Widget.Label({
+                            label: book.title,
+                            xalign: 0,
+                            vpack: "center",
+                            truncate: "end",
+                        }),
+                        Widget.Label({
+                            label: book.path,
+                            xalign: 0,
+                            vpack: "center",
+                            truncate: "end",
+                        }),
+                    ]
+                })
+            ],
         }),
         {
             book: book,
-        })
-    )
+        }
+    ))
 
     const list = Widget.Box({
         vertical: true,
@@ -72,12 +84,12 @@ const LibraryLauncher = ({ width = 500, height = 500, spacing = 12 }) => {
 	        const results = items.filter((item) => item.visible);
             if (results[0]) {
                 App.toggleWindow(WINDOW_NAME)
-                print(results[0].label)
+                print(results[0].book.path)
             }
         },
 
         on_change: ({ text }) => items.forEach(item => {
-            item.visible = item.book.path.match(text ?? "")
+            item.visible = item.book.path.toLowerCase().match(text.toLowerCase() ?? "")
         }),
     })
 
@@ -179,7 +191,7 @@ const applauncher = Widget.Window({
     }),
     // visible: false,
     keymode: "exclusive",
-    child: LibraryLauncher({
+    child: AppLauncher({
         width: 500,
         height: 500,
         spacing: 12,

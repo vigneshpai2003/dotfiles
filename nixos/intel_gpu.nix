@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   hardware.graphics = {
     enable = true;
@@ -11,5 +11,6 @@
       mesa.drivers
     ];
   };
+  
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 }

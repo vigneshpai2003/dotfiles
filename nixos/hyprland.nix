@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, username, ... }:
+{ pkgs, inputs, ... }:
 {
   services.xserver.enable = true;
   services.xserver.excludePackages = [ pkgs.xterm ];
@@ -26,34 +26,8 @@
   # - for electron/chromium apps to run wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # - hyprland idle management
-  services.hypridle.enable = true;
-
   # - to be handled by hyprland
   services.logind = {
     powerKey = "ignore";
   };
-
-  systemd.services.mysuspend = {
-    enable = true;
-    before = ["systemd-suspend.service"];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = ''systemctl --user -M ${username}@ start --wait mylock.service'';
-      ExecStartPost = ''/run/current-system/sw/bin/sleep 3'';
-    };
-    wantedBy = ["suspend.target"];
-  };
-
-  # - security
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  
-  environment.systemPackages = with pkgs; [
-    # - to be started by hyprland
-    polkit_gnome
-    (pkgs.writeShellScriptBin "polkit-gnome" ''
-      ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
-    '')
-  ];
 }

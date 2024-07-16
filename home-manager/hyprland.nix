@@ -18,14 +18,7 @@
     enable = true;
     extraConfig = "source = ~/dotfiles/.config/hypr/hyprlock.conf";
   };
-
-  # - Hypridle service installed in NixOS modules
-  services.hypridle.enable = false;
-
-  home.packages = with pkgs; [
-    hyprpaper
-  ];
-
+  
   programs.ags = {
     enable = true;
     configDir = null;
@@ -34,12 +27,5 @@
       webkitgtk
       accountsservice
     ];
-  };
-
-  systemd.user.services.mylock = {
-    Service = {
-      Type = "oneshot";
-      ExecStart = "loginctl lock-session";
-    };
   };
 }

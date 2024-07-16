@@ -8,10 +8,12 @@
 
     ../../nixos/fingerprint.nix
     ../../nixos/flatpak.nix
+    ../../nixos/hypridle.nix
     ../../nixos/hyprland.nix
     ../../nixos/intel_gpu.nix
     ../../nixos/locale.nix
     ../../nixos/networking.nix
+    ../../nixos/security.nix
     ../../nixos/sound.nix
     ../../nixos/thermals.nix
   ];

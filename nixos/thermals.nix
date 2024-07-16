@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ ... }:
 {
   powerManagement = {
     enable = true;

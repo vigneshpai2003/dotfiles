@@ -180,6 +180,7 @@
     wl-clipboard # - Wayland Copy Paste
     wlsunset # - Night Light
     hyprshade # - Custom Shaders
+    hyprpaper # - Wallpaper Manager
     hyprpicker # - Color Picker
     cliphist # - Clipboard Manager
     grim # - Screen Capture
@@ -188,6 +189,8 @@
     # kooha # - Screen Recorder GUI # - Not Working, use flatpak
     gsettings-desktop-schemas # - gsettings Schemas
   ];
+
+  xdg.userDirs.enable = true;
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
