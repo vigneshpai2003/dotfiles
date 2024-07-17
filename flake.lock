@@ -370,11 +370,11 @@
     },
     "nixpkgs-riseup": {
       "locked": {
-        "lastModified": 1721162294,
-        "narHash": "sha256-fX065pPWC5VXO2eqZOTscHP1vI6bhSW3PFLDTxMgzmI=",
+        "lastModified": 1721198481,
+        "narHash": "sha256-JtTZiJOwNFbZSwn+9TnAraSCv7ht5ioXSNQDsqObd/Q=",
         "owner": "vigneshpai2003",
         "repo": "nixpkgs",
-        "rev": "65cf03ccd85f1cd2e70acb299ec6dd40609b1f4d",
+        "rev": "60ceba220bdbdb0363942b0d0168a3e922885b58",
         "type": "github"
       },
       "original": {
