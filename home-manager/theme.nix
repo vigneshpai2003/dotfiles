@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
   theme = {
     name = "adw-gtk3-dark";
@@ -6,9 +6,9 @@ let
   };
 
   cursorTheme = {
-    name = "Adwaita";
+    name = "Bibata-Modern-Classic";
     size = 24;
-    package = pkgs.adwaita-icon-theme;
+    package = pkgs.bibata-cursors;
   };
 
   iconTheme = {
@@ -25,10 +25,13 @@ in
       kdePackages.qtstyleplugin-kvantum # - Qt6 Theming
       libsForQt5.qtstyleplugin-kvantum # - Qt5 Theming
 
+      adwaita-icon-theme # - Default/Fallback Icon Theme
       theme.package
       cursorTheme.package
       iconTheme.package
     ];
+
+    pointerCursor = cursorTheme;
 
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
@@ -36,9 +39,24 @@ in
     };
   };
 
+  # - Hyprland session variables
+  wayland.windowManager.hyprland.settings = {
+    env = [
+      "XCURSOR_THEME,${cursorTheme.name}"
+      "XCURSOR_SIZE,${builtins.toString cursorTheme.size}"
+      "QT_QPA_PLATFORMTHEME,qt5ct"
+    ];
+  };
+  
   gtk = {
     inherit cursorTheme iconTheme;
     theme.name = theme.name;
     enable = true;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      text-scaling-factor = 1.25;
+    };
   };
 }

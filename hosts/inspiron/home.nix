@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../home-manager/bash.nix

@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 let
   inherit (inputs) spicetify;
   spicePkgs = inputs.spicetify.packages.${pkgs.system}.default;

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   xdg.desktopEntries = {
     # - Hide these desktop entries
