@@ -14,7 +14,8 @@
       aggregatedIcons = pkgs.buildEnv {
         name = "system-icons";
         paths = with pkgs; [
-          adwaita-icon-theme
+          bibata-cursors
+          kora-icon-theme
         ];
         pathsToLink = [ "/share/icons" ];
       };
