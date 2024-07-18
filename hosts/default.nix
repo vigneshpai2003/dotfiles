@@ -19,11 +19,6 @@
               config.allowUnfree = true;
             };
 
-            riseup = import inputs.nixpkgs-riseup {
-              inherit system;
-              config.allowUnfree = true;
-            };
-
             inherit mypkgs;
           })
         ];

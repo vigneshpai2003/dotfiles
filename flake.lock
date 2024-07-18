@@ -368,22 +368,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-riseup": {
-      "locked": {
-        "lastModified": 1721198481,
-        "narHash": "sha256-JtTZiJOwNFbZSwn+9TnAraSCv7ht5ioXSNQDsqObd/Q=",
-        "owner": "vigneshpai2003",
-        "repo": "nixpkgs",
-        "rev": "60ceba220bdbdb0363942b0d0168a3e922885b58",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vigneshpai2003",
-        "ref": "update-riseup",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1720386169,
@@ -426,7 +410,6 @@
         "nix-snapd": "nix-snapd",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-riseup": "nixpkgs-riseup",
         "nixpkgs-stable": "nixpkgs-stable",
         "spicetify": "spicetify"
       }

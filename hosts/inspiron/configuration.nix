@@ -105,7 +105,7 @@
     resources # - System Monitor
     libimobiledevice # - Wired Connection to iPhone
     ifuse # - Mount iPhone
-    riseup.riseup-vpn # - Riseup VPN
+    mypkgs.riseup-vpn # - Riseup VPN
   ];
 
   # - Steam

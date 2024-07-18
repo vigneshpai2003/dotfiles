@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-riseup.url = "github:vigneshpai2003/nixpkgs/update-riseup";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
