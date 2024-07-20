@@ -1,5 +1,7 @@
 {
     "layer": "top",
+    "margin": "10px 5px 0px 5px",
+    "position": "top",
     "modules-left": [
         "custom/launcher",
         // "custom/previous",
@@ -17,9 +19,9 @@
         "idle_inhibitor",
         "pulseaudio",
         "backlight",
+        "cpu",
+        "memory",
         "power-profiles-daemon",
-        // "cpu",
-        // "memory",
         "battery",
         "clock"
     ],
