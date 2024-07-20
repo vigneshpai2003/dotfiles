@@ -1,4 +1,4 @@
-@import "/home/@username/dotfiles/.config/wofi/style.css";
+@import "@dotdir/.config/wofi/style.css";
 
 #outer-box {
     border-color: #e8c845;

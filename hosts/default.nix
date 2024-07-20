@@ -4,6 +4,7 @@
     let
       hostname = "inspiron";
       username = "vignesh";
+      dotdir = "dotfiles";
       pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -28,7 +29,7 @@
       inherit system;
 
       specialArgs = {
-        inherit inputs username hostname pkgs;
+        inherit inputs username hostname dotdir pkgs;
       };
 
       modules = [

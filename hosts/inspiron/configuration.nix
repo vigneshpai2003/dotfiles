@@ -1,4 +1,4 @@
-{ pkgs, inputs, username, ... }:
+{ pkgs, inputs, username, dotdir, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -52,7 +52,7 @@
     useUserPackages = true;
     backupFileExtension = "hmbak";
     extraSpecialArgs = {
-      inherit inputs username pkgs;
+      inherit inputs username dotdir pkgs;
     };
     users.${username} = {
       home.username = username;

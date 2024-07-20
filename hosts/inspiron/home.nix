@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, dotdir, ... }:
 {
   imports = [
     ../../home-manager/bash.nix
@@ -8,6 +8,10 @@
     ../../home-manager/theme.nix
     ../../home-manager/xdg-desktop-entries.nix
   ];
+
+  home.sessionVariables = {
+    DOTDIR = dotdir;
+  };
 
   services = {
     network-manager-applet.enable = true;
