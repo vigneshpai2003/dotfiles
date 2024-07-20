@@ -129,7 +129,13 @@ window#waybar {
 #tray {
   background-color: transparent;
   border: 0;
-  padding-right: 5px;
+  padding-right: 10px;
+}
+
+#tray menu {
+  background-color: @surface0;
+  color: @text;
+  border: 2px solid black;
 }
 
 #idle_inhibitor {
