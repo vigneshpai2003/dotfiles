@@ -72,7 +72,7 @@
         "scroll-step": 5,
         "format": "{icon} {volume}%",
         "format-muted": " {volume}%",
-        "on-click": "pkill pwvucontrol || pwvucontrol",
+        "on-click": "pkill pavucontrol || pavucontrol",
         "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+",
         "on-scroll-down": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-",
         "format-icons": {
