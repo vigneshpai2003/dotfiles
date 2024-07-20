@@ -1,6 +1,12 @@
 #!/bin/sh
-home="/home/vignesh"
-wofi="wofi --conf $home/dotfiles/.config/wofi/config --style $home/dotfiles/.config/wofi/library.css --width 1400"
+home="/home/$(whoami)"
+css=$home/dotfiles/.config/wofi/library.css
+
+# - substitute @username in css file
+cp $css $css.tmp
+sed -i "s/@username/$(whoami)/g" $css.tmp
+
+wofi="wofi --conf $home/dotfiles/.config/wofi/config --style $css.tmp --width 1400"
 
 searchDir="$home/${1:-Documents}"
 viewer="papers"

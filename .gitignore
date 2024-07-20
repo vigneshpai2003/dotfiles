@@ -1,5 +1,6 @@
 *.AppImage
 *.log
+*.tmp
 .direnv
 result
 __pycache__
