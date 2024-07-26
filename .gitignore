@@ -7,3 +7,4 @@ __pycache__
 
 caa/.caa/caa.pid
 .config/ags/types
+.config/ags/reference
