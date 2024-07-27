@@ -143,7 +143,7 @@ function Player(player) {
 export default Widget.Window({
     name: "media-widget",
     class_name: "media-widget",
-    anchor: ["top", "left"],
+    anchor: ["top", "right"],
     child: Widget.Box({
         vertical: true,
         css: "min-height: 2px; min-width: 2px;", // small hack to make it visible
