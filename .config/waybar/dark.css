@@ -4,10 +4,14 @@
 }
 
 window#waybar {
-  background-color: @base;
+  background-color: transparent;
   color: @text;
-  border-radius: 15px;
+}
+
+window#waybar > box {
   border: 2px solid black;
+  border-radius: 15px;
+  background-color: @base;
 }
 
 tooltip {

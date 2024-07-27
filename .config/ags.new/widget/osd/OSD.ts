@@ -27,8 +27,11 @@ function OnScreenProgress(vertical: boolean) {
     })
 
     let count = 0
-    function show(value: number, icon: string) {
+    function show(value: number, icon: string, class_name: string) {
         revealer.reveal_child = true
+        progress.toggleClassName('brightness', false)
+        progress.toggleClassName('speaker', false)
+        progress.toggleClassName(class_name, true)
         indicator.icon = icon
         progress.setValue(value)
         count++
@@ -44,14 +47,17 @@ function OnScreenProgress(vertical: boolean) {
         .hook(brightness, () => show(
             brightness.screen,
             icons.brightness.screen,
+            "brightness"
         ), "notify::screen")
         .hook(brightness, () => show(
             brightness.kbd,
             icons.brightness.keyboard,
+            "brightness"
         ), "notify::kbd")
         .hook(audio.speaker, () => show(
             audio.speaker.volume,
             icon(audio.speaker.icon_name || "", icons.audio.type.speaker),
+            "speaker"
         ), "notify::volume")
 }
 

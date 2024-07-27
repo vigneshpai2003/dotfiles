@@ -14,38 +14,45 @@ const deps = [
 ]
 
 const {
-    dark,
-    light,
-    blur,
-    scheme,
     padding,
     spacing,
     radius,
     shadows,
-    widget,
     border,
 } = options.theme
 
 const popoverPaddingMultiplier = 1.6
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const t = (dark: Opt<any> | string, light: Opt<any> | string) => scheme.value === "dark"
-    ? `${dark}` : `${light}`
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const $ = (name: string, value: string | Opt<any>) => `$${name}: ${value};`
 
 const variables = () => [
-    $("bg", blur.value ? `transparentize(${t(dark.bg, light.bg)}, ${blur.value / 100})` : t(dark.bg, light.bg)),
-    $("fg", t(dark.fg, light.fg)),
+    $("rosewater", "#f2d5cf"),
+    $("flamingo", "#eebebe"),
+    $("pink", "#f4b8e4"),
+    $("mauve", "#ca9ee6"),
+    $("red", "#e78284"),
+    $("maroon", "#ea999c"),
+    $("peach", "#ef9f76"),
+    $("yellow", "#e5c890"),
+    $("green", "#a6d189"),
+    $("teal", "#81c8be"),
+    $("sky", "#99d1db"),
+    $("sapphire", "#85c1dc"),
+    $("blue", "#8caaee"),
+    $("lavender", "#babbf1"),
+    $("text", "#c6d0f5"),
+    $("subtext1", "#b5bfe2"),
+    $("subtext0", "#a5adce"),
+    $("overlay2", "#949cbb"),
+    $("overlay1", "#838ba7"),
+    $("overlay0", "#737994"),
+    $("surface2", "#626880"),
+    $("surface1", "#51576d"),
+    $("surface0", "#414559"),
+    $("base", "#303446"),
+    $("mantle", "#292c3c"),
+    $("crust", "#232634"),
 
-    $("primary-bg", t(dark.primary.bg, light.primary.bg)),
-    $("primary-fg", t(dark.primary.fg, light.primary.fg)),
-
-    $("error-bg", t(dark.error.bg, light.error.bg)),
-    $("error-fg", t(dark.error.fg, light.error.fg)),
-
-    $("scheme", scheme),
     $("padding", `${padding}pt`),
     $("spacing", `${spacing}pt`),
     $("radius", `${radius}px`),
@@ -53,33 +60,16 @@ const variables = () => [
 
     $("shadows", `${shadows}`),
 
-    $("widget-bg", `transparentize(${t(dark.widget, light.widget)}, ${widget.opacity.value / 100})`),
-
-    $("hover-bg", `transparentize(${t(dark.widget, light.widget)}, ${(widget.opacity.value * .9) / 100})`),
-    $("hover-fg", `lighten(${t(dark.fg, light.fg)}, 8%)`),
-
     $("border-width", `${border.width}px`),
-    $("border-color", `transparentize(${t(dark.border, light.border)}, ${border.opacity.value / 100})`),
+    $("border-color", `transparentize(black, ${border.opacity.value / 100})`),
     $("border", "$border-width solid $border-color"),
 
-    $("active-gradient", `linear-gradient(to right, ${t(dark.primary.bg, light.primary.bg)}, darken(${t(dark.primary.bg, light.primary.bg)}, 4%))`),
-    $("shadow-color", t("rgba(0,0,0,.6)", "rgba(0,0,0,.4)")),
-    $("text-shadow", t("2pt 2pt 2pt $shadow-color", "none")),
-    $("box-shadow", t("2pt 2pt 2pt 0 $shadow-color, inset 0 0 0 $border-width $border-color", "none")),
+    $("shadow-color", "rgba(0,0,0,.6)"),
+    $("text-shadow", "2pt 2pt 2pt $shadow-color"),
+    $("box-shadow", "2pt 2pt 2pt 0 $shadow-color, inset 0 0 0 $border-width $border-color"),
 
-    $("popover-border-color", `transparentize(${t(dark.border, light.border)}, ${Math.max(((border.opacity.value - 1) / 100), 0)})`),
     $("popover-padding", `$padding * ${popoverPaddingMultiplier}`),
     $("popover-radius", radius.value === 0 ? "0" : "$radius + $popover-padding"),
-
-    $("font-size", `${options.font.size}pt`),
-    $("font-name", options.font.name),
-
-    // etc
-    $("charging-bg", options.bar.battery.charging),
-    $("bar-battery-blocks", options.bar.battery.blocks),
-    $("bar-position", options.bar.position),
-    $("hyprland-gaps-multiplier", options.hyprland.gaps),
-    $("screen-corner-multiplier", `${options.bar.corners.value * 0.01}`),
 ]
 
 async function resetCss() {

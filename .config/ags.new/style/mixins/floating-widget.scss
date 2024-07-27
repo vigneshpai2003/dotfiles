@@ -4,9 +4,9 @@
     }
 
     margin: max($spacing, 8px);
-    border: $border-width solid $popover-border-color;
-    background-color: $bg;
-    color: $fg;
+    border: $border-width solid $border-color;
+    background-color: $base;
+    color: $text;
     border-radius: $popover-radius;
     padding: $popover-padding;
 }
