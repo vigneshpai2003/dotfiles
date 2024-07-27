@@ -13,17 +13,17 @@ window.indicator {
                 -gtk-icon-transform: scale(0.7);
             }
         }
-    }
 
-    .progress.brightness {
-        .fill {
-            background-color: $yellow;
+        &.brightness {
+            .fill {
+                background-color: $teal;
+            }
         }
-    }
 
-    .progress.speaker {
-        .fill {
-            background-color: $lavender;
+        &.speaker {
+            .fill {
+                background-color: $lavender;
+            }
         }
     }
 

@@ -1,4 +1,3 @@
-import { icon } from "lib/utils"
 import icons from "lib/icons"
 import Progress from "./Progress"
 import brightness from "service/brightness"
@@ -8,6 +7,21 @@ const audio = await Service.import("audio")
 const { progress, microphone } = options.osd
 
 const DELAY = 2500
+
+function calculateAudioIcon(volume: number) {
+    const approxVolume = Number(volume.toPrecision(2))
+
+    if (approxVolume < 0.33)
+        return icons.audio.volume.low
+
+    if (approxVolume < 0.66)
+        return icons.audio.volume.medium
+
+    if (approxVolume <= 1)
+        return icons.audio.volume.high
+
+    return icons.audio.volume.overamplified
+}
 
 function OnScreenProgress(vertical: boolean) {
     const indicator = Widget.Icon({
@@ -56,7 +70,7 @@ function OnScreenProgress(vertical: boolean) {
         ), "notify::kbd")
         .hook(audio.speaker, () => show(
             audio.speaker.volume,
-            icon(audio.speaker.icon_name || "", icons.audio.type.speaker),
+            calculateAudioIcon(audio.speaker.volume),
             "speaker"
         ), "notify::volume")
 }
@@ -72,12 +86,26 @@ function MicrophoneMute() {
     })
 
     let count = 0
-    let mute = audio.microphone.stream?.is_muted ?? false
+    let microphoneMute = audio.microphone.stream?.is_muted ?? false
+    let speakerMute = audio.speaker.stream?.is_muted ?? false
 
     return revealer.hook(audio.microphone, () => Utils.idle(() => {
-        if (mute !== audio.microphone.stream?.is_muted) {
-            mute = audio.microphone.stream!.is_muted
-            icon.icon = icons.audio.mic[mute ? "muted" : "high"]
+        if (microphoneMute !== audio.microphone.stream?.is_muted) {
+            microphoneMute = audio.microphone.stream!.is_muted
+            icon.icon = icons.audio.mic[microphoneMute ? "muted" : "high"]
+            revealer.reveal_child = true
+            count++
+
+            Utils.timeout(DELAY, () => {
+                count--
+                if (count === 0)
+                    revealer.reveal_child = false
+            })
+        }
+    })).hook(audio.speaker, () => Utils.idle(() => {
+        if (speakerMute !== audio.speaker.stream?.is_muted) {
+            speakerMute = audio.speaker.stream!.is_muted
+            icon.icon = speakerMute ? icons.audio.volume.muted : calculateAudioIcon(audio.speaker.volume)
             revealer.reveal_child = true
             count++
 

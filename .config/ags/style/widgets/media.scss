@@ -1,0 +1,60 @@
+window.media-widget {
+    background: transparent;
+
+    .player {
+        @include floating-widget;
+        padding: $popover-padding;
+        min-width: 350px;
+        border: $border;
+        border-radius: $radius;
+        margin: $spacing;
+        background-color: transparentize($base, .1);
+
+        .img {
+            min-width: 100px;
+            min-height: 100px;
+            background-size: cover;
+            background-position: center;
+            border-radius: $radius;
+            margin-right: 1em;
+        }
+
+        .title {
+            font-size: 1.2em;
+        }
+
+        .artist {
+            font-size: 1.1em;
+            color: transparentize($text, .4);
+        }
+
+        scale.position {
+            padding: 0;
+            margin-bottom: .3em;
+
+            trough {
+                min-height: 8px;
+            }
+
+            highlight {
+                background-color: $pink;
+            }
+
+            slider {
+                all: unset;
+            }
+        }
+
+        button {
+            min-height: 1em;
+            min-width: 1em;
+            padding: .3em;
+            background-color: $blue;
+            color: $crust;
+
+            &.play-pause {
+                margin: 0 .3em;
+            }
+        }
+    }
+}

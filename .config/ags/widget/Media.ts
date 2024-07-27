@@ -1,21 +1,15 @@
+import icons from "lib/icons"
+
 const mpris = await Service.import("mpris")
 const players = mpris.bind("players")
 
-const FALLBACK_ICON = "audio-x-generic-symbolic"
-const PLAY_ICON = "media-playback-start-symbolic"
-const PAUSE_ICON = "media-playback-pause-symbolic"
-const PREV_ICON = "media-skip-backward-symbolic"
-const NEXT_ICON = "media-skip-forward-symbolic"
-
-/** @param {number} length */
-function lengthStr(length) {
+function lengthStr(length: number) {
     const min = Math.floor(length / 60)
     const sec = Math.floor(length % 60)
     const sec0 = sec < 10 ? "0" : ""
     return `${min}:${sec0}${sec}`
 }
 
-/** @param {import('types/service/mpris').MprisPlayer} player */
 function Player(player) {
     const img = Widget.Box({
         class_name: "img",
@@ -84,7 +78,7 @@ function Player(player) {
         tooltip_text: player.identity || "",
         icon: player.bind("entry").transform(entry => {
             const name = `${entry}-symbolic`
-            return Utils.lookUpIcon(name) ? name : FALLBACK_ICON
+            return Utils.lookUpIcon(name) ? name : icons.fallback.audio
         }),
     })
 
@@ -95,9 +89,9 @@ function Player(player) {
         child: Widget.Icon({
             icon: player.bind("play_back_status").transform(s => {
                 switch (s) {
-                    case "Playing": return PAUSE_ICON
+                    case "Playing": return icons.mpris.playing
                     case "Paused":
-                    case "Stopped": return PLAY_ICON
+                    case "Stopped": return icons.mpris.paused
                 }
             }),
         }),
@@ -106,17 +100,20 @@ function Player(player) {
     const prev = Widget.Button({
         on_clicked: () => player.previous(),
         visible: player.bind("can_go_prev"),
-        child: Widget.Icon(PREV_ICON),
+        child: Widget.Icon(icons.mpris.prev),
     })
 
     const next = Widget.Button({
         on_clicked: () => player.next(),
         visible: player.bind("can_go_next"),
-        child: Widget.Icon(NEXT_ICON),
+        child: Widget.Icon(icons.mpris.next),
     })
 
     return Widget.Box(
-        { class_name: "player" },
+        { 
+            class_name: "player",
+            visible: player.bind("track_title")
+        },
         img,
         Widget.Box(
             {
@@ -143,11 +140,14 @@ function Player(player) {
     )
 }
 
-export function Media() {
-    return Widget.Box({
+export default Widget.Window({
+    name: "media-widget",
+    class_name: "media-widget",
+    anchor: ["top", "left"],
+    child: Widget.Box({
         vertical: true,
         css: "min-height: 2px; min-width: 2px;", // small hack to make it visible
         visible: players.as(p => p.length > 0),
         children: players.as(p => p.map(Player)),
-    })
-}
+    }),
+})
