@@ -1,40 +1,24 @@
 { pkgs, inputs, ... }:
 let
-  inherit (inputs) spicetify;
-  spicePkgs = inputs.spicetify.packages.${pkgs.system}.default;
-  officialThemes = pkgs.fetchgit {
-    url = "https://github.com/spicetify/spicetify-themes";
-    rev = "dfdd89ad84d5c68915c65e4a83580047349c49b4";
-    sha256 = "sha256-8IF2Y7xJtzk92rl4bfjiMXCISzUMaxXxOaMZkLS5mww=";
-  };
+  spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
 in
 {
   # import the flake's module for your system
-  imports = [ spicetify.homeManagerModule ];
+  imports = [ inputs.spicetify.homeManagerModules.default ];
 
-  # configure spicetify :)
   programs.spicetify = {
     enable = true;
-    theme = {
-      name = "Sleek";
-      src = officialThemes;
-
-      appendName = true; # theme is located at "${src}/<name>" not just "${src}"
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = true;
-      sidebarConfig = true;
-    };
-    colorScheme = "Cherry";
-
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
+      popupLyrics
       powerBar
     ];
-
     enabledCustomApps = with spicePkgs.apps; [
-      lyrics-plus
-      marketplace
+      newReleases
+      ncsVisualizer
+      historyInSidebar
     ];
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "frappe";
   };
 }
