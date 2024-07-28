@@ -48,7 +48,8 @@ const options = mkOptions(OPTIONS, {
     notifications: {
         anchor: Tanchor(["top", "right"]),
         width: opt(500),
-    }
+        timeout: opt(6000)
+    },
 })
 
 globalThis["options"] = options

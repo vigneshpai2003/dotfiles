@@ -74,5 +74,9 @@ window.notifications {
         .description {
             min-width: 350px;
         }
+
+        .content .time {
+            font-size: 0;
+        }
     }
 }

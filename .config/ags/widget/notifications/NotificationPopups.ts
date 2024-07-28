@@ -2,6 +2,7 @@ import Notification from "./Notification"
 import options from "options"
 
 const notifications = await Service.import("notifications")
+notifications.popupTimeout = options.notifications.timeout.value
 const { transition } = options
 const { timeout, idle } = Utils
 

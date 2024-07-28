@@ -55,12 +55,12 @@ export default (notification: Notification) => {
                 hexpand: true,
                 vertical: true,
                 children: [
-                    NotificationIcon(notification),
                     Widget.Label({
                         class_name: "time",
                         vpack: "start",
                         label: time(notification.time),
                     }),
+                    NotificationIcon(notification),
                 ]
             }),
             Widget.Box({
