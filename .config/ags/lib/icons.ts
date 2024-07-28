@@ -74,9 +74,13 @@ export default {
         disabled: "bluetooth-disabled-symbolic",
     },
     brightness: {
-        indicator: "display-brightness-symbolic",
         keyboard: "keyboard-brightness-symbolic",
-        screen: "display-brightness-symbolic",
+        screen: {
+            default: "display-brightness-symbolic",
+            low: "display-brightness-low-symbolic",
+            medium: "display-brightness-medium-symbolic",
+            high: "display-brightness-high-symbolic",
+        },
     },
     powermenu: {
         sleep: "weather-clear-night-symbolic",

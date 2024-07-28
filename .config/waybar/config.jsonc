@@ -132,7 +132,7 @@
         "format": "🍉",
         "tooltip": true,
         "tooltip-format": "Open application launcher",
-        "on-click": "pkill wofi || wofi --conf ~/$DOTDIR/.config/wofi/config --style ~/$DOTDIR/.config/wofi/style.css"
+        "on-click": "pkill wofi || wofi --conf $DOTDIR/.config/wofi/config --style $DOTDIR/.config/wofi/style.css"
     },
     "custom/media": {
         "format": "{icon} {}",

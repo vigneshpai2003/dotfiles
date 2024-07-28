@@ -10,19 +10,19 @@ PASSWORD=${1:-$DEFAULT_PASSWORD}
 pid=`sudo create_ap --list-running | awk '{printf $1}'`
 
 if [[ -z "$pid" ]]; then
-    notify-send "Starting hotspot..."
+    notify-send --print-id --icon="network-wireless-acquiring-symbolic" "Starting hotspot..."
     if sudo create_ap $WIFI_INTERFACE $INTERNET_INTERFACE $SSID $PASSWORD --daemon; then
         sleep 5
         pid=`sudo create_ap --list-running | awk '{printf $1}'`
         if [[ -z "$pid" ]]; then
-            notify-send "Failed to start hotspot." "Is Wi-Fi enabled?"
+            notify-send --print-id --icon="network-wireless-error-symbolic" "Failed to start hotspot." "Is Wi-Fi enabled?"
         else
-            notify-send "Hotspot '$SSID' started." "PID: $pid"
+            notify-send --print-id --icon="network-wireless-hotspot-symbolic" "Hotspot '$SSID' started." "PID: $pid"
         fi
     else
-        notify-send "Failed to start hotspot." "An unknown error occurred."
+        notify-send --icon="network-wireless-error-symbolic" "Failed to start hotspot." "An unknown error occurred."
     fi
 else
     sudo create_ap --stop $pid
-    notify-send "Hotspot stopped."
+    notify-send --icon="network-wireless-disabled-symbolic" "Hotspot stopped."
 fi

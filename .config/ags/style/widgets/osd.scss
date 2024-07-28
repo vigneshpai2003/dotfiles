@@ -14,7 +14,13 @@ window.indicator {
             }
         }
 
-        &.brightness {
+        &.screen {
+            .fill {
+                background-color: $lavender;
+            }
+        }
+
+        &.kbd {
             .fill {
                 background-color: $teal;
             }
@@ -22,7 +28,7 @@ window.indicator {
 
         &.speaker {
             .fill {
-                background-color: $lavender;
+                background-color: $blue;
             }
         }
     }

@@ -4,7 +4,7 @@
     let
       hostname = "inspiron";
       username = "vignesh";
-      dotdir = "dotfiles";
+      dotdir = "/home/${username}/dotfiles";
       pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;

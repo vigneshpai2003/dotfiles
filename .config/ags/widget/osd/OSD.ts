@@ -23,6 +23,18 @@ function calculateAudioIcon(volume: number) {
     return icons.audio.volume.overamplified
 }
 
+function calculateScreenBrightnessIcon(brightness: number) {
+    const approxBrightness = Number(brightness.toPrecision(2))
+
+    if (approxBrightness < 0.33)
+        return icons.brightness.screen.low
+
+    if (approxBrightness < 0.66)
+        return icons.brightness.screen.medium
+
+    return icons.brightness.screen.high
+}
+
 function OnScreenProgress(vertical: boolean) {
     const indicator = Widget.Icon({
         size: 42,
@@ -43,7 +55,8 @@ function OnScreenProgress(vertical: boolean) {
     let count = 0
     function show(value: number, icon: string, class_name: string) {
         revealer.reveal_child = true
-        progress.toggleClassName('brightness', false)
+        progress.toggleClassName('screen', false)
+        progress.toggleClassName('kbd', false)
         progress.toggleClassName('speaker', false)
         progress.toggleClassName(class_name, true)
         indicator.icon = icon
@@ -60,13 +73,13 @@ function OnScreenProgress(vertical: boolean) {
     return revealer
         .hook(brightness, () => show(
             brightness.screen,
-            icons.brightness.screen,
-            "brightness"
+            calculateScreenBrightnessIcon(brightness.screen),
+            "screen"
         ), "notify::screen")
         .hook(brightness, () => show(
             brightness.kbd,
             icons.brightness.keyboard,
-            "brightness"
+            "kbd"
         ), "notify::kbd")
         .hook(audio.speaker, () => show(
             audio.speaker.volume,

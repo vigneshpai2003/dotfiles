@@ -1,7 +1,7 @@
 import { opt, mkOptions } from "lib/option"
 
 const Tpack = opt<"start" | "center" | "end">
-const Tanchor = opt<["top"] | ["bottom"] | ["left"] | ["right"] | ["top", "right"] | ["top", "left"] | ["bottom", "left"] | ["bottom", "right"]>
+const Tanchor = opt<Array<"top" | "bottom"| "left" | "right">>
 
 const options = mkOptions(OPTIONS, {
     autotheme: opt(false),
@@ -43,6 +43,11 @@ const options = mkOptions(OPTIONS, {
 
     media: {
         anchor: Tanchor(["bottom", "right"])
+    },
+
+    notifications: {
+        anchor: Tanchor(["top", "right"]),
+        width: opt(500),
     }
 })
 

@@ -57,7 +57,7 @@
     # - Terminal Emulator
     kitty = {
       enable = true;
-      theme = "Adwaita darker";
+      theme = "Catppuccin-Mocha";
       shellIntegration.enableBashIntegration = true;
       settings = {
         background_opacity = "0.8";
@@ -180,7 +180,6 @@
     wofi # - Launcher
     waybar # - Bar
     mypkgs.waybar-mediaplayer
-    dunst # - Notifications Daemon
     wl-clipboard # - Wayland Copy Paste
     wlsunset # - Night Light
     hyprshade # - Custom Shaders
