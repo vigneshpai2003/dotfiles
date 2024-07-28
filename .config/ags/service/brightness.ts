@@ -13,7 +13,7 @@ class Brightness extends Service {
     }
 
     #kbdMax = get(`--device ${kbd} max`)
-    #kbd = get(`--device ${kbd} get`)
+    #kbd = get(`--device ${kbd} get`) / this.#kbdMax
     #screenMax = get("max")
     #screen = get("get") / (get("max") || 1)
 
@@ -55,10 +55,14 @@ class Brightness extends Service {
             this.changed("screen")
         })
 
-        Utils.monitorFile(kbdPath, async f => {
-            const v = await Utils.readFileAsync(f)
-            this.#kbd = Number(v) / this.#kbdMax
-            this.changed("kbd")
+        // kbdPath cannot be monitered by Gio, so we have to poll it
+        // triggering from a keybind is not possible since on my current hardware, the kbd brightness key has no keycode
+        Utils.interval(250, async () => {
+            const v = Number(await Utils.readFileAsync(kbdPath)) / this.#kbdMax
+            if (v !== this.#kbd) {
+                this.#kbd = v
+                this.changed("kbd")
+            }
         })
     }
 }

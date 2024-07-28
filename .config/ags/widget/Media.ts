@@ -1,4 +1,5 @@
 import icons from "lib/icons"
+import options from "options"
 
 const mpris = await Service.import("mpris")
 const players = mpris.bind("players")
@@ -143,10 +144,10 @@ function Player(player) {
 export default Widget.Window({
     name: "media-widget",
     class_name: "media-widget",
-    anchor: ["top", "right"],
+    anchor: options.media.anchor.bind(),
     child: Widget.Box({
         vertical: true,
-        css: "min-height: 2px; min-width: 2px;", // small hack to make it visible
+        class_name: 'box',
         visible: players.as(p => p.length > 0),
         children: players.as(p => p.map(Player)),
     }),

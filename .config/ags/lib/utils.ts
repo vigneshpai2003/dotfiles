@@ -2,6 +2,8 @@ import icons, { substitutes } from "./icons"
 import GLib from "gi://GLib?version=2.0"
 import Gtk from "gi://Gtk?version=3.0"
 import Gdk from "gi://Gdk"
+import { Variable as Var } from 'resource:///com/github/Aylur/ags/variable.js'
+
 
 export function forMonitors(widget: (monitor: number) => Gtk.Window) {
     const n = Gdk.Display.get_default()?.get_n_monitors() || 1
@@ -52,4 +54,29 @@ export function icon(name: string | null, fallback = icons.missing) {
 
     print(`no icon substitute "${icon}" for "${name}", fallback: "${fallback}"`)
     return fallback
+}
+
+// this can be used to trigger certain events by running js "blinker.blink" in CLI
+export class Blinker extends Var<Boolean> {
+    static {
+        Service.register(this, {
+            'onblink': [],
+        }, {
+            'value': ['boolean', 'rw'],
+            'is-listening': ['boolean', 'r'],
+            'is-polling': ['boolean', 'r'],
+        });
+    }
+
+    blink() {
+        this.setValue(!this.value)
+    }
+
+    onblink(callback) {
+        this.connect("changed", callback)
+    }
+
+    constructor() {
+        super(false)
+    }
 }

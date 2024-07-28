@@ -1,14 +1,18 @@
 window.media-widget {
     background: transparent;
 
+    .box {
+        margin: $spacing / 2;
+    }
+
     .player {
         @include floating-widget;
         padding: $popover-padding;
         min-width: 350px;
         border: $border;
         border-radius: $radius;
-        margin: $spacing;
-        background-color: transparentize($base, .1);
+        margin: $spacing / 2;
+        background-color: $base;
 
         .img {
             min-width: 100px;

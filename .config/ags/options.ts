@@ -1,5 +1,8 @@
 import { opt, mkOptions } from "lib/option"
 
+const Tpack = opt<"start" | "center" | "end">
+const Tanchor = opt<["top"] | ["bottom"] | ["left"] | ["right"] | ["top", "right"] | ["top", "left"] | ["bottom", "left"] | ["bottom", "right"]>
+
 const options = mkOptions(OPTIONS, {
     autotheme: opt(false),
 
@@ -26,17 +29,21 @@ const options = mkOptions(OPTIONS, {
         progress: {
             vertical: opt(true),
             pack: {
-                h: opt<"start" | "center" | "end">("end"),
-                v: opt<"start" | "center" | "end">("center"),
+                h: Tpack("end"),
+                v: Tpack("center"),
             },
         },
         microphone: {
             pack: {
-                h: opt<"start" | "center" | "end">("center"),
-                v: opt<"start" | "center" | "end">("end"),
+                h: Tpack("center"),
+                v: Tpack("end"),
             },
         },
     },
+
+    media: {
+        anchor: Tanchor(["bottom", "right"])
+    }
 })
 
 globalThis["options"] = options
