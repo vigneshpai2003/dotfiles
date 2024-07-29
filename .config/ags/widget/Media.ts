@@ -141,7 +141,7 @@ function Player(player) {
     )
 }
 
-export default Widget.Window({
+export default () => Widget.Window({
     name: "media-widget",
     class_name: "media-widget",
     anchor: options.media.anchor.bind(),

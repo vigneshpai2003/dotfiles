@@ -113,7 +113,7 @@ const NotificationCenter = () => Widget.Box({
     ],
 })
 
-export default PopupWindow({
+export default () => PopupWindow({
     name: "notificationcenter",
     exclusivity: "exclusive",
     transition: "slide_down",

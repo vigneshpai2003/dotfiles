@@ -1,0 +1,103 @@
+@use "sass:math";
+@use "sass:color";
+
+window#launcher .launcher {
+    @include floating_widget;
+
+    .quicklaunch {
+        button {
+            background-color: $base;
+            padding: $padding;
+        }
+    }
+
+    entry {
+        padding: $padding;
+        margin: $spacing;
+        background-color: $mantle;
+
+        selection {
+            color: color.mix($base, $text, 50%);
+            background-color: transparent;
+        }
+
+        label,
+        image {
+            color: $text;
+        }
+    }
+
+    image.spinner {
+        color: $base;
+        margin-right: $spacing;
+    }
+
+    separator {
+        margin: 4pt 0;
+        background-color: $base;
+    }
+
+    button {
+        background-color: $surface0;
+
+        >box {
+        }
+
+        transition: $transition;
+        padding: $padding;
+
+        label {
+            transition: $transition;
+
+            &.title {
+                color: $text;
+            }
+
+            &.description {
+                color: transparentize($text, 0.3);
+            }
+        }
+
+        image {
+            transition: $transition;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $surface1;
+
+            image {
+                -gtk-icon-shadow: 2px 2px $base;
+            }
+        }
+
+        &:active {
+            background-color: transparentize($base, 0.5);
+            border-radius: $radius;
+            box-shadow: inset 0 0 0 $border-width $border-color;
+
+            .title {
+                color: $text;
+            }
+        }
+    }
+
+    button.help,
+    button.nix-item {
+        padding: 0 ($padding * .5);
+
+        label {
+            transition: $transition;
+            color: transparentize($text, 0.3);
+        }
+
+        .name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    }
+
+    button.sh-item {
+        padding: 0 ($padding * .5);
+    }
+}

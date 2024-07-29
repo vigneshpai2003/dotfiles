@@ -5,10 +5,10 @@ export const substitutes = {
 export default {
     missing: "image-missing-symbolic",
     nix: {
-        nix: "nix-snowflake-symbolic",
+        nix: "image-missing-symbolic",
     },
     app: {
-        terminal: "terminal-symbolic",
+        terminal: "terminal",
     },
     fallback: {
         executable: "application-x-executable",

@@ -3,7 +3,9 @@ import GLib from "gi://GLib?version=2.0"
 import Gtk from "gi://Gtk?version=3.0"
 import Gdk from "gi://Gdk"
 import { Variable as Var } from 'resource:///com/github/Aylur/ags/variable.js'
+import { Application } from "types/service/applications"
 
+export type Binding<T> = import("types/service").Binding<any, any, T>
 
 export function forMonitors(widget: (monitor: number) => Gtk.Window) {
     const n = Gdk.Display.get_default()?.get_n_monitors() || 1
@@ -79,4 +81,14 @@ export class Blinker extends Var<Boolean> {
     constructor() {
         super(false)
     }
+}
+
+export function launchApp(app: Application) {
+    const exe = app.executable
+        .split(/\s+/)
+        .filter(str => !str.startsWith("%") && !str.startsWith("@"))
+        .join(" ")
+
+    bash(`${exe} &`)
+    app.frequency += 1
 }
