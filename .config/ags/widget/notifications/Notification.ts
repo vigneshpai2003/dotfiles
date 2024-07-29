@@ -2,7 +2,7 @@ import { type Notification } from "types/service/notifications"
 import GLib from "gi://GLib"
 import icons from "lib/icons"
 
-const time = (time: number, format = "%H:%M:%S") => GLib.DateTime
+const time = (time: number, format = "%T (%A)") => GLib.DateTime
     .new_from_unix_local(time)
     .format(format)
 
@@ -51,22 +51,16 @@ export default (notification: Notification) => {
     const content = Widget.Box({
         class_name: "content",
         children: [
+            NotificationIcon(notification),
             Widget.Box({
                 hexpand: true,
                 vertical: true,
                 children: [
                     Widget.Label({
                         class_name: "time",
-                        vpack: "start",
+                        hpack: "start",
                         label: time(notification.time),
                     }),
-                    NotificationIcon(notification),
-                ]
-            }),
-            Widget.Box({
-                hexpand: true,
-                vertical: true,
-                children: [
                     Widget.Box({
                         children: [
                             Widget.Label({
