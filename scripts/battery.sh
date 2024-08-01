@@ -36,30 +36,30 @@ do
     # Check if the charge status has changed
     NEW_CHARGE_STATUS=`cat /sys/class/power_supply/$BATNAME/status`
     if [ $CHARGE_STATUS != $NEW_CHARGE_STATUS ]; then
+        # Check if the battery is charging or discharging
         if [ $NEW_CHARGE_STATUS == $CHARGING_STR ]; then
             charging_message
         elif [ $NEW_CHARGE_STATUS == $DISCHARGING_STR ]; then
             discharging_message
         fi
         CHARGE_STATUS=$NEW_CHARGE_STATUS
-    fi
 
-    if [ $CHARGE_STATUS == $DISCHARGING_STR ]; then
-        # Check if the battery is low
-        if [ $(charge_now) -le $LOW ]; then
-            notify-send --icon="battery-020-symbolic" "Low Battery" "Battery is at $(charge_now)%."
-        elif [ $(charge_now) -le $WARNING ]; then
-            notify-send --icon="battery-caution-symbolic" "Warning" "Battery is at $(charge_now)%."
-        elif [ $(charge_now) -le $CRITICAL ]; then
-            notify-send --urgency="critical" --icon="battery-action-symbolic" "Critical" "Battery is at $(charge_now)%."
-        fi
-    
-    elif [ $CHARGE_STATUS == $CHARGING_STR ]; then
-        # Check if the battery is charged
-        if [ $(charge_now) -ge $FULL ]; then
-            notify-send --icon="battery-full-charged" "Full" "Battery is full at $(charge_now)%."
-        elif [ $(charge_now) -ge $ALMOST_FULL ]; then
-            notify-send --icon="battery-good-charging" "Almost Full" "Battery is almost full at $(charge_now)%."
+        if [ $CHARGE_STATUS == $DISCHARGING_STR ]; then
+            # Check if the battery is low
+            if [ $(charge_now) -le $LOW ]; then
+                notify-send --icon="battery-020-symbolic" "Low Battery" "Battery is at $(charge_now)%."
+            elif [ $(charge_now) -le $WARNING ]; then
+                notify-send --icon="battery-caution-symbolic" "Warning" "Battery is at $(charge_now)%."
+            elif [ $(charge_now) -le $CRITICAL ]; then
+                notify-send --urgency="critical" --icon="battery-action-symbolic" "Critical" "Battery is at $(charge_now)%."
+            fi
+        elif [ $CHARGE_STATUS == $CHARGING_STR ]; then
+            # Check if the battery is charged
+            if [ $(charge_now) -ge $FULL ]; then
+                notify-send --icon="battery-full-charged" "Full" "Battery is full at $(charge_now)%."
+            elif [ $(charge_now) -ge $ALMOST_FULL ]; then
+                notify-send --icon="battery-good-charging" "Almost Full" "Battery is almost full at $(charge_now)%."
+            fi
         fi
     fi
 
