@@ -68,7 +68,8 @@ const options = mkOptions(OPTIONS, {
                 [
                     "brave-browser",
                     "visual studio code",
-                    "fast",
+                    "terminal",
+                    "resources"
                 ],
             ]),
         },

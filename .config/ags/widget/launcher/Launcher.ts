@@ -6,6 +6,7 @@ import nix from "service/nix"
 import * as AppLauncher from "./AppLauncher"
 import * as NixRun from "./NixRun"
 import * as ShRun from "./ShRun"
+import Gdk from "types/@girs/gdk-3.0/gdk-3.0"
 
 const { width, margin } = options.launcher
 const isnix = nix.available
@@ -92,7 +93,7 @@ function Launcher() {
     })
 
     function focus() {
-        entry.text = "Search"
+        entry.text = ""
         entry.set_position(-1)
         entry.select_region(0, -1)
         entry.grab_focus()
@@ -111,6 +112,7 @@ function Launcher() {
             entry.text = ""
             if (visible)
                 focus()
+            applauncher.filter("")
         }),
         children: [
             Widget.Box([entry, nixload, shicon]),
@@ -129,7 +131,15 @@ function Launcher() {
             vexpand: false,
         }),
         layout,
-    )
+    ).on("key-press-event", (self, event: Gdk.Event) => {
+        if ([Gdk.KEY_Up, Gdk.KEY_Down, Gdk.KEY_Left, Gdk.KEY_Right].includes(event.get_keyval()[1]))
+            return
+
+        entry.grab_focus()
+        entry.set_position(-1)
+        entry.select_region(-2, -1)
+        entry.emit("key-press-event", event)
+    })
 }
 
 export default () => PopupWindow({
