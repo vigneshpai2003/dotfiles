@@ -67,7 +67,7 @@ const AppItem = (app: Application) => {
 
 export function Favorites() {
     const favs = options.launcher.apps.favorites.bind()
-    return Widget.Revealer({
+    const widget = Widget.Revealer({
         visible: favs.as(f => f.length > 0),
         child: Widget.Box({
             vertical: true,
@@ -83,6 +83,10 @@ export function Favorites() {
             ])),
         }),
     })
+
+    return Object.assign(widget, {launch(i: number) {
+        widget.get_children()[0].get_children()[1].children[i]?.on_clicked()
+    }})
 }
 
 export function Launcher() {
@@ -127,5 +131,8 @@ export function Launcher() {
         launchFirst() {
             launchApp(first)
         },
+        launch(i: number) {
+            launchApp(list.get_children().filter(x => x.reveal_child)[i].attribute.app)
+        }
     })
 }

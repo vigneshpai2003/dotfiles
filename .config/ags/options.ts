@@ -66,9 +66,10 @@ const options = mkOptions(OPTIONS, {
             max: opt(6),
             favorites: opt([
                 [
-                    "brave-browser",
-                    "visual studio code",
                     "terminal",
+                    "brave-browser",
+                    "obsidian",
+                    "visual studio code",
                     "resources"
                 ],
             ]),

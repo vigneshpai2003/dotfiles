@@ -1,95 +1,51 @@
-import { type Binding } from "lib/utils"
 import PopupWindow, { Padding } from "widget/PopupWindow"
 import icons from "lib/icons"
 import options from "options"
-import nix from "service/nix"
 import * as AppLauncher from "./AppLauncher"
-import * as NixRun from "./NixRun"
-import * as ShRun from "./ShRun"
 import Gdk from "types/@girs/gdk-3.0/gdk-3.0"
 
 const { width, margin } = options.launcher
-const isnix = nix.available
 
 function Launcher() {
     const favs = AppLauncher.Favorites()
     const applauncher = AppLauncher.Launcher()
-    const sh = ShRun.ShRun()
-    const shicon = ShRun.Icon()
-    const nix = NixRun.NixRun()
-    const nixload = NixRun.Spinner()
+ 
+    favs.set_can_focus(true)
+    applauncher.set_can_focus(true)
 
-    function HelpButton(cmd: string, desc: string | Binding<string>) {
-        return Widget.Box(
-            { vertical: true },
-            Widget.Separator(),
-            Widget.Button(
-                {
-                    class_name: "help",
-                    on_clicked: () => {
-                        entry.grab_focus()
-                        entry.text = `:${cmd} `
-                        entry.set_position(-1)
-                    },
-                },
-                Widget.Box([
-                    Widget.Label({
-                        class_name: "name",
-                        label: `:${cmd}`,
-                    }),
-                    Widget.Label({
-                        hexpand: true,
-                        hpack: "end",
-                        class_name: "description",
-                        label: desc,
-                    }),
-                ]),
-            ),
-        )
+    function handleNumberKey(event) {
+        let pressed = event.get_keyval()[1]
+
+        if (Gdk.KEY_1 <= pressed && pressed <= Gdk.KEY_9) {
+            let index = pressed - Gdk.KEY_1
+            if (favs.get_reveal_child()) {
+                favs.launch(index)
+            } else {
+                applauncher.launch(index)
+                App.toggleWindow("launcher")
+            }
+        }
     }
-
-    const help = Widget.Revealer({
-        child: Widget.Box(
-            { vertical: true },
-            HelpButton("sh", "run a binary"),
-            isnix ? HelpButton("nx", options.launcher.nix.pkgs.bind().as(pkg =>
-                `run a nix package from ${pkg}`,
-            )) : Widget.Box(),
-        ),
-    })
 
     const entry = Widget.Entry({
         hexpand: true,
         primary_icon_name: icons.ui.search,
         on_accept: ({ text }) => {
-            if (text?.startsWith(":nx"))
-                nix.run(text.substring(3))
-            else if (text?.startsWith(":sh"))
-                sh.run(text.substring(3))
-            else
+            if (favs.get_reveal_child())
+                favs.get_children()[0].get_children()[1].children[0].on_clicked()
+            else {
                 applauncher.launchFirst()
-
-            App.toggleWindow("launcher")
+                App.toggleWindow("launcher")
+            }
             entry.text = ""
         },
         on_change: ({ text }) => {
             text ||= ""
             favs.reveal_child = text === ""
-            help.reveal_child = text.split(" ").length === 1 && text?.startsWith(":")
-
-            if (text?.startsWith(":nx"))
-                nix.filter(text.substring(3))
-            else
-                nix.filter("")
-
-            if (text?.startsWith(":sh"))
-                sh.filter(text.substring(3))
-            else
-                sh.filter("")
-
-            if (!text?.startsWith(":"))
-                applauncher.filter(text)
+            applauncher.filter(text)
         },
+    }).on("key-press-event", (self, event) => {
+        handleNumberKey(event)
     })
 
     function focus() {
@@ -115,12 +71,9 @@ function Launcher() {
             applauncher.filter("")
         }),
         children: [
-            Widget.Box([entry, nixload, shicon]),
+            Widget.Box([entry]),
             favs,
-            help,
             applauncher,
-            nix,
-            sh,
         ],
     })
 
@@ -132,9 +85,6 @@ function Launcher() {
         }),
         layout,
     ).on("key-press-event", (self, event: Gdk.Event) => {
-        if ([Gdk.KEY_Up, Gdk.KEY_Down, Gdk.KEY_Left, Gdk.KEY_Right].includes(event.get_keyval()[1]))
-            return
-
         entry.grab_focus()
         entry.set_position(-1)
         entry.select_region(-2, -1)

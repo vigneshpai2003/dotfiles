@@ -7,7 +7,13 @@ window#launcher .launcher {
     .quicklaunch {
         button {
             background-color: $base;
-            padding: $padding;
+            padding: $padding $padding * 2;
+        }
+    }
+
+    .app-item {
+        image {
+            margin-right: $padding;
         }
     }
 
@@ -27,11 +33,6 @@ window#launcher .launcher {
         }
     }
 
-    image.spinner {
-        color: $base;
-        margin-right: $spacing;
-    }
-
     separator {
         margin: 4pt 0;
         background-color: $base;
@@ -39,9 +40,6 @@ window#launcher .launcher {
 
     button {
         background-color: $surface0;
-
-        >box {
-        }
 
         transition: $transition;
         padding: $padding;
@@ -80,24 +78,5 @@ window#launcher .launcher {
                 color: $text;
             }
         }
-    }
-
-    button.help,
-    button.nix-item {
-        padding: 0 ($padding * .5);
-
-        label {
-            transition: $transition;
-            color: transparentize($text, 0.3);
-        }
-
-        .name {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-    }
-
-    button.sh-item {
-        padding: 0 ($padding * .5);
     }
 }

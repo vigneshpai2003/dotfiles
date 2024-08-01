@@ -117,6 +117,7 @@
     flatpak-builder
     appimage-run # - Appimage Support
     texliveFull # - LaTeX Compiler
+    d2 # - Text to Image
     gnome.gnome-boxes # - Virtual Machine Manager
     boxbuddy # - Distrobox GUI
     bottles # - Wine
