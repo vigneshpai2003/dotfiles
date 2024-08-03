@@ -9,9 +9,6 @@ const { width, margin } = options.launcher
 function Launcher() {
     const favs = AppLauncher.Favorites()
     const applauncher = AppLauncher.Launcher()
- 
-    favs.set_can_focus(true)
-    applauncher.set_can_focus(true)
 
     function handleNumberKey(event) {
         let pressed = event.get_keyval()[1]
@@ -32,7 +29,7 @@ function Launcher() {
         primary_icon_name: icons.ui.search,
         on_accept: ({ text }) => {
             if (favs.get_reveal_child())
-                favs.get_children()[0].get_children()[1].children[0].on_clicked()
+                favs.launch(0)
             else {
                 applauncher.launchFirst()
                 App.toggleWindow("launcher")
@@ -85,6 +82,9 @@ function Launcher() {
         }),
         layout,
     ).on("key-press-event", (self, event: Gdk.Event) => {
+        if ([Gdk.KEY_Up, Gdk.KEY_Down, Gdk.KEY_Left, Gdk.KEY_Right, Gdk.KEY_Return].includes(event.get_keyval()[1]))
+            return
+
         entry.grab_focus()
         entry.set_position(-1)
         entry.select_region(-2, -1)

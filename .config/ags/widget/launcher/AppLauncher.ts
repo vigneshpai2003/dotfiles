@@ -93,6 +93,7 @@ export function Launcher() {
     const applist = Variable(query(""))
     const max = options.launcher.apps.max
     let first = applist.value[0]
+    let current: Application[] = []
 
     function SeparatedAppItem(app: Application) {
         return Widget.Revealer(
@@ -115,6 +116,7 @@ export function Launcher() {
     return Object.assign(list, {
         filter(text: string | null) {
             first = query(text || "")[0]
+            current = []
             list.children.reduce((i, item) => {
                 if (!text || i >= max.value) {
                     item.reveal_child = false
@@ -122,6 +124,7 @@ export function Launcher() {
                 }
                 if (item.attribute.app.match(text)) {
                     item.reveal_child = true
+                    current.push(item.attribute.app)
                     return ++i
                 }
                 item.reveal_child = false
@@ -132,7 +135,7 @@ export function Launcher() {
             launchApp(first)
         },
         launch(i: number) {
-            launchApp(list.get_children().filter(x => x.reveal_child)[i].attribute.app)
+            launchApp(current[i])
         }
     })
 }
