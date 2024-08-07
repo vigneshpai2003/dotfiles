@@ -1,9 +1,0 @@
-@import "@dotdir/.config/wofi/style.css";
-
-#outer-box {
-    border-color: #e8c845;
-}
-
-#entry:selected {
-    border-color: rgb(221, 111, 91);
-}

@@ -1,41 +1,43 @@
+@import '@dotdir/.config/wofi/themes/frappe.css';
+
 window {
-    font-size: 28px;
+    font-size: 24px;
     font-family: "JetBrainsMono Nerd Font";
     border-radius: 20px;
-    background-color: rgb(38, 38, 38);
-    color: rgb(190, 190, 190);
+    background-color: @base;
+    color: @text;
     padding: 50px;
+    border: 3px solid @blue;
 }
 
 #entry:selected {
-    background-color: rgb(76, 76, 76);
-    border-color: rgb(160, 128, 211);
+    background-color: @surface1;
+    border: 1px solid @blue;
 }
 
 #entry {
-    background: transparent;
-    border: 3px solid rgba(00, 00, 00, 0);
-    border-radius: 10px;
+    background-color: @surface0;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
 }
 
 #outer-box {
     padding: 20px;
-    border: 2px solid #33ccff;
     border-radius: 20px;
 }
 
 #input {
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 10px;
     margin-left: 100px;
     margin-right: 100px;
-    background: #4f76c7;
-    background: transparent;
-    color: rgb(193, 193, 193);
+    background-color: @mantle;
     border: none;
     box-shadow: none;
+    padding: 10px;
 }
 
-image {
-    margin-right: 10px;
+#input:focus {
+    border: 1px solid @blue;
 }
