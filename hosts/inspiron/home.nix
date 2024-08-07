@@ -126,6 +126,8 @@
     master.vscode # - Text Editors
     zed-editor
     gnome-text-editor
+    apx # - Vanilla OS Package Manager
+    apx-gui # - Vanilla OS Package Manager GUI
 
     ### - ags
     bun
