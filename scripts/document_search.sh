@@ -12,7 +12,12 @@ searchDir="$home/${1:-Documents}/Library"
 viewer="papers"
 viewerBackup="evince"
 
-path=`find $searchDir -type f -not -path '*/\.git*' -not -path '*/\.config*' | grep -E ".pdf|.djvu" | sed -E "s|$searchDir/||g;s|(.*)\/(.*)_ (.*)\.(.*)|<span color='orange'>(\2)<\/span> \3 <span color='pink' font_size='70%'>[\1]<\/span>|" | $wofi --dmenu`
+substitution="<span color='orange'>\\(\\2\\)<\\/span> \\3 <span color='pink' font_size='70%'>\\[\\1\\]<\\/span> <span color='skyblue' font_size='70%'>\\[\\4\\]<\\/span>"
+substitution_pattern=$(echo $substitution | sed "s|\\\[0-9\]|(.*)|g")
+echo $substitution_pattern
+
+path=`find $searchDir -type f -not -path '*/\.git*' -not -path '*/\.config*' | grep -E ".pdf|.djvu" | sed -E "s|$searchDir/||g;s|(.*)\/(.*)_ (.*)\.(.*)|$substitution|" | $wofi --dmenu`
+path=`echo $path | sed -E "s|$substitution_pattern|\3/\1_ \2.\4|"`
 
 if [[ -z "$path" ]]; then
     echo empty
