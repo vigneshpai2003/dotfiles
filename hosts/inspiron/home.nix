@@ -54,7 +54,7 @@
     # - Terminal Emulator
     kitty = {
       enable = true;
-      theme = "Catppuccin-Mocha";
+      themeFile = "Catppuccin-Mocha";
       shellIntegration.enableBashIntegration = true;
       settings = {
         background_opacity = "0.8";
@@ -92,8 +92,8 @@
     baobab # - Disk Tools
     gnome-disk-utility
     nvme-cli
-    gnome.gnome-logs # - Logs
-    gnome.gnome-characters # - Emojis
+    gnome-logs # - Logs
+    gnome-characters # - Emojis
     gnome-font-viewer # - Installed Fonts
     brightnessctl # - Brightness Control
     curl # - Download Tools
@@ -118,7 +118,7 @@
     appimage-run # - Appimage Support
     texliveFull # - LaTeX Compiler
     d2 # - Text to Image
-    gnome.gnome-boxes # - Virtual Machine Manager
+    gnome-boxes # - Virtual Machine Manager
     boxbuddy # - Distrobox GUI
     bottles # - Wine
     gnome-connections # - Remote Connections
@@ -168,13 +168,13 @@
     telegram-desktop # - Telegram
     zoom-us # - Zoom
     dialect # - Translations
-    gnome.gnome-clocks # - Clock
-    gnome.gnome-maps # - Maps
+    gnome-clocks # - Clock
+    gnome-maps # - Maps
     mousam # - Weather
     gnome-calendar # - Calendar
 
     ### - Games
-    gnome.gnome-mines # - Minesweeper
+    gnome-mines # - Minesweeper
     smassh # - Typing Game
 
     ### - Hyprland/Wayland Desktop Tools

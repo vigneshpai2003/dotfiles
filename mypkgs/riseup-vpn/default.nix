@@ -18,17 +18,19 @@
 , qtsvg
 , qttools
 , qtwayland
+, CoreFoundation
+, Security
 , provider ? "riseup"
 }:
 let
-  version = "git";
+  version = "0.24.8";
 
   src = fetchFromGitLab {
     domain = "0xacab.org";
     owner = "leap";
     repo = "bitmask-vpn";
-    rev = "83f5933c90b0a6532fdcef4ed57056d63c11a769";
-    sha256 = "sha256-eOd/Yej1iuWxhR/jKrAJ7+Zb2QpXuaVWhV008tKijag=";
+    rev = "8b3ac473f64b6de0262fbf945ff25af8029134f1";
+    sha256 = "sha256-nYMfO091w6H7LyY1+aYubFppg4/3GiZZm4e+0m9Gb3k=";
   };
 
   # bitmask-root is only used on GNU/Linux
@@ -91,7 +93,7 @@ buildGoModule rec {
 
     patchShebangs gui/build.sh
     wrapPythonProgramsIn branding/scripts
-  '' + lib.optionalString stdenv.isLinux ''
+  '' + lib.optionalString stdenv.hostPlatform.isLinux ''
     substituteInPlace pkg/helper/linux.go \
       --replace /usr/sbin/openvpn ${openvpn}/bin/openvpn
     substituteInPlace pkg/launcher/launcher_linux.go \
@@ -116,9 +118,16 @@ buildGoModule rec {
     qtbase
     qtdeclarative
     qtsvg
-    qtwayland
-  ];
+  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ CoreFoundation Security ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [ qtwayland ];
 
+  # FIXME: building on Darwin currently fails
+  # due to missing debug symbols for Qt,
+  # this should be fixable once darwin.apple_sdk >= 10.13
+  # See https://bugreports.qt.io/browse/QTBUG-76777
+
+  # Not using buildGoModule's buildPhase:
+  # gui/build.sh will build Go modules into lib/libgoshim.a
   buildPhase = ''
     runHook preBuild
 
@@ -140,10 +149,12 @@ buildGoModule rec {
     (cd branding/templates/debian && ${python3Packages.python}/bin/python3 generate.py)
     install -m 444 -D branding/templates/debian/app.desktop $out/share/applications/${pname}.desktop
     install -m 444 -D providers/${provider}/assets/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
-  '' + lib.optionalString stdenv.isLinux ''
+  '' + lib.optionalString stdenv.hostPlatform.isLinux ''
     install -m 444 -D -t $out/share/polkit-1/actions ${bitmask-root}/share/polkit-1/actions/se.leap.bitmask.policy
   '';
 
+  # Some tests need access to the Internet:
+  # Post "https://api.black.riseup.net/3/cert": dial tcp: lookup api.black.riseup.net on [::1]:53: read udp [::1]:56553->[::1]:53: read: connection refused
   doCheck = false;
 
   passthru = { inherit bitmask-root; };
@@ -165,6 +176,7 @@ buildGoModule rec {
     homepage = "https://bitmask.net";
     license = lib.licenses.gpl3Plus;
     maintainers = with lib.maintainers; [ julm ];
+    # darwin requires apple_sdk >= 10.13
     platforms = lib.platforms.linux;
   };
 }

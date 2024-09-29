@@ -21,6 +21,11 @@
             };
 
             inherit mypkgs;
+
+            my-riseup-vpn = (import inputs.riseup {
+              inherit system;
+              config.allowUnfree = true;
+            }).riseup-vpn;
           })
         ];
       };

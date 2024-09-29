@@ -25,6 +25,13 @@
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    riseup.url = "github:vigneshpai2003/nixpkgs/riseup-vpn";
   };
 
   outputs = { self, ... }@inputs:
