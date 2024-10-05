@@ -16,7 +16,4 @@ in
 {
   waybar-mediaplayer = pkgs.callPackage ./waybar-mediaplayer { };
   iiserpune-login-daemon = pkgs.callPackage ./iiserpune-login-daemon { };
-  riseup-vpn = pkgs.qt6Packages.callPackage ./riseup-vpn {
-    provider = "riseup";
-  };
 }
