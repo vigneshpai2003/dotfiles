@@ -17,3 +17,5 @@ App.config({
     ],
     iconTheme: "kora"
 })
+
+globalThis.launcher = Launcher
