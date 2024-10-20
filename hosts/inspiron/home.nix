@@ -192,6 +192,8 @@
     grimblast # - Screen Capture GUI
     # kooha # - Screen Recorder GUI # - Not Working, use flatpak
     gsettings-desktop-schemas # - gsettings Schemas
+    wev # - Wayland Event Viewer
+    emote # - Emoji Picker
   ];
 
   xdg.userDirs.enable = true;
