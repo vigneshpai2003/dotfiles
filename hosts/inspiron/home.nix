@@ -3,17 +3,11 @@
   imports = [
     ../../home-manager/bash.nix
     ../../home-manager/environment.nix
-    ../../home-manager/hyprland.nix
     ../../home-manager/nautilus
     ../../home-manager/spicetify.nix
     ../../home-manager/theme.nix
     ../../home-manager/xdg-desktop-entries.nix
   ];
-
-  services = {
-    network-manager-applet.enable = true;
-    blueman-applet.enable = true;
-  };
 
   programs = {
     # - git
@@ -126,11 +120,6 @@
     zed-editor
     gnome-text-editor
 
-    ### - ags
-    bun
-    dart-sass
-    fd
-
     ### - Audio/Video Tools
     pwvucontrol # - PipeWire Audio Control
     pavucontrol # - PulseAudio Audio Control
@@ -171,20 +160,7 @@
     gnome-mines # - Minesweeper
     smassh # - Typing Game
 
-    ### - Hyprland/Wayland Desktop Tools
-    wofi # - Launcher
-    waybar # - Bar
-    mypkgs.waybar-mediaplayer
-    wl-clipboard # - Wayland Copy Paste
-    wlsunset # - Night Light
-    hyprshade # - Custom Shaders
-    hyprpaper # - Wallpaper Manager
-    hyprpicker # - Color Picker
-    cliphist # - Clipboard Manager
-    grim # - Screen Capture
-    slurp # - Select Screen Region
-    grimblast # - Screen Capture GUI
-    # kooha # - Screen Recorder GUI # - Not Working, use flatpak
+    ### - Desktop Tools
     gsettings-desktop-schemas # - gsettings Schemas
     wev # - Wayland Event Viewer
     emote # - Emoji Picker

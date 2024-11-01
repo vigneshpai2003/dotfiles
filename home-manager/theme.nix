@@ -38,15 +38,6 @@ in
       XCURSOR_SIZE = "${toString cursorTheme.size}";
     };
   };
-
-  # - Hyprland session variables
-  wayland.windowManager.hyprland.settings = {
-    env = [
-      "XCURSOR_THEME,${cursorTheme.name}"
-      "XCURSOR_SIZE,${builtins.toString cursorTheme.size}"
-      "QT_QPA_PLATFORMTHEME,qt5ct"
-    ];
-  };
   
   gtk = {
     inherit cursorTheme iconTheme;

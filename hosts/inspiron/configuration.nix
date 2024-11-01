@@ -6,11 +6,9 @@
 
     ./hardware-configuration.nix
 
-    # ../../nixos/cosmic.nix
     ../../nixos/fingerprint.nix
     ../../nixos/flatpak.nix
-    ../../nixos/hypridle.nix
-    ../../nixos/hyprland.nix
+    ../../nixos/gnome.nix
     ../../nixos/intel_gpu.nix
     ../../nixos/locale.nix
     ../../nixos/networking.nix
@@ -37,14 +35,10 @@
       substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"
-        "https://hyprland.cachix.org"
-        "https://cosmic.cachix.org/"
       ];
 
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
       ];
     };
   };
