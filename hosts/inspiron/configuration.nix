@@ -87,7 +87,7 @@
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = [ "networkmanager" "wheel" "kvm" ];
+    extraGroups = [ "networkmanager" "wheel" "kvm" "docker" ];
   };
 
   security.sudo.extraRules = [
@@ -108,16 +108,8 @@
     resources # - System Monitor
     libimobiledevice # - Wired Connection to iPhone
     ifuse # - Mount iPhone
-    master.riseup-vpn # - Riseup VPN
+    riseup-vpn # - Riseup VPN
   ];
-
-  # - Steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
 
   # - Virtualisation
   virtualisation = {
@@ -125,7 +117,7 @@
     kvmgt.enable = true;
     containers.enable = true;
     waydroid.enable = true;
-    podman.enable = true;
+    docker.enable = true;
   };
 
   services = {

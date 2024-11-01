@@ -81,7 +81,6 @@
     fastfetch # - System Info
     dell-command-configure # - Dell BIOS options
     cpufetch # - CPU Info
-    geekbench # - CPU Benchmarker
     intel-gpu-tools # - GPU Tools
     nvtopPackages.full
     libva-utils
@@ -123,19 +122,14 @@
     bottles # - Wine
     gnome-connections # - Remote Connections
     filezilla # - FTP Client
-    master.vscode # - Text Editors
+    vscode # - Text Editors
     zed-editor
     gnome-text-editor
-    apx # - Vanilla OS Package Manager
-    apx-gui # - Vanilla OS Package Manager GUI
 
     ### - ags
     bun
     dart-sass
     fd
-    wf-recorder
-    wayshot
-    swappy
 
     ### - Audio/Video Tools
     pwvucontrol # - PipeWire Audio Control
