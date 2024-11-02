@@ -9,6 +9,7 @@
     ../../nixos/fingerprint.nix
     ../../nixos/flatpak.nix
     ../../nixos/gnome.nix
+    ../../nixos/hotspot-fix.nix
     ../../nixos/intel_gpu.nix
     ../../nixos/locale.nix
     ../../nixos/networking.nix
