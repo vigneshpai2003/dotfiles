@@ -100,8 +100,6 @@
   environment.systemPackages = with pkgs; [
     linux-wifi-hotspot # - Hotspot GUI
     resources # - System Monitor
-    libimobiledevice # - Wired Connection to iPhone
-    ifuse # - Mount iPhone
     riseup-vpn # - Riseup VPN
   ];
 

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  theme = {
+  gtkTheme = {
     name = "adw-gtk3-dark";
     package = pkgs.adw-gtk3;
   };
@@ -20,13 +20,9 @@ in
   home = {
     packages = with pkgs;[
       dconf-editor # - GTK Settings
-      kdePackages.qt6ct # - Qt6 Theming
-      libsForQt5.qt5ct # - Qt5 Theming
-      kdePackages.qtstyleplugin-kvantum # - Qt6 Theming
-      libsForQt5.qtstyleplugin-kvantum # - Qt5 Theming
 
       adwaita-icon-theme # - Default/Fallback Icon Theme
-      theme.package
+      gtkTheme.package
       cursorTheme.package
       iconTheme.package
     ];
@@ -41,13 +37,7 @@ in
   
   gtk = {
     inherit cursorTheme iconTheme;
-    theme.name = theme.name;
+    theme.name = gtkTheme.name;
     enable = true;
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      text-scaling-factor = 1.25;
-    };
   };
 }

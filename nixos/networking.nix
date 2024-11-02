@@ -38,5 +38,5 @@
     settings.General.Experimental = true;
   };
 
-  services.blueman.enable = true;
+  programs.kdeconnect.enable = true;
 }

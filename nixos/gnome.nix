@@ -10,9 +10,21 @@
 
   # - Extra packages and exclude packages
   services.xserver.excludePackages = [ pkgs.xterm ];
-  services.gnome.core-utilities.enable = false;
-  environment.gnome.excludePackages = with pkgs; [ gnome-tour ];
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
+  services.gnome.core-utilities.enable = true;
+  environment.gnome.excludePackages = with pkgs; [ 
+    gnome-tour
+    gnome-weather
+    geary
+    gnome-contacts
+    simple-scan
+    yelp
+    epiphany
+    gnome-software
+    gnome-music
+    totem
+    gnome-shell-extensions
+  ];
 
   # - gnome virtual file system, for trash support and evince history etc.
   services.gvfs.enable = true;

@@ -12,8 +12,15 @@
       noDisplay = true;
     };
 
-    "org.gnome.Nautilus" = {
-      name = "Files";
+    # - Fix Visual Studio Code appearing twice in dock
+    code-url-handler = {
+      name = "Visual Studio Code";
+      noDisplay = false;
+      exec = "code %F";
+      icon = "vscode";
+    };
+    code = {
+      name = "Visual Studio Code";
       noDisplay = true;
     };
 
@@ -47,18 +54,14 @@
       ];
     };
 
-    smassh = {
-      name = "SMASSH";
-      genericName = "Typing Game";
-      exec = ''kitty sh -c "smassh"'';
-      terminal = false;
-      icon = "keyboard";
-      type = "Application";
-    };
-
-    "com.saivert.pwvucontrol" = {
-      name = "PipeWire Volume Control";
-      icon = "multimedia-volume-control";
+    # - spotify must be run with xwayland because SSD is not supported on gnome
+    spotify = {
+      name = "Spotify";
+      genericName = "Music Player";
+      exec = "spotify --ozone-platform=x11";
+      icon = "spotify-client";
+      mimeType = [ "x-scheme-handler/spotify" ];
+      categories = [ "Audio" "Music" "Player" "AudioVideo" ];
     };
   };
 }

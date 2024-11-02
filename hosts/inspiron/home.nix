@@ -3,9 +3,8 @@
   imports = [
     ../../home-manager/bash.nix
     ../../home-manager/environment.nix
-    ../../home-manager/nautilus
+    ../../home-manager/gnome-shell
     ../../home-manager/spicetify.nix
-    ../../home-manager/theme.nix
     ../../home-manager/xdg-desktop-entries.nix
   ];
 
@@ -43,30 +42,6 @@
     zoxide = {
       enable = true;
       enableBashIntegration = true;
-    };
-
-    # - Terminal Emulator
-    kitty = {
-      enable = true;
-      themeFile = "Catppuccin-Mocha";
-      shellIntegration.enableBashIntegration = true;
-      settings = {
-        background_opacity = "0.8";
-      };
-    };
-
-    # - Audio Visualizer
-    cava = {
-      enable = true;
-      settings = {
-        color = {
-          gradient = 1;
-          gradient_count = 3;
-          gradient_color_1 = "'#81c8be'";
-          gradient_color_2 = "'#e78284'";
-          gradient_color_3 = "'#f4b8e4'";
-        };
-      };
     };
   };
 
@@ -106,8 +81,6 @@
     tree # - Directory Tree
     libgcc # - Build Tools
     gnumake
-    gnome-builder
-    flatpak-builder
     appimage-run # - Appimage Support
     texliveFull # - LaTeX Compiler
     d2 # - Text to Image
@@ -115,22 +88,17 @@
     boxbuddy # - Distrobox GUI
     bottles # - Wine
     gnome-connections # - Remote Connections
-    filezilla # - FTP Client
     vscode # - Text Editors
-    zed-editor
     gnome-text-editor
 
     ### - Audio/Video Tools
-    pwvucontrol # - PipeWire Audio Control
     pavucontrol # - PulseAudio Audio Control
     playerctl # - Media Control
     ffmpeg # - Audio Video Library
     mpv # - Media Players
     vlc
     livecaptions # - Live Captions
-    uxplay # - iPhone Mirroring
     snapshot # - Camera
-    cli-visualizer # - Audio Visualizer
 
     ### - General/Office Tools
     firefox # - Browser
@@ -138,8 +106,7 @@
     evince # - Document Viewer
     papers
     wike # - Wikipedia App
-    marktext # - Markdown Editor
-    obsidian
+    obsidian # - Markdown Editor
     libreoffice # - Office Tools
     onlyoffice-bin_latest
     pdfarranger # - pdf Editor
@@ -158,12 +125,10 @@
 
     ### - Games
     gnome-mines # - Minesweeper
-    smassh # - Typing Game
 
-    ### - Desktop Tools
-    gsettings-desktop-schemas # - gsettings Schemas
-    wev # - Wayland Event Viewer
-    emote # - Emoji Picker
+    ### - Android
+    android-tools # - ADB
+    scrcpy # - Screen Mirroring
   ];
 
   xdg.userDirs.enable = true;
