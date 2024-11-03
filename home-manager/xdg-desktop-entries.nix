@@ -12,15 +12,23 @@
       noDisplay = true;
     };
 
-    # - Fix Visual Studio Code appearing twice in dock
-    code-url-handler = {
-      name = "Visual Studio Code";
-      noDisplay = false;
-      exec = "code %F";
-      icon = "vscode";
+    "org.kde.kdeconnect.app" = {
+      name = "KDE Connect";
+      noDisplay = true;
     };
-    code = {
-      name = "Visual Studio Code";
+
+    "org.kde.kdeconnect.sms" = {
+      name = "KDE Connect SMS";
+      noDisplay = true;
+    };
+
+    "org.kde.kdeconnect-settings" = {
+      name = "KDE Connect Settings";
+      noDisplay = true;
+    };
+
+    "org.kde.kdeconnect.nonplasma" = {
+      name = "KDE Connect Indicator";
       noDisplay = true;
     };
 

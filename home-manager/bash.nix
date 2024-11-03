@@ -4,7 +4,7 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      "arise" = ''notify-send --icon="${dotdir}/assets/icons/flame.png" "Arise" "Shadow extraction in progress ..."; (sudo nixos-rebuild switch --flake ${dotdir} --show-trace && notify-send --icon="ghostwriter" "Arise" "Shadow extraction succeeded.") || notify-send --icon="${dotdir}/assets/icons/crossbone.png" "Arise" "Shadow extraction failed."'';
+      "arise" = ''(sudo nixos-rebuild switch --flake ${dotdir} --show-trace && notify-send --icon="ghostwriter" "Arise" "Shadow extraction succeeded.") || notify-send --icon="ghostwriter" "Arise" "Shadow extraction failed."'';
       "itachi-see" = "sudo nix-env --profile /nix/var/nix/profiles/system --list-generations";
       "itachi-kill" = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old";
       "itachi-clean" = "sudo nix-collect-garbage; nix-collect-garbage";
@@ -31,8 +31,6 @@
       "waydroid-terminate" = "waydroid session stop && sudo waydroid container stop && rm ~/.local/share/applications/waydroid.*";
       "waydroid-default" = ''waydroid prop set persist.waydroid.width "" && waydroid prop set persist.waydroid.height "" && waydroid session stop'';
       "waydroid-vertical" = "waydroid prop set persist.waydroid.width 720 && waydroid prop set persist.waydroid.height 1080 && waydroid session stop";
-
-      "appletv" = ''uxplay -p -vsync no'';
 
       "flake-dev" = ''touch flake.nix .envrc && echo '${builtins.readFile ./flake.template}' > flake.nix && echo 'use flake' > .envrc'';
     };

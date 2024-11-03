@@ -74,7 +74,6 @@
     gnome-firmware # - Firmware Updater
     mypkgs.iiserpune-login-daemon # - IISER Pune LAN Login
     openvpn # - VPN
-    localsend # - Share Files
 
     ### - Development Tools
     nixpkgs-fmt # - .nix File Formatter

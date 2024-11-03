@@ -23,7 +23,6 @@
     gnome-software
     gnome-music
     totem
-    gnome-shell-extensions
   ];
 
   # - gnome virtual file system, for trash support and evince history etc.
