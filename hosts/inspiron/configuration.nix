@@ -6,16 +6,12 @@
 
     ./hardware-configuration.nix
 
-    ../../nixos/fingerprint.nix
+    ../../nixos/hardware
     ../../nixos/flatpak.nix
     ../../nixos/gnome.nix
-    ../../nixos/hotspot-fix.nix
-    ../../nixos/intel_gpu.nix
     ../../nixos/locale.nix
-    ../../nixos/networking.nix
     ../../nixos/security.nix
-    ../../nixos/sound.nix
-    ../../nixos/thermals.nix
+    ../../nixos/suspend.nix
   ];
 
   # - nix Settings

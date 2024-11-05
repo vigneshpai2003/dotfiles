@@ -5,7 +5,6 @@ in
 {
   # - System service that calls a user service before suspend
   systemd.services.mysuspend = {
-    enable = true;
     before = [ "systemd-suspend.service" ];
     serviceConfig = {
       Type = "oneshot";

@@ -3,6 +3,7 @@ import getpass
 import keyring
 import time
 import logging
+import subprocess
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -10,7 +11,25 @@ from selenium.common.exceptions import NoSuchElementException, WebDriverExceptio
 
 service = "iiserpune-login-daemon"
 
+def notify(success="Successful.", failure="Failure."):
+    def wrapper(foo):
+        def foo_notify(*args, **kwargs):
+            notify_successful = kwargs.pop("notify_successful", False)
+            notify_unsuccessful = kwargs.pop("notify_unsuccessful", False)
+            
+            status = foo(*args, **kwargs)
+            
+            if notify_successful and not status:
+                subprocess.run(["notify-send", "IISER Pune Login", success])
+            elif notify_unsuccessful and status:
+                subprocess.run(["notify-send", "IISER Pune Login", failure])
 
+            return status
+
+        return foo_notify
+    return wrapper
+
+@notify(success="Login successful.", failure="Could not login ;(")
 def login():
     options = Options()
     options.add_argument("--headless")
@@ -22,14 +41,14 @@ def login():
     try:
         driver.get("http://10.111.1.1:8090/httpclient.html")
     except WebDriverException:
-        logging.warn("Your network connection is too weak or is dead.")
+        logging.warning("Your network connection is too weak or is dead.")
         return 1
 
     credentials = keyring.get_credential(service, None)
     logging.info("Keyring was successfuly accessed.")
 
     if not credentials:
-        logging.warn("No credentials found. Please set your credentials.")
+        logging.warning("No credentials found. Please set your credentials.")
         return 1
 
     username = driver.find_element(By.ID, "username")
@@ -74,7 +93,7 @@ def set_credentials():
 def main():
     parser = argparse.ArgumentParser(
         prog="iiserpune-login-daemon",
-        description="Login to IISER Pune network using Selenium.",
+        description="Login to IISER Pune network using Selenium. Notifications require `notify-send` to be installed.",
     )
     parser.add_argument("--log", action="store_true", help="enable logging")
     parser.add_argument(
@@ -98,6 +117,18 @@ def main():
         action="store_true",
         help="remove network credentials",
     )
+    parser.add_argument(
+        "-n",
+        "--notify-successful",
+        action="store_true",
+        help="send a notification after successful login",
+    )
+    parser.add_argument(
+        "-u",
+        "--notify-unsuccessful",
+        action="store_true",
+        help="send a notification after unsuccessful login, ignored in daemon mode",
+    )
 
     args = parser.parse_args()
 
@@ -113,13 +144,13 @@ def main():
         exit(0)
 
     if args.login:
-        exit(login())
+        exit(login(notify_successful=args.notify_successful, notify_unsuccessful=args.notify_unsuccessful))
 
     if args.daemon:
         try:
             import daemon
 
-            daemon.Daemon(login)
+            daemon.Daemon(lambda: login(notify_successful=args.notify_successful))
             exit(0)
         except ImportError:
             logging.info("Dependencies haven't been installed to use the daemon.")
