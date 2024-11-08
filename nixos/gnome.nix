@@ -1,18 +1,17 @@
 { pkgs, ... }:
 {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.libinput.enable = true;
-
   # - Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
 
   # - Extra packages and exclude packages
   services.xserver.excludePackages = [ pkgs.xterm ];
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
   services.gnome.core-utilities.enable = true;
-  environment.gnome.excludePackages = with pkgs; [ 
+  environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     gnome-weather
     geary

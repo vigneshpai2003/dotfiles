@@ -1,6 +1,6 @@
 { lib, inputs, system, ... }:
 let
-  pkgs = import inputs.nixpkgs {
+  pkgs = import inputs.nixpkgs-unstable {
     inherit system;
     config.allowUnfree = true;
     overlays = [
@@ -14,6 +14,5 @@ let
   };
 in
 {
-  waybar-mediaplayer = pkgs.callPackage ./waybar-mediaplayer { };
   iiserpune-login-daemon = pkgs.callPackage ./iiserpune-login-daemon { };
 }

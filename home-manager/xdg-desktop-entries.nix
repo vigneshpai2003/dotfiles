@@ -12,26 +12,6 @@
       noDisplay = true;
     };
 
-    "org.kde.kdeconnect.app" = {
-      name = "KDE Connect";
-      noDisplay = true;
-    };
-
-    "org.kde.kdeconnect.sms" = {
-      name = "KDE Connect SMS";
-      noDisplay = true;
-    };
-
-    "org.kde.kdeconnect-settings" = {
-      name = "KDE Connect Settings";
-      noDisplay = true;
-    };
-
-    "org.kde.kdeconnect.nonplasma" = {
-      name = "KDE Connect Indicator";
-      noDisplay = true;
-    };
-
     # - Enable Video Decode and Touchpad Gestures
     brave-browser = {
       name = "Brave Web Browser";

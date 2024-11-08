@@ -6,11 +6,12 @@
 
     ./hardware-configuration.nix
 
-    ../../nixos/hardware
+    ../../nixos/fingerprint.nix
     ../../nixos/flatpak.nix
     ../../nixos/gnome.nix
+    ../../nixos/hardware.nix
     ../../nixos/locale.nix
-    ../../nixos/security.nix
+    ../../nixos/networking.nix
     ../../nixos/suspend.nix
   ];
 

@@ -5,7 +5,7 @@
       hostname = "inspiron";
       username = "vignesh";
       dotdir = "/home/${username}/dotfiles";
-      pkgs = import inputs.nixpkgs {
+      pkgs = import inputs.nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
         overlays = [

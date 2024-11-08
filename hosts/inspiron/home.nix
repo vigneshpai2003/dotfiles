@@ -3,8 +3,8 @@
   imports = [
     ../../home-manager/bash.nix
     ../../home-manager/environment.nix
-    ../../home-manager/gnome-shell
     ../../home-manager/spicetify.nix
+    ../../home-manager/theme.nix
     ../../home-manager/xdg-desktop-entries.nix
   ];
 
@@ -128,7 +128,24 @@
     ### - Android
     android-tools # - ADB
     scrcpy # - Screen Mirroring
-  ];
+
+    ### - Gnome Shell
+    gnome-tweaks
+    # gnome-extension-manager # - Use flatpak, currently incompatible with Gnome 47
+  ]
+  ++
+  (with pkgs.gnomeExtensions; [
+    alphabetical-app-grid
+    battery-time-2
+    blur-my-shell
+    transparent-top-bar
+    user-themes
+    tiling-assistant
+    clipboard-indicator
+    caffeine
+    live-captions-assistant
+    search-light
+  ]);
 
   xdg.userDirs.enable = true;
 

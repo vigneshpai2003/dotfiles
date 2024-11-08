@@ -1,24 +1,8 @@
-{ hostname, ... }:
+{ hostname, pkgs, ... }:
 {
   networking = {
     hostName = hostname;
     networkmanager.enable = true;
-
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [
-        7100 # - uxplay
-        7000
-        7001
-        53317 # - localsend
-      ];
-      allowedUDPPorts = [
-        7011 # - passthrough uxplay
-        6001
-        6000
-        53317 # - localsend
-      ];
-    };
   };
 
   services.avahi = {
@@ -38,5 +22,8 @@
     settings.General.Experimental = true;
   };
 
-  programs.kdeconnect.enable = true;
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.gnomeExtensions.gsconnect;
+  };
 }
