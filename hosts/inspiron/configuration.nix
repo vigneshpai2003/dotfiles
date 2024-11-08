@@ -50,8 +50,11 @@
       inherit inputs username dotdir pkgs;
     };
     users.${username} = {
-      home.username = username;
-      home.homeDirectory = "/home/${username}";
+      home = {
+        username = username;
+        homeDirectory = "/home/${username}";
+        sessionVariables.DOTDIR = dotdir;
+      };
       imports = [ ./home.nix ];
     };
   };
@@ -82,6 +85,7 @@
     extraGroups = [ "networkmanager" "wheel" "kvm" "docker" ];
   };
 
+  # - create_ap
   security.sudo.extraRules = [
     {
       users = [ username ];
@@ -114,7 +118,6 @@
     fwupd.enable = true; # - Firmware Updater
     printing.enable = true; # - Printing via CUPS
     snap.enable = true; # - Snap
-    usbmuxd.enable = true; # - iOS Device Support
   };
 
   # - Fonts
