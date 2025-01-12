@@ -4,11 +4,13 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      "arise" = ''(sudo nixos-rebuild switch --flake ${dotdir} --show-trace && notify-send --icon="ghostwriter" "Arise" "Shadow extraction succeeded.") || notify-send --icon="ghostwriter" "Arise" "Shadow extraction failed."'';
-      "itachi-see" = "sudo nix-env --profile /nix/var/nix/profiles/system --list-generations";
-      "itachi-kill" = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old";
-      "itachi-clean" = "sudo nix-collect-garbage; nix-collect-garbage";
-      "itachi-optimize" = "nix-store --optimise";
+      "system-update" = "sudo nix flake update --flake ${dotdir}";
+      "system-upgrade" = ''(sudo nixos-rebuild switch --flake ${dotdir} --show-trace && notify-send --icon="ghostwriter" "Arise" "Shadow extraction succeeded.") || notify-send --icon="ghostwriter" "Arise" "Shadow extraction failed."'';
+      "generations-list" = "sudo nix-env --profile /nix/var/nix/profiles/system --list-generations";
+      "generations-delete" = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old";
+      "garbage-collect" = "sudo nix-collect-garbage; nix-collect-garbage";
+      "system-clean" = "generations-delete && garbage-collect";
+      "system-optimize" = "nix-store --optimise";
 
       "cd" = "z";
       "btop" = "btop --utf-force";

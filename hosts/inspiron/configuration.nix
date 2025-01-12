@@ -2,7 +2,6 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.nix-snapd.nixosModules.default
 
     ./hardware-configuration.nix
 
@@ -117,7 +116,6 @@
   services = {
     fwupd.enable = true; # - Firmware Updater
     printing.enable = true; # - Printing via CUPS
-    snap.enable = true; # - Snap
   };
 
   # - Fonts
@@ -126,8 +124,7 @@
     open-sans
     noto-fonts
     noto-fonts-color-emoji
-    nerdfonts
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # - Add ~/.local/bin to PATH (important for local installation of distrobox)
   environment.localBinInPath = true;

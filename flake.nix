@@ -11,11 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    nix-snapd = {
-      url = "github:nix-community/nix-snapd";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";

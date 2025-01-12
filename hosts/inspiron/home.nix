@@ -47,7 +47,7 @@
   home.packages = with pkgs; [
     ### - System Tools
     fastfetch # - System Info
-    dell-command-configure # - Dell BIOS options
+    stable.dell-command-configure # - Dell BIOS options
     cpufetch # - CPU Info
     intel-gpu-tools # - GPU Tools
     nvtopPackages.full
@@ -84,7 +84,7 @@
     d2 # - Text to Image
     gnome-boxes # - Virtual Machine Manager
     boxbuddy # - Distrobox GUI
-    bottles # - Wine
+    stable.bottles # - Wine
     gnome-connections # - Remote Connections
     vscode # - Text Editors
     gnome-text-editor
@@ -103,21 +103,16 @@
     brave
     evince # - Document Viewer
     papers
-    wike # - Wikipedia App
     obsidian # - Markdown Editor
     libreoffice # - Office Tools
-    onlyoffice-bin_latest
     pdfarranger # - pdf Editor
     loupe # - Image Viewer
     pinta # - Image Editor
     inkscape # - Vector Graphics Editor
-    geogebra6 # - Math Graphing
     gnome-calculator # - Calculator
     telegram-desktop # - Telegram
     zoom-us # - Zoom
-    dialect # - Translations
     gnome-clocks # - Clock
-    gnome-maps # - Maps
     mousam # - Weather
     gnome-calendar # - Calendar
 
