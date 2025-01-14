@@ -53,6 +53,7 @@
     nvtopPackages.full
     libva-utils
     vulkan-tools
+    smartmontools # - SSD Tools
     lm_sensors # - Temperature Sensors
     powertop # - Power Management
     impression # - Bootable Drive Creator
@@ -83,8 +84,6 @@
     texliveFull # - LaTeX Compiler
     d2 # - Text to Image
     gnome-boxes # - Virtual Machine Manager
-    boxbuddy # - Distrobox GUI
-    stable.bottles # - Wine
     gnome-connections # - Remote Connections
     vscode # - Text Editors
     gnome-text-editor
@@ -122,6 +121,7 @@
     ### - Android
     android-tools # - ADB
     scrcpy # - Screen Mirroring
+    # android-studio-full # - Android Development
 
     ### - Gnome Shell
     gnome-tweaks

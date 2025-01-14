@@ -7,7 +7,10 @@
       dotdir = "/home/${username}/dotfiles";
       pkgs = import inputs.nixpkgs-unstable {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          android_sdk.accept_license = true;
+        };
         overlays = [
           (final: prev: {
             stable = import inputs.nixpkgs-stable {
