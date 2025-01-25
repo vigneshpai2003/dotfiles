@@ -1,24 +1,24 @@
-{ pkgs, ... }:
+{ packages, ... }:
 let
   gtkTheme = {
     name = "adw-gtk3-dark";
-    package = pkgs.adw-gtk3;
+    package = packages.adw-gtk3;
   };
 
   cursorTheme = {
     name = "Bibata-Modern-Classic";
     size = 24;
-    package = pkgs.bibata-cursors;
+    package = packages.bibata-cursors;
   };
 
   iconTheme = {
     name = "kora";
-    package = pkgs.kora-icon-theme;
+    package = packages.kora-icon-theme;
   };
 in
 {
   home = {
-    packages = with pkgs;[
+    packages = with packages;[
       dconf-editor # - GTK Settings
 
       adwaita-icon-theme # - Default/Fallback Icon Theme

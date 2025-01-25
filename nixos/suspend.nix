@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ packages, username, ... }:
 let
   waitTime = 3;
 in
@@ -20,7 +20,7 @@ in
       systemd.user.services.mycleanup = {
         Service = {
           Type = "oneshot";
-          ExecStart = ''${pkgs.bash}/bin/bash -c "sudo create_ap --stop $(sudo create_ap --list-running | awk '{printf $1}')"'';
+          ExecStart = ''${packages.bash}/bin/bash -c "sudo create_ap --stop $(sudo create_ap --list-running | awk '{printf $1}')"'';
         };
       };
     }

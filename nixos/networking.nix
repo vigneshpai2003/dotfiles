@@ -1,4 +1,4 @@
-{ hostname, pkgs, ... }:
+{ hostname, packages, ... }:
 {
   networking = {
     hostName = hostname;
@@ -24,6 +24,6 @@
 
   programs.kdeconnect = {
     enable = true;
-    package = pkgs.gnomeExtensions.gsconnect;
+    package = packages.gnomeExtensions.gsconnect;
   };
 }

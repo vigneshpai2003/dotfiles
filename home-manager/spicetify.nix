@@ -1,6 +1,6 @@
-{ pkgs, inputs, ... }:
+{ packages, inputs, ... }:
 let
-  spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
+  spicePkgs = inputs.spicetify.legacyPackages.${packages.system};
 in
 {
   imports = [ inputs.spicetify.homeManagerModules.default ];

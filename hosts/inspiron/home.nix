@@ -1,4 +1,4 @@
-{ pkgs, dotdir, ... }:
+{ packages, dotdir, ... }:
 {
   imports = [
     ../../home-manager/bash.nix
@@ -44,7 +44,7 @@
     };
   };
 
-  home.packages = with pkgs; [
+  home.packages = with packages; [
     ### - System Tools
     fastfetch # - System Info
     stable.dell-command-configure # - Dell BIOS options
@@ -84,6 +84,9 @@
     texliveFull # - LaTeX Compiler
     d2 # - Text to Image
     gnome-boxes # - Virtual Machine Manager
+    distrobox # - Linux Containers
+    boxbuddy # - distrobox GUI
+    bottles # - Wine
     gnome-connections # - Remote Connections
     vscode # - Text Editors
     gnome-text-editor
@@ -104,31 +107,36 @@
     papers
     obsidian # - Markdown Editor
     libreoffice # - Office Tools
+    onlyoffice-bin_latest
     pdfarranger # - pdf Editor
     loupe # - Image Viewer
     pinta # - Image Editor
     inkscape # - Vector Graphics Editor
+    geogebra6 # - Math Graphing
     gnome-calculator # - Calculator
     telegram-desktop # - Telegram
     zoom-us # - Zoom
+    dialect # - Translations
     gnome-clocks # - Clock
+    gnome-maps # - Maps
     mousam # - Weather
     gnome-calendar # - Calendar
 
     ### - Games
     gnome-mines # - Minesweeper
+    keypunch # - Typing Game
 
     ### - Android
     android-tools # - ADB
     scrcpy # - Screen Mirroring
-    # android-studio-full # - Android Development
+    android-studio # - Android Development
 
     ### - Gnome Shell
     gnome-tweaks
     # gnome-extension-manager # - Use flatpak, currently incompatible with Gnome 47
   ]
   ++
-  (with pkgs.gnomeExtensions; [
+  (with packages.gnomeExtensions; [
     alphabetical-app-grid
     battery-time-2
     blur-my-shell

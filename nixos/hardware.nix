@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ packages, ... }:
 {
   # - Sound
   security.rtkit.enable = true;
@@ -26,7 +26,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
+    extraPackages = with packages; [
       vpl-gpu-rt
       intel-media-driver
       intel-vaapi-driver

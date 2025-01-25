@@ -5,7 +5,7 @@
       hostname = "inspiron";
       username = "vignesh";
       dotdir = "/home/${username}/dotfiles";
-      pkgs = import inputs.nixpkgs-unstable {
+      packages = import inputs.nixpkgs-unstable {
         inherit system;
         config = {
           allowUnfree = true;
@@ -32,7 +32,7 @@
       inherit system;
 
       specialArgs = {
-        inherit inputs username hostname dotdir pkgs;
+        inherit inputs username hostname dotdir packages;
       };
 
       modules = [

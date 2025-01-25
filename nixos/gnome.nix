@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ packages, ... }:
 {
   # - Enable the GNOME Desktop Environment.
   services.xserver = {
@@ -8,10 +8,10 @@
   };
 
   # - Extra packages and exclude packages
-  services.xserver.excludePackages = [ pkgs.xterm ];
-  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
+  services.xserver.excludePackages = [ packages.xterm ];
+  services.udev.packages = with packages; [ gnome-settings-daemon ];
   services.gnome.core-utilities.enable = true;
-  environment.gnome.excludePackages = with pkgs; [
+  environment.gnome.excludePackages = with packages; [
     gnome-tour
     gnome-weather
     geary

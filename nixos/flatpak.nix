@@ -1,9 +1,9 @@
-{ pkgs, config, ... }:
+{ packages, config, ... }:
 {
   services.flatpak.enable = true;
 
   # Using bindfs to create FHS font & icon directory
-  system.fsPackages = [ pkgs.bindfs ];
+  system.fsPackages = [ packages.bindfs ];
   fileSystems =
     let
       mkRoSymBind = path: {
@@ -11,15 +11,15 @@
         fsType = "fuse.bindfs";
         options = [ "ro" "resolve-symlinks" "x-gvfs-hide" ];
       };
-      aggregatedIcons = pkgs.buildEnv {
+      aggregatedIcons = packages.buildEnv {
         name = "system-icons";
-        paths = with pkgs; [
+        paths = with packages; [
           bibata-cursors
           kora-icon-theme
         ];
         pathsToLink = [ "/share/icons" ];
       };
-      aggregatedFonts = pkgs.buildEnv {
+      aggregatedFonts = packages.buildEnv {
         name = "system-fonts";
         paths = config.fonts.packages;
         pathsToLink = [ "/share/fonts" ];

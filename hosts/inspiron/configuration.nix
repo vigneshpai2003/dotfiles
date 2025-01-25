@@ -1,7 +1,8 @@
-{ pkgs, inputs, username, dotdir, system, ... }:
+{ packages, inputs, username, dotdir, system, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.nix-snapd.nixosModules.default
 
     ./hardware-configuration.nix
 
@@ -40,13 +41,15 @@
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   # - Home Manager Configuration
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "hmbak";
     extraSpecialArgs = {
-      inherit inputs username dotdir pkgs;
+      inherit inputs username dotdir packages;
     };
     users.${username} = {
       home = {
@@ -61,7 +64,7 @@
   # - Boot
   boot = {
     # - Latest Kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = packages.linuxPackages_latest;
 
     # - Bootloader
     loader = {
@@ -98,7 +101,7 @@
   ];
 
   # - Packages that frequently require sudo permissions
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with packages; [
     linux-wifi-hotspot # - Hotspot GUI
     resources # - System Monitor
     riseup-vpn # - Riseup VPN
@@ -116,15 +119,16 @@
   services = {
     fwupd.enable = true; # - Firmware Updater
     printing.enable = true; # - Printing via CUPS
+    snap.enable = true; # - Snap
   };
 
   # - Fonts
-  fonts.packages = with pkgs; [
+  fonts.packages = with packages; [
     font-awesome
     open-sans
     noto-fonts
     noto-fonts-color-emoji
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues packages.nerd-fonts);
 
   # - Add ~/.local/bin to PATH (important for local installation of distrobox)
   environment.localBinInPath = true;
