@@ -1,4 +1,4 @@
-{ lib, inputs, mypkgs, system, ... }:
+{ lib, inputs, system, ... }:
 {
   inspiron =
     let
@@ -23,7 +23,7 @@
               config.allowUnfree = true;
             };
 
-            inherit mypkgs;
+            iiserpune-login-daemon = inputs.iiserpune-login-daemon.packages.${system}.default;
           })
         ];
       };

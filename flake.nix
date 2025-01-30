@@ -20,26 +20,19 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    iiserpune-login-daemon.url = "github:vigneshpai2003/iiserpune-login-daemon";
   };
 
   outputs = { self, ... }@inputs:
     let
       system = "x86_64-linux";
       inherit (inputs.nixpkgs-unstable) lib;
-      genSystems = (lib.genAttrs [
-        "aarch64-linux"
-        "x86_64-linux"
-      ]);
     in
     {
-      packages = genSystems (system: import ./mypkgs {
-        inherit lib inputs system;
-      });
-
       nixosConfigurations = (
         import ./hosts {
           inherit lib inputs system;
-          mypkgs = self.packages.${system};
         }
       );
     };

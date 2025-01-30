@@ -76,6 +76,7 @@
         devices = [ "nodev" ];
         efiSupport = true;
         enable = true;
+        useOSProber = true;
       };
     };
   };
@@ -109,12 +110,17 @@
 
   # - Virtualisation
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
+    };
     kvmgt.enable = true;
     containers.enable = true;
     waydroid.enable = true;
     docker.enable = true;
   };
+
+  programs.virt-manager.enable = true;
 
   services = {
     fwupd.enable = true; # - Firmware Updater

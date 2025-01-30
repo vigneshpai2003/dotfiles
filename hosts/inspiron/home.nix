@@ -72,7 +72,7 @@
     desktop-file-utils # - .desktop File Support
     libnotify # - Notifications Library
     gnome-firmware # - Firmware Updater
-    mypkgs.iiserpune-login-daemon # - IISER Pune LAN Login
+    iiserpune-login-daemon # Login Daemon
     openvpn # - VPN
 
     ### - Development Tools
