@@ -1,17 +1,9 @@
-{ dotdir, ... }:
+{ dotdir, pkgs, ... }:
 {
   programs.bash = {
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      "system-update" = "sudo nix flake update --flake ${dotdir}";
-      "system-upgrade" = ''(sudo nixos-rebuild switch --flake ${dotdir} --show-trace && notify-send --icon="ghostwriter" "Arise" "Shadow extraction succeeded.") || notify-send --icon="ghostwriter" "Arise" "Shadow extraction failed."'';
-      "generations-list" = "sudo nix-env --profile /nix/var/nix/profiles/system --list-generations";
-      "generations-delete" = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old";
-      "garbage-collect" = "sudo nix-collect-garbage; nix-collect-garbage";
-      "system-clean" = "generations-delete && garbage-collect";
-      "system-optimize" = "nix-store --optimise";
-
       "cd" = "z";
       "btop" = "btop --utf-force";
       "powertop" = "sudo powertop";
@@ -37,4 +29,11 @@
       "flake-dev" = ''touch flake.nix .envrc && echo '${builtins.readFile ./flake.template}' > flake.nix && echo 'use flake' > .envrc'';
     };
   };
+
+  home.packages = with pkgs; [
+    (pkgs.writeShellScriptBin "os" (builtins.replaceStrings
+      [ "@DOTDIR@" ]
+      [ dotdir ]
+      (builtins.readFile ./scripts/os.sh)))
+  ];
 }

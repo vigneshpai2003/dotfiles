@@ -126,6 +126,7 @@
     fwupd.enable = true; # - Firmware Updater
     printing.enable = true; # - Printing via CUPS
     snap.enable = true; # - Snap
+    hardware.bolt.enable = true; # - Thunderbolt
   };
 
   # - Fonts

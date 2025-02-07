@@ -60,6 +60,8 @@
     baobab # - Disk Tools
     gnome-disk-utility
     nvme-cli
+    usbutils # - USB Information
+    pciutils # - PCI Information
     gnome-logs # - Logs
     gnome-characters # - Emojis
     gnome-font-viewer # - Installed Fonts
@@ -146,6 +148,7 @@
     clipboard-indicator
     caffeine
     live-captions-assistant
+    open-bar
     search-light
   ]);
 
