@@ -101,6 +101,7 @@
     vlc
     livecaptions # - Live Captions
     snapshot # - Camera
+    gnome-network-displays # Screenshare
 
     ### - General/Office Tools
     firefox # - Browser
@@ -132,6 +133,7 @@
     android-tools # - ADB
     scrcpy # - Screen Mirroring
     android-studio # - Android Development
+    httptoolkit # - HTTP Interception
 
     ### - Gnome Shell
     gnome-tweaks
