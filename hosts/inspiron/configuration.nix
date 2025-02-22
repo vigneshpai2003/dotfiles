@@ -81,6 +81,8 @@
     };
   };
 
+  hardware.i2c.enable = true;
+
   # - Users
   users.users.${username} = {
     isNormalUser = true;
