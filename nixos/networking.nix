@@ -21,9 +21,4 @@
     enable = true;
     settings.General.Experimental = true;
   };
-
-  programs.kdeconnect = {
-    enable = true;
-    package = packages.gnomeExtensions.gsconnect;
-  };
 }

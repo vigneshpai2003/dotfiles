@@ -30,6 +30,12 @@
   # - configure gtk settings
   programs.dconf.enable = true;
 
+  # - GSConnect
+  programs.kdeconnect = {
+    enable = true;
+    package = packages.gnomeExtensions.gsconnect;
+  };
+
   # - for electron/chromium apps to run wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
